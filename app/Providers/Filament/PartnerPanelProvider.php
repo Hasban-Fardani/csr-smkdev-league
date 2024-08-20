@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Auth\Login;
+use App\Filament\Auth\Register;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -32,8 +34,8 @@ class PartnerPanelProvider extends PanelProvider
                 'bandi-blue' => '#0098B0',
                 'blaze-orange' => '#FF6E01'
             ])
-            ->login()
-            ->registration()
+            ->login(Login::class)
+            ->registration(Register::class)
             ->emailVerification()
             ->topNavigation()
             ->brandLogo(asset('logos/logo-cirebon.png'))
