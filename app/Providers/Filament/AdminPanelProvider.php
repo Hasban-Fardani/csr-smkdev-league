@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -28,8 +29,18 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                // color from figma design
+                'primary' => '#98100A',
+                'bandi-blue' => '#0098B0',
+                'blaze-orange' => '#FF6E01'
             ])
+            ->topNavigation()
+            ->brandLogo(asset('logos/logo-cirebon.png'))
+            ->brandLogoHeight('3rem')
+            ->brandName('Pemerintah Kabupaten Cirebon')
+            ->favicon(asset('logos/logo-cirebon.png'))
+            ->font('Inter')
+            ->defaultThemeMode(ThemeMode::Light)
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
