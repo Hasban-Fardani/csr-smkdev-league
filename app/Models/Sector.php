@@ -12,4 +12,9 @@ class Sector extends Model
     protected $table = 'sectors';
 
     protected $guarded = [];
+
+    public function programs()
+    {
+        return $this->hasMany(SectorProgram::class, 'sector_id', 'id');
+    }
 }
