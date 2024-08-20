@@ -49,6 +49,7 @@ class PartnerPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->profile(isSimple: false)
             ->discoverWidgets(in: app_path('Filament/Partner/Widgets'), for: 'App\\Filament\\Partner\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
