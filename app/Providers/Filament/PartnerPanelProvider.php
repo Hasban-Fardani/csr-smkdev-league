@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -26,12 +27,21 @@ class PartnerPanelProvider extends PanelProvider
             ->id('partner')
             ->path('mitra')
             ->colors([
-                'primary' => Color::Amber,
+                // color from figma design
+                'primary' => '#510300',
+                'bandi-blue' => '#0098B0',
+                'blaze-orange' => '#FF6E01'
             ])
             ->login()
             ->registration()
             ->emailVerification()
             ->topNavigation()
+            ->brandLogo(asset('logos/logo-cirebon.png'))
+            ->brandLogoHeight('3rem')
+            ->brandName('Pemerintah Kabupaten Cirebon')
+            ->favicon(asset('logos/logo-cirebon.png'))
+            ->font('Helvetica')
+            ->defaultThemeMode(ThemeMode::Light)
             ->discoverResources(in: app_path('Filament/Partner/Resources'), for: 'App\\Filament\\Partner\\Resources')
             ->discoverPages(in: app_path('Filament/Partner/Pages'), for: 'App\\Filament\\Partner\\Pages')
             ->pages([

@@ -21,7 +21,7 @@ export default {
             // colors for figma
             colors: {
                 // custom color
-                primaryRed: '##510300',
+                primaryRed: '#510300',
                 secondaryRed: '#98100a',
                 dark: '#171d2a',
 
