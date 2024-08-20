@@ -30,7 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->colors([
                 // color from figma design
-                'primary' => '#510300',
+                'primary' => '#98100A',
                 'bandi-blue' => '#0098B0',
                 'blaze-orange' => '#FF6E01'
             ])
@@ -39,7 +39,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogoHeight('3rem')
             ->brandName('Pemerintah Kabupaten Cirebon')
             ->favicon(asset('logos/logo-cirebon.png'))
-            ->font('Helvetica')
+            ->font('Inter')
             ->defaultThemeMode(ThemeMode::Light)
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')

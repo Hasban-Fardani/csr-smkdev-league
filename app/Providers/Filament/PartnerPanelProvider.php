@@ -28,7 +28,7 @@ class PartnerPanelProvider extends PanelProvider
             ->path('mitra')
             ->colors([
                 // color from figma design
-                'primary' => '#510300',
+                'primary' => '#98100A',
                 'bandi-blue' => '#0098B0',
                 'blaze-orange' => '#FF6E01'
             ])
@@ -40,7 +40,7 @@ class PartnerPanelProvider extends PanelProvider
             ->brandLogoHeight('3rem')
             ->brandName('Pemerintah Kabupaten Cirebon')
             ->favicon(asset('logos/logo-cirebon.png'))
-            ->font('Helvetica')
+            ->font('Inter')
             ->defaultThemeMode(ThemeMode::Light)
             ->discoverResources(in: app_path('Filament/Partner/Resources'), for: 'App\\Filament\\Partner\\Resources')
             ->discoverPages(in: app_path('Filament/Partner/Pages'), for: 'App\\Filament\\Partner\\Pages')
