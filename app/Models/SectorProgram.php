@@ -12,4 +12,9 @@ class SectorProgram extends Model
     protected $table = 'sector_programs';
 
     protected $guarded = [];
+
+    public function sector()
+    {
+        return $this->belongsTo(Sector::class);
+    }
 }

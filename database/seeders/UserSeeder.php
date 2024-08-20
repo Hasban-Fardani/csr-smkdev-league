@@ -21,8 +21,8 @@ class UserSeeder extends Seeder
         $partner_email = fake()->unique()->safeEmail();
         User::create([
             'avatar' => Str::random(10).'.png',
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'name' => 'admin',
+            'email' => 'admin@localhost.test',
             'password' => Hash::make($password),
             'role' => 'admin',
         ]);
