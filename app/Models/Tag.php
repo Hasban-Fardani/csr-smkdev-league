@@ -12,4 +12,9 @@ class Tag extends Model
     protected $table = 'tags';
 
     protected $guarded = [];
+
+    public function activities()
+    {
+        return $this->belongsToMany(Activity::class, 'activity_tag', 'tag_id', 'activity_id');
+    }
 }

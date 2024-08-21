@@ -35,6 +35,12 @@ class SectorResource extends Resource
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->label('NAMA PROGRAM')
+                            ->required()
+                            ->columnSpanFull(),
+                        Forms\Components\Textarea::make('description')
+                            ->label('DESKRIPSI PROGRAM')
+                            ->required()
+                            ->columnSpanFull(),
                     ])
             ]);
     }
@@ -69,6 +75,7 @@ class SectorResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
