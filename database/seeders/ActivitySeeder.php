@@ -16,7 +16,7 @@ class ActivitySeeder extends Seeder
     public function run(): void
     {
         Activity::create([
-            'image' => Str::random(10).'png',
+            'image' => 'images/bg-kegiatan1.png',
             'name' => 'LOREM IPSUM',
             'description' => 'Lorem ipsum dolor sit amet',
             'is_draft' => false,
