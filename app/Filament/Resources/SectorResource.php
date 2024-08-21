@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\SectorResource\Pages;
 use App\Filament\Resources\SectorResource\RelationManagers;
+use App\Filament\Resources\SectorResource\RelationManagers\ProgramsRelationManager;
 use App\Models\Sector;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -29,19 +30,6 @@ class SectorResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->columnSpanFull(),
-
-                Forms\Components\Repeater::make('programs')
-                    ->relationship()
-                    ->schema([
-                        Forms\Components\TextInput::make('name')
-                            ->label('NAMA PROGRAM')
-                            ->required()
-                            ->columnSpanFull(),
-                        Forms\Components\Textarea::make('description')
-                            ->label('DESKRIPSI PROGRAM')
-                            ->required()
-                            ->columnSpanFull(),
-                    ])
             ]);
     }
 
@@ -87,7 +75,7 @@ class SectorResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ProgramsRelationManager::class
         ];
     }
 

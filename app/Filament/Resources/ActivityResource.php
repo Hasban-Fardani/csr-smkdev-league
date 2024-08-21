@@ -37,10 +37,8 @@ class ActivityResource extends Resource
                     ->required()
                     ->columnSpanFull(),
                 
-                Forms\Components\Select::make('tags')
-                    ->label('TAGS')
-                    ->multiple()
-                    ->relationship('tags', 'name'),
+                Forms\Components\TagsInput::make('tags')
+                    ->label('TAGS'),
                     // ->saveRelationships(),
                 Forms\Components\Toggle::make('is_draft')
                     ->label('DRAFT')
@@ -55,7 +53,14 @@ class ActivityResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
-                    ->label('FOTO'),
+                    ->label('FOTO')
+                    ->getStateUsing(function (Activity $record): string {
+                        return $record->image;
+                    })
+                    ->extraAttributes([
+                        'class' => 'w-24 h-24',
+                    ])
+                    ->defaultImageUrl('https://picsum.photos/300/300'),
                 Tables\Columns\TextColumn::make('name')
                     ->label('JUDUL')
                     ->searchable(),
