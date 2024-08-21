@@ -21,6 +21,7 @@ class ActivitySeeder extends Seeder
             'description' => 'Lorem ipsum dolor sit amet',
             'is_draft' => false,
             'admin_id' => 1,
+            'tags' => json_encode(['lorem', 'ipsum']),
         ]);
     }
 }

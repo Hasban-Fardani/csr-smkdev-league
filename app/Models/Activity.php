@@ -13,6 +13,10 @@ class Activity extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'tags' => 'array',
+    ];
+
     public function admin()
     {
         return $this->belongsTo(USer::class, 'admin_id');

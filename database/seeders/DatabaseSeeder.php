@@ -39,9 +39,7 @@ class DatabaseSeeder extends Seeder
         
         $this->call([
             UserSeeder::class,
-            TagSeeder::class,
             ActivitySeeder::class,
-            ActivityTagSeeder::class,
             SectorSeeder::class,
             SectorProgramSeeder::class,
             SubdistrictSeeder::class,

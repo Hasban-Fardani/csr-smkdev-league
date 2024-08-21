@@ -16,4 +16,9 @@ class EditActivity extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function getRedirectUrl() : string
+    {
+        return $this::$resource::getUrl('index');
+    }
 }
