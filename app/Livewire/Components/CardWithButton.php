@@ -10,6 +10,10 @@ class CardWithButton extends Component
     public $title;
     public $description;
 
+    // avatar section
+    public $avatar;
+    public $name;
+
     public function mount($images, $title, $description): void
     {
         $this->images = $images;
