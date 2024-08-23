@@ -71,13 +71,37 @@
     <div id="kegiatan">
         <livewire:components.container title="Kegiatan Terbaru" class="items-center">
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-1.png" description="testing" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-2.png" description="testing" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-3.png" description="testing" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-4.png" description="testing" />
-                
+                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-1.png"
+                    description="testing" />
+                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-2.png"
+                    description="testing" />
+                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-3.png"
+                    description="testing" />
+                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-4.png"
+                    description="testing" />
+
                 <div class="flex items-center justify-center pt-6 col-span-full">
                     <x-mary-button label="Lihat semua kegiatan" class="btn-md btn-outline" />
+                </div>
+            </div>
+        </livewire:components.container>
+    </div>
+
+    <div id="kegiatan" class="pt-32">
+        <livewire:components.container title="Laporan Program" subtitle="Terbaru"
+            fontClass="text-2xl md:text-3xl font-bold" class="items-center">
+            <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
+                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-1.png"
+                    description="testing" name="Andri Sapulalung" avatar="avatar-1.png" />
+                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-2.png"
+                    description="testing" name="Hesti Septian" avatar="avatar-2.png" />
+                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-3.png"
+                    description="testing" name="Fera Pablo" avatar="avatar-3.png" />
+                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-4.png"
+                    description="testing" name="Fera Pablo" avatar="avatar-3.png" />
+
+                <div class="flex items-center justify-center pt-6 col-span-full">
+                    <x-mary-button label="Lihat semua laporan program" class="btn-md btn-outline" />
                 </div>
             </div>
         </livewire:components.container>
