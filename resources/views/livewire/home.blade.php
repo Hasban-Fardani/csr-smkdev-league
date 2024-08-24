@@ -120,7 +120,6 @@
             </div>
         </livewire:components.container>
     </div>
-
     <div id="faq" class="py-20 text-white bg-dark">
         <livewire:components.container title="Frequently Asked Question (FAQ)"
             subtitle="Pertanyaan yang sering muncul" fontClass="pt-5">
@@ -167,14 +166,21 @@
             <livewire:components.container title="Hubungi Kami"
                 subtitle="hubungi kami melalui formulir di samping, atau melalui kontak di bawah"
                 fontClass="pt-4 text-stone-500">
+                <div class="px-20 py-8">
+                    <livewire:components.contact-form icon="o-map-pin" title="Alamat"
+                        content="Jl. Sunan Kalijaga No.7,Sumber, Kec. Sumber, Kabupaten Cirebon,
+                        Jawa Barat 45611" />
+                    <livewire:components.contact-form icon="o-phone" title="Phone"
+                        content="(0231) 321197 atau (0231) 3211792" />
+                    <livewire:components.contact-form icon="o-envelope" title="Email"
+                        content="pemkab@cirebonkab.go.id" />
+                </div>
             </livewire:components.container>
         </div>
         <div class="w-full md:w-1/2">
-            <div class="flex items-end justify-center h-full p-12">
-                <img src="{{ asset('images/bg-basemap.png') }}" width="400" height="400"
-                    alt="Bupati Cirebon">
+            <div class="flex items-start justify-center h-full p-16">
+                <img src="{{ asset('images/bg-basemap.png') }}" width="400" height="400" alt="Bupati Cirebon">
             </div>
         </div>
     </div>
-
 </x-layouts.app>
