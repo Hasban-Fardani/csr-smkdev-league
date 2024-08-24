@@ -36,7 +36,21 @@
             class="text-base font-light" fontClass="pt-4">
             <div class="flex flex-wrap w-full">
                 <div class="w-1/2 pt-10 px-14">
-                    <livewire:components.according-csr />
+
+                    <!-- REUSABLE ACCORDION -->
+                    <livewire:components.accordion-group groupModel="sektorGroup">
+                        <livewire:components.according groupName="sosial" heading="Sosial" content="sosial" />
+                        <livewire:components.according groupName="lingkungan" heading="Lingkungan"
+                            content="lingkungan" />
+                        <livewire:components.according groupName="lingkungan" heading="Lingkungan"
+                            content="lingkungan" />
+                        <livewire:components.according groupName="kesehatan" heading="Kesehatan" content="kesehatan" />
+                        <livewire:components.according groupName="infrastruktur"
+                            heading="Infrastruktur dan sanitasi lingkungan" content="infrastruktur" />
+                        <livewire:components.according groupName="sarana" heading="Sarana dan prasarana keagamaan"
+                            content="sarana" />
+                        <livewire:components.according groupName="lainnya" heading="Lainnya" content="lainnya" />
+                    </livewire:components.accordion-group>
                 </div>
                 <div class="relative w-1/2 py-10 px-14">
                     <div class="w-56 h-[215px] bg-primaryRed"></div>
@@ -100,15 +114,12 @@
                 <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-4.png"
                     description="testing" name="Fera Pablo" avatar="avatar-3.png" />
 
-                <div class="flex items-center justify-center pt-6 col-span-full">
+                <div class="flex items-center justify-center pt-6 pb-10 col-span-full">
                     <x-mary-button label="Lihat semua laporan program" class="btn-md btn-outline" />
                 </div>
             </div>
         </livewire:components.container>
     </div>
-
-<<<<<<< Updated upstream
-=======
     <div id="faq" class="py-20 text-white bg-dark">
         <livewire:components.container title="Frequently Asked Question (FAQ)"
             subtitle="Pertanyaan yang sering muncul" fontClass="pt-5">
@@ -172,6 +183,4 @@
             </div>
         </div>
     </div>
-
->>>>>>> Stashed changes
 </x-layouts.app>
