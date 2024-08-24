@@ -107,4 +107,71 @@
         </livewire:components.container>
     </div>
 
+<<<<<<< Updated upstream
+=======
+    <div id="faq" class="py-20 text-white bg-dark">
+        <livewire:components.container title="Frequently Asked Question (FAQ)"
+            subtitle="Pertanyaan yang sering muncul" fontClass="pt-5">
+            <div class="flex flex-wrap w-full">
+                <div class="w-1/2 pt-10 px-14">
+                    <div class="px-10">
+
+                        <!-- REUSABLE ACCORDION -->
+                        <livewire:components.accordion-group groupModel="faqGroup">
+                            <livewire:components.according groupName="csr" heading="Apa itu CSR?"
+                                content="CSR adalah ..." />
+                            <livewire:components.according groupName="csr"
+                                heading="Mengapa CSR penting di Kabupaten Cirebon?" content="karena CSR ..." />
+                            <livewire:components.according groupName="csr"
+                                heading="Bagaimana cara perusahaan di Kabupaten Cirebon menjalankan program CSR?"
+                                content="caranha adalah ..." />
+                            <livewire:components.according groupName="csr"
+                                heading="Apa saja contoh program CSR di Kabupaten Cirebon?"
+                                content="contohnya adalah ..." />
+                            <livewire:components.according groupName="csr"
+                                heading="Bagaimana pemerintah Kabupaten Cirebon mendukung program CSR?"
+                                content="caranya dengan ..." />
+                        </livewire:components.accordion-group>
+                    </div>
+                </div>
+                <div class="w-1/2 py-10 px-14">
+                    <!-- MAKE THIS COMPONENT FROM TEKS FAQ SECTION! -->
+                    <div class="pt-8">
+                        <p class="text-sm">
+                            CSR atau Corporate Social Responsibility adalah komitmen perusahaan untuk berkontribusi
+                            dalam pembangunan berkelanjutan dengan cara memberikan dampak positif bagi masyarakat dan
+                            lingkungan sekitar. Di kabupaten Cirebon, CSR dapat diwujudkan melalui berbagai program
+                            seperti pendidikan, kesehatan, lingkungan, dan pemberdayaan masyarakat.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </livewire:components.container>
+    </div>
+
+    <div class="flex flex-wrap w-full py-10">
+        <div id="SambutanBupati" class="w-full p-4 md:w-1/2">
+            <livewire:components.container title="Hubungi Kami"
+                subtitle="hubungi kami melalui formulir di samping, atau melalui kontak di bawah"
+                fontClass="pt-4 text-stone-500">
+                <div class="px-20 py-8">
+                    <livewire:components.contact-form icon="o-map-pin" title="Alamat"
+                        content="Jl. Sunan Kalijaga No.7,Sumber, Kec. Sumber, Kabupaten Cirebon,
+                        Jawa Barat 45611" />
+                    <livewire:components.contact-form icon="o-phone" title="Phone"
+                        content="(0231) 321197 atau (0231) 3211792" />
+                    <livewire:components.contact-form icon="o-envelope" title="Email"
+                        content="pemkab@cirebonkab.go.id" />
+                </div>
+            </livewire:components.container>
+        </div>
+        <div class="w-full md:w-1/2">
+            <div class="flex items-start justify-center h-full p-16">
+                <img src="{{ asset('images/bg-basemap.png') }}" width="400" height="400" alt="Bupati Cirebon">
+            </div>
+        </div>
+    </div>
+
+>>>>>>> Stashed changes
 </x-layouts.app>
