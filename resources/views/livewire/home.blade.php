@@ -161,8 +161,8 @@
         </livewire:components.container>
     </div>
 
-    <div class="flex flex-wrap w-full py-10">
-        <div id="SambutanBupati" class="w-full p-4 md:w-1/2">
+    <div class="flex flex-wrap w-full pt-10">
+        <div id="contact" class="w-full p-4 md:w-1/2">
             <livewire:components.container title="Hubungi Kami"
                 subtitle="hubungi kami melalui formulir di samping, atau melalui kontak di bawah"
                 fontClass="pt-4 text-stone-500">
@@ -179,8 +179,10 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-start justify-center h-full p-16">
-                <img src="{{ asset('images/bg-basemap.png') }}" width="400" height="400" alt="Bupati Cirebon">
+                <img src="{{ asset('images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
             </div>
         </div>
     </div>
+
+    <livewire:components.footer />
 </x-layouts.app>
