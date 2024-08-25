@@ -1,0 +1,36 @@
+name: Deploy Laravel to VM
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: 'latest' 
+
+    - name: Run deployment script via SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.VM_HOST }}
+        username: ${{ secrets.VM_USER }}
+        password: ${{ secrets.VM_PASSWORD }}
+        script: |
+          cd /var/www/csr-smkdev-league
+          git pull origin main
+          export BUN_INSTALL="$HOME/.bun"
+          export PATH="$BUN_INSTALL/bin:$PATH"
+          bun install
+          bun run build
+          composer install --no-interaction --prefer-dist --optimize-autoloader
+          php artisan optimize
+          sudo service nginx restart
