@@ -19,6 +19,17 @@ class ActivityResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+
+    /**
+     * Returns the label for the navigation menu
+     *
+     * @return string
+     */
+    public static function getNavigationLabel(): string
+    {
+        return __('Kegiatan');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
