@@ -26,7 +26,7 @@ jobs:
         password: ${{ secrets.VM_PASSWORD }}
         script: |
           cd /var/www/csr-smkdev-league
-          git pull origin main
+          sudo -u www-data git pull origin main
           export BUN_INSTALL="$HOME/.bun"
           export PATH="$BUN_INSTALL/bin:$PATH"
           bun install
