@@ -9,6 +9,9 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -29,16 +32,17 @@ class ReportResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('funds')
-                    ->numeric(),
+                    ->required()
+                    ->numeric()
+                    ->label('BIAYA'),
                 Forms\Components\TextInput::make('status')
                     ->required(),
-                Forms\Components\DatePicker::make('realization_date'),
-                Forms\Components\TextInput::make('project_id')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('partner_id')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\DatePicker::make('realization_date')
+                    ->label('TANGGAL REALISASI'),
+                Forms\Components\TextInput::make('project.name')
+                    ->required(),
+                Forms\Components\TextInput::make('project.description'),
+                Forms\Components\TextInput::make('partner.company_name')
             ]);
     }
 
@@ -61,26 +65,33 @@ class ReportResource extends Resource
                 Tables\Columns\TextColumn::make('partner_id')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                SelectFilter::make('tahun')
+                    ->options([
+                        '2024',
+                        '2023'
+                    ]),
+                SelectFilter::make('Kuartal')
+                    ->options([
+                        'Kuartal 1 (Januari, Februari, Maret)',
+                        'Kuartal 2 (April, Mei, Juni)',
+                        'Kuartal 3 (July, Agustus, September)',
+                        'Kuartal 4 (Oktober, November, Desember)',
+                    ])
             ])
+            ->filtersLayout(FiltersLayout::AboveContent)
             ->actions([
                 // Tables\Actions\EditAction::make(),
-                Tables\Actions\ViewAction::make()
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ])
+            ->headerActions([
+                Tables\Actions\ExportAction::make()
             ]);
     }
 
