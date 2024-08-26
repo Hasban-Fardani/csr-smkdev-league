@@ -1,4 +1,4 @@
-<a href="/activity/detail" class="relative grid-cols-1">
+<a href="/activity/detail" class="relative grid-cols-1 transition duration-300 ease-in-out hover:scale-95">
     <div class="flex flex-col border">
         <x-mary-button label="27 MAR, 2023"
             class="absolute text-[0.72rem] text-white border-none outline-none top-5 left-7 bg-secondaryRed btn-sm" />

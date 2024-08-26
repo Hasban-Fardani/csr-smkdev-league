@@ -1,7 +1,7 @@
 <x-layouts.app>
     <div id="banner">
         <livewire:components.banner title="Kegiatan" subtitle="Kegiatan Terkini Dari CSR Kabupaten Cirebon"
-            breadcrumbs="Kegiatan" />
+            breadcrumbs="Kegiatan" position="top" />
     </div>
     <div id="kegiatan" class="px-20 py-10">
         <div class="flex w-full gap-5">

@@ -8,13 +8,15 @@ class Banner extends Component
 {
     public $title;
     public $subtitle;
+    public $position;
     public $breadcrumbs;
 
-    public function mount($title, $subtitle, $breadcrumbs): void
+    public function mount($title, $subtitle, $breadcrumbs, $position): void
     {
         $this->title = $title;
         $this->subtitle = $subtitle;
         $this->breadcrumbs = $breadcrumbs;
+        $this->position = $position;
     }
 
     public function render()
