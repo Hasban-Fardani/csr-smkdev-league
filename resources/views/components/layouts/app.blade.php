@@ -33,8 +33,8 @@
 
                 <!-- NAVBAR!!! -->
                 <div class="w-2/3">
-                    <x-mary-button label="Beranda" class="btn-link" />
-                    <x-mary-button label="Tentang" class="btn-link" />
+                    <x-mary-button label="Beranda" class="btn-link" link="/home" />
+                    <x-mary-button label="Tentang" class="btn-link" link="/about" />
                     <x-mary-button label="Kegiatan" class="btn-link" />
                     <x-mary-button label="Statistik" class="btn-link" />
                     <x-mary-button label="Sektor" class="btn-link" />

@@ -2,6 +2,7 @@
     <div id="hero">
         <livewire:components.hero />
     </div>
+    
     <div id="mitra" class="px-4 pt-20 md:px-7">
         <livewire:components.container title="Mitra CSR" subtitle="Kabupaten Cirebon"
             fontClass="text-2xl md:text-3xl font-bold">
@@ -19,18 +20,39 @@
                 </livewire:components.container>
                 <div class="flex flex-wrap w-full pt-12 md:pt-24">
                     <div class="w-full md:w-1/2">
-                        <livewire:components.image-custom-grid />
+                        <!-- FIX THIS CODE -->
+                        @php
+                            $images = ['bg-kepala-daerah-1.png', 'bg-kepala-daerah-2.png', 'bg-kepala-daerah-3.png'];
+                        @endphp
+                        <livewire:components.image-custom-grid :images="$images" />
                     </div>
                     <div class="w-full md:w-1/2">
                         <livewire:components.container title="Apa Itu" subtitle="Kegiatan CSR?"
                             fontClass="text-2xl md:text-3xl font-bold" class="items-start">
-                            <livewire:components.about-csr />
+                            <livewire:components.about-csr
+                                content="Corporate Social Responsibility (CSR) merupakan konsep di mana perusahaan secara
+                                sadar
+                                mengintegrasikan kepedulian sosial dan lingkungan ke dalam operasional bisnisnya.
+                                Ini
+                                melibatkan tindakan sukarela yang memberikan manfaat bagi masyarakat, seperti
+                                program
+                                pendidikan, kesehatan, dan lingkungan, serta upaya untuk mengurangi dampak negatif
+                                terhadap lingkungan. CSR tidak hanya mencerminkan tanggung jawab perusahaan terhadap
+                                masyarakat, tetapi juga dapat meningkatkan reputasi dan daya saing bisnis.
+                                Berdasarkan Undang-Undang nomor 40 Tahun 2007 tentang Perseroan Terbatas (UUPT)
+                                pasal 1
+                                ayat 3, pengertian Tanggung Jawab Sosial dan Lingkungan Perusahaan (TJSLP) atau
+                                Corporate Social Responsibility (CSR) adalah komitmen perseroan untuk berperan serta
+                                dalam pembangunan ekonomi berkelanjutan guna meningkatkan kualitas kehidupan dan
+                                lingkungan yang bermanfaat, balk bagi perseroan sendiri, komunitas setempat, maupun
+                                masyarakat pada umumnya." />
                         </livewire:components.container>
                     </div>
                 </div>
             </div>
         </livewire:components.container>
     </div>
+    
     <div id="sektorCSR" class="pt-20 pb-5 text-white bg-dark">
         <livewire:components.container title="Sektor CSR" subtitle="Bidang sektor CSR Kabupaten Cirebon yang tersedia"
             class="text-base font-light" fontClass="pt-4">
@@ -101,7 +123,7 @@
         </livewire:components.container>
     </div>
 
-    <div id="kegiatan" class="pt-32">
+    <div id="laporan" class="pt-32">
         <livewire:components.container title="Laporan Program" subtitle="Terbaru"
             fontClass="text-2xl md:text-3xl font-bold" class="items-center">
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
@@ -120,6 +142,7 @@
             </div>
         </livewire:components.container>
     </div>
+    
     <div id="faq" class="py-20 text-white bg-dark">
         <livewire:components.container title="Frequently Asked Question (FAQ)"
             subtitle="Pertanyaan yang sering muncul" fontClass="pt-5">
