@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="utf-8">
@@ -33,10 +33,10 @@
 
                 <!-- NAVBAR!!! -->
                 <div class="w-2/3">
-                    <x-mary-button label="Beranda" class="btn-link" link="/home" />
+                    <x-mary-button label="Beranda" class="btn-link" link="/" />
                     <x-mary-button label="Tentang" class="btn-link" link="/about" />
-                    <x-mary-button label="Kegiatan" class="btn-link" />
-                    <x-mary-button label="Statistik" class="btn-link" />
+                    <x-mary-button label="Kegiatan" class="btn-link" link="/activity" />
+                    <x-mary-button label="Statistik" class="btn-link" link="/stats" />
                     <x-mary-button label="Sektor" class="btn-link" />
                     <x-mary-button label="Laporan" class="btn-link" />
                     <x-mary-button label="Mitra" class="btn-link" />
