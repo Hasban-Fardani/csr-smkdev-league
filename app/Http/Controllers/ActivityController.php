@@ -13,6 +13,6 @@ class ActivityController extends Controller
 
     public function show()
     {
-        return 'hello';
+        return view('livewire.detail-activity');
     }
 }

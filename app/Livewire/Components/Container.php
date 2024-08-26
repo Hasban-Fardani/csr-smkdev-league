@@ -11,11 +11,6 @@ class Container extends Component
     public $class;
     public $fontClass;
 
-    public function mount($title): void
-    {
-        $this->title = $title;
-    }
-
     public function render()
     {
         return view('livewire.components.container');

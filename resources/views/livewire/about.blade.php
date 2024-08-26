@@ -1,6 +1,6 @@
 <x-layouts.app>
     <div id="banner">
-        <livewire:components.banner title="Tentang" subtitle="Tentang CSR Kabupaten Cirebon" breadcrumbs="Tentang" />
+        <livewire:components.banner title="Tentang" subtitle="Tentang CSR Kabupaten Cirebon" breadcrumbs="Tentang" position="top" />
     </div>
 
     <div id="about" class="px-8 py-20">
