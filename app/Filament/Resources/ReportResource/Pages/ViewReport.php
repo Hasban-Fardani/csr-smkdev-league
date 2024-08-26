@@ -4,9 +4,9 @@ namespace App\Filament\Resources\ReportResource\Pages;
 
 use App\Filament\Resources\ReportResource;
 use Filament\Actions;
-use Filament\Resources\Pages\CreateRecord;
+use Filament\Resources\Pages\ViewRecord;
 
-class CreateReport extends CreateRecord
+class ViewReport extends ViewRecord
 {
     protected static string $resource = ReportResource::class;
 }
