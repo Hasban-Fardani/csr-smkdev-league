@@ -1,6 +1,6 @@
 <x-layouts.app>
     <div id="banner">
-        <livewire:components.banner />
+        <livewire:components.banner title="Tentang" subtitle="Tentang CSR Kabupaten Cirebon" breadcrumbs="Tentang" />
     </div>
 
     <div id="about" class="px-8 py-20">
@@ -67,8 +67,7 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-end justify-end h-full bg-gray-100">
-                <img src="{{ asset('images/bg-bulding-1.png') }}" width="450" height="400"
-                    alt="Building Cirebon">
+                <img src="{{ asset('images/bg-bulding-1.png') }}" width="450" height="400" alt="Building Cirebon">
             </div>
         </div>
     </div>
@@ -93,7 +92,7 @@
         </livewire:components.container>
     </div>
 
-    <div class="flex flex-wrap w-full">
+    <div class="flex flex-wrap w-full pb-32">
         <div id="SambutanBupati" class="w-full p-4 md:w-1/2">
             <livewire:components.container title="Sambutan Bupati" subtitle="Kabupaten Cirebon"
                 fontClass="text-2xl md:text-3xl font-bold">
@@ -108,10 +107,15 @@
         </div>
     </div>
 
-    <!-- START STEPS -->
-    <div id="panduan">
-    <!-- END STEPS -->
-
+    <div id="panduan" class="py-20 text-white bg-dark">
+        <livewire:components.container title="Panduan" subtitle="Bagaimana proses CSR berlangsung" class="items-center"
+            fontClass="text-base mt-5">
+            <livewire:components.steps />
+            <div class="flex justify-center w-full mt-8">
+                <x-mary-button label="Ajukan surat rekomendasi CSR"
+                    class="text-white border-none bg-secondaryRed hover:bg-secondaryRed hover:opacity-80" responsive />
+            </div>
+        </livewire:components.container>
     </div>
 
     <div class="flex flex-wrap w-full pt-10">
