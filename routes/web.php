@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Welcome::class);
-
 // ROUTE FOR PUBLIC
-Route::get('/home', HomeController::class);
+Route::get('/', HomeController::class);
 Route::get('/about', AboutController::class);
