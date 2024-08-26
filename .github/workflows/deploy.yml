@@ -27,9 +27,9 @@ jobs:
         script: |
           cd /var/www/csr-smkdev-league
           sudo -u www-data git pull origin main
+          sudo -u www-data composer install --no-interaction --prefer-dist --optimize-autoloader
           BUN=$(which bun)
           $BUN install
           $BUN run build
-          composer install --no-interaction --prefer-dist --optimize-autoloader
-          php artisan optimize
+          sudo -u www-data php artisan optimize
           sudo service nginx restart
