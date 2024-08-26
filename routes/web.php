@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ActivityController;
-use App\Http\Controllers\HomeController;
 use App\Livewire\Welcome;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// ROUTE FOR PUBLIC
-Route::get('/', HomeController::class);
-Route::get('/about', AboutController::class);
-
-Route::get('/activity', [ActivityController::class, 'index']);
-Route::get('/activity/detail', [ActivityController::class, 'show']);
+Route::get('/', Welcome::class);
