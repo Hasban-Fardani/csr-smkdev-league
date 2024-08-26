@@ -7,6 +7,7 @@ use App\Filament\Resources\SectorResource\RelationManagers;
 use App\Filament\Resources\SectorResource\RelationManagers\ProgramsRelationManager;
 use App\Models\Sector;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -20,17 +21,30 @@ class SectorResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+
+    /**
+     * Returns the label for the navigation menu
+     *
+     * @return string
+     */
+    public static function getNavigationLabel(): string
+    {
+        return __('Sektor');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->columnSpanFull(),
-            ]);
+                Section::make()->schema([
+                    Forms\Components\TextInput::make('name')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\Textarea::make('description')
+                        ->required()
+                        ->columnSpanFull(),
+                ])
+            ])->columns(1);
     }
 
     public static function table(Table $table): Table
