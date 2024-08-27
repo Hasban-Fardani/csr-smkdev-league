@@ -82,14 +82,17 @@ class ActivityResource extends Resource
                 Tables\Columns\TextColumn::make('description')
                     ->label('DESKRIPSI')
                     ->limit(50)
+                    ->lineClamp(4)
                     ->html()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('published_data')
                     ->label('TGL DITERBITKAN')
                     ->dateTime()
+                    ->placeholder('Belum Terbit')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('is_draft')
                     ->label('STATUS')
+                    ->color(fn ($state) => $state ? Color::Red : Color::Blue)
                     ->formatStateUsing(function (Activity $record): string {
                         return $record->is_draft ? 'Draf' : 'Terbit';
                     })

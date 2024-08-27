@@ -10,6 +10,7 @@ use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Pages\ViewRecord;
+use Filament\Support\Colors\Color;
 use Filament\Support\Enums\FontWeight;
 
 class ViewActivity extends ViewRecord
@@ -35,7 +36,11 @@ class ViewActivity extends ViewRecord
             Section::make()->schema([
                 TextEntry::make('description')
                     ->label('')
-                    ->html()
+                    ->html(),
+                TextEntry::make('tags')
+                    ->badge()
+                    ->color(Color::Gray)
+                    
             ])
         ])->columns(1);
     }
