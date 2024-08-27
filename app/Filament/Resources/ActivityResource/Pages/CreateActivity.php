@@ -20,16 +20,21 @@ class CreateActivity extends CreateRecord
     protected static string $resource = ActivityResource::class;
     public static bool $is_draft = false;
 
-    public function mutateFormDataBeforeCreate(array $data): array
+    public function getTitle(): string|Htmlable
     {
-        $data['admin_id'] = Auth::user()->id;
-        $data['is_draft'] = self::$is_draft;
-        return $data;
+        return 'Kegiatan Baru';
     }
 
     protected function getRedirectUrl() : string
     {
         return $this::$resource::getUrl('index');
+    }
+    
+    public function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['admin_id'] = Auth::user()->id;
+        $data['is_draft'] = self::$is_draft;
+        return $data;
     }
     
     public function saveDraft()
@@ -48,10 +53,5 @@ class CreateActivity extends CreateRecord
             Action::make('create')
                 ->label('Buat'),
         ];
-    }
-
-    public function getTitle(): string|Htmlable
-    {
-        return 'Kegiatan Baru';
     }
 }
