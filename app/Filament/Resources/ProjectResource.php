@@ -9,6 +9,8 @@ use Closure;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -28,7 +30,6 @@ class ProjectResource extends Resource
         return 'Proyek';
     }
 
-    
     public static function form(Form $form): Form
     {
         return $form
@@ -100,6 +101,7 @@ class ProjectResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -122,6 +124,7 @@ class ProjectResource extends Resource
             'index' => Pages\ListProjects::route('/'),
             'create' => Pages\CreateProject::route('/create'),
             'edit' => Pages\EditProject::route('/{record}/edit'),
+            'view' => Pages\ViewProject::route('/{record}'),
         ];
     }
 }

@@ -22,4 +22,9 @@ class Project extends Model
     {
         return $this->belongsTo(Subdistrict::class);
     }
+
+    public function images()
+    {
+        return $this->hasMany(ProjectImage::class);
+    }
 }
