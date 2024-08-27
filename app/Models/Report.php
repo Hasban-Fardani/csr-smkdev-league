@@ -12,4 +12,14 @@ class Report extends Model
     protected $table = 'reports';
 
     protected $guarded = [];
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+
+    public function partner()
+    {
+        return $this->belongsTo(Partner::class);
+    }
 }

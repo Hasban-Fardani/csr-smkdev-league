@@ -17,7 +17,7 @@ class ReportSeeder extends Seeder
             'title' => 'First Project Report',
             'description' => 'Lorem ipsum dolor sit amet',
             'funds' => 10000000,
-            'status' => 'diajukan',
+            'status' => 'draf',
             'realization_date' => now(),
             'project_id' => 1,
             'partner_id' => 1,

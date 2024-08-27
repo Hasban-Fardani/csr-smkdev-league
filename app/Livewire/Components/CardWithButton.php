@@ -23,6 +23,7 @@ class CardWithButton extends Component
         $this->title = $title;
         $this->description = $description;
     }
+    
     public function render()
     {
         return view('livewire.components.card-with-button');

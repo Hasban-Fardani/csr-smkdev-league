@@ -37,7 +37,7 @@
                     <x-mary-button label="Tentang" class="btn-link" link="/about" />
                     <x-mary-button label="Kegiatan" class="btn-link" link="/activity" />
                     <x-mary-button label="Statistik" class="btn-link" link="/stats" />
-                    <x-mary-button label="Sektor" class="btn-link" />
+                    <x-mary-button label="Sektor" class="btn-link" link="/sector" />
                     <x-mary-button label="Laporan" class="btn-link" />
                     <x-mary-button label="Mitra" class="btn-link" />
                 </div>

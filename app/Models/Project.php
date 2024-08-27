@@ -12,4 +12,19 @@ class Project extends Model
     protected $table = 'projects';
 
     protected $guarded = [];
+
+    public function sectorProgram()
+    {
+        return $this->belongsTo(SectorProgram::class);
+    }
+
+    public function subdistrict()
+    {
+        return $this->belongsTo(Subdistrict::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProjectImage::class);
+    }
 }

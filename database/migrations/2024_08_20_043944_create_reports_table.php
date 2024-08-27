@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->integer('funds')->nullable();
-            $table->enum('status',['diajukan','ditolak','revisi','diterima'])->default('diajukan');
+            $table->enum('status',['draf','ditolak','revisi','diterima'])->default('draf');
             $table->date('realization_date')->nullable();
             $table->foreignId('project_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('partner_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
