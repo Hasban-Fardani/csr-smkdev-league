@@ -10,6 +10,9 @@ class CardWithButton extends Component
     public $title;
     public $description;
 
+    // link
+    public $link;
+
     // avatar section
     public $avatar;
     public $name;
