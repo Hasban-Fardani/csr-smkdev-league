@@ -3,7 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Auth\Login;
-use App\Filament\Auth\Register;
+use App\Filament\Auth\RegisterSeller;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -34,7 +34,7 @@ class PartnerPanelProvider extends PanelProvider
                 'blaze-orange' => '#FF6E01'
             ])
             ->login(Login::class)
-            ->registration(Register::class)
+            ->registration(RegisterSeller::class)
             ->emailVerification()
             ->topNavigation()
             ->brandLogo(asset('logos/logo-cirebon.png'))
@@ -46,7 +46,7 @@ class PartnerPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Partner/Resources'), for: 'App\\Filament\\Partner\\Resources')
             ->discoverPages(in: app_path('Filament/Partner/Pages'), for: 'App\\Filament\\Partner\\Pages')
             ->pages([
-                Pages\Dashboard::class,
+                \App\Filament\Partner\Pages\Dashboard::class,
             ])
             ->profile(isSimple: false)
             ->discoverWidgets(in: app_path('Filament/Partner/Widgets'), for: 'App\\Filament\\Partner\\Widgets')

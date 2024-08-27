@@ -28,9 +28,8 @@ class PartnerResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('logo')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\FileUpload::make('logo')
+                    ->required(),
                 Forms\Components\TextInput::make('company_name')
                     ->required()
                     ->maxLength(255),

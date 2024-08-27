@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
-            $table->string('logo');
-            $table->string('company_name');
+            $table->string('logo')->nullable();
+            $table->string('company_name')->nullable();
             $table->string('email')->unique();
             $table->foreign('email')->references('email')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('phone')->unique();
-            $table->string('address');
-            $table->text('description');
-            $table->boolean('is_active');
+            $table->string('phone')->unique()->nullable();
+            $table->string('address')->nullable();
+            $table->text('description')->nullable();
+            $table->boolean('is_active')->nullable();
             $table->timestamps();
         });
     }
