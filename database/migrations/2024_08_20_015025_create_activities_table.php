@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('is_draft');
             $table->json('tags');
             $table->foreignId('admin_id')->constrained(table: 'users')->onUpdate('cascade')->onDelete('cascade');
+            $table->date('published_data')->nullable();
             $table->timestamps();
         });
     }
