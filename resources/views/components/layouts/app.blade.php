@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="utf-8">
@@ -21,22 +21,23 @@
             </label>
 
             {{-- Brand --}}
-            <div class="flex justify-between w-full">
-                <div class="flex w-1/3 gap-2 px-10">
-                    <img src="{{ asset('logos/logo-cirebon.png') }}" width="40" height="40" alt="">
+            <div class="flex items-center justify-between w-full">
+                <div class="flex w-1/3 gap-2 pl-20">
+                    <img src="{{ asset('logos/logo-cirebon.png') }}" class="w-8 h-8" width="40" height="40"
+                        alt="">
                     <div class="flex flex-col">
-                        <h1 class="text-sm font-bold tracking-[.16em]">PEMERINTAH</h1>
-                        <h3 class="text-xs font-bold">Kabupaten Cirebon</h3>
+                        <h1 class="text-[.8rem] font-bold">PEMERINTAH</h1>
+                        <h3 class="text-[.6rem] font-bold">Kabupaten Cirebon</h3>
                     </div>
                 </div>
 
                 <!-- NAVBAR!!! -->
                 <div class="w-2/3">
-                    <x-mary-button label="Beranda" class="btn-link" />
-                    <x-mary-button label="Tentang" class="btn-link" />
-                    <x-mary-button label="Kegiatan" class="btn-link" />
-                    <x-mary-button label="Statistik" class="btn-link" />
-                    <x-mary-button label="Sektor" class="btn-link" />
+                    <x-mary-button label="Beranda" class="btn-link" link="/" />
+                    <x-mary-button label="Tentang" class="btn-link" link="/about" />
+                    <x-mary-button label="Kegiatan" class="btn-link" link="/activity" />
+                    <x-mary-button label="Statistik" class="btn-link" link="/stats" />
+                    <x-mary-button label="Sektor" class="btn-link" link="/sector" />
                     <x-mary-button label="Laporan" class="btn-link" />
                     <x-mary-button label="Mitra" class="btn-link" />
                 </div>
@@ -51,16 +52,9 @@
     </x-mary-nav>
 
     {{-- The main content with `full-width` --}}
-    <x-mary-main with-nav full-width>
-
-        {{-- This is a sidebar that works also as a drawer on small screens --}}
-        {{-- Notice the `main-drawer` reference here --}}
-
-        {{-- The `$slot` goes here --}}
-        <x-slot:content>
-            {{ $slot }}
-        </x-slot:content>
-    </x-mary-main>
+    <main>
+        {{ $slot }}
+    </main>
 
     {{--  TOAST area --}}
     <x-mary-toast />

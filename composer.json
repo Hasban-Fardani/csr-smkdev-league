@@ -14,7 +14,6 @@
         "livewire/livewire": "^3.5",
         "robsontenorio/mary": "^1.35",
         "spatie/laravel-pdf": "^1.5",
-        "spatie/laravel-permission": "^6.9",
         "spatie/simple-excel": "^3.6"
     },
     "require-dev": {

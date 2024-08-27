@@ -9,13 +9,7 @@ class Container extends Component
     public $title;
     public $subtitle;
     public $class;
-
-    public function mount($title, $subtitle, $class): void
-    {
-        $this->title = $title;
-        $this->subtitle = $subtitle;
-        $this->class = $class;
-    }
+    public $fontClass;
 
     public function render()
     {
