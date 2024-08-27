@@ -9,12 +9,14 @@ use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Support\Colors\Color;
 use Filament\Support\Exceptions\Halt;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Throwable;
 
 class CreateActivity extends CreateRecord
 {
+    protected static ?string $title = 'Kegiatan Baru';
     protected static string $resource = ActivityResource::class;
     public static bool $is_draft = false;
 
@@ -35,7 +37,7 @@ class CreateActivity extends CreateRecord
         self::$is_draft = true;
         $this->create(another: false);
     }
-    
+
     protected function getFormActions(): array
     {
         return [
@@ -46,5 +48,10 @@ class CreateActivity extends CreateRecord
             Action::make('create')
                 ->label('Buat'),
         ];
+    }
+
+    public function getTitle(): string|Htmlable
+    {
+        return 'Kegiatan Baru';
     }
 }
