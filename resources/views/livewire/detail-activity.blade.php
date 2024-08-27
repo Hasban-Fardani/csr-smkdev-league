@@ -1,7 +1,7 @@
 <x-layouts.app>
     <div id="banner">
-        <livewire:components.banner title="Pemkab Cirebon Terima Bantuan PJU Tematik Dari Bank BJB"
-            subtitle="July 12, 2024" breadcrumbs="Kegiatan / Detail" position="center" />
+        <livewire:components.banner :title="$activity->name" subtitle="July 12, 2024" breadcrumbs="Kegiatan / Detail"
+            position="center" />
     </div>
 
     <div id="detailActivity" class="px-40 pt-20 pb-10">
@@ -34,58 +34,19 @@
                     <br>
                 </p>
                 <div class="flex flex-col my-10">
-                    <img src="{{ asset('images/bg-activity.png') }}" alt="image activity">
-                    <a href="https://www.figma.com/exit?url=https%3A%2F%2Fwww.pexels.com%2Fphoto%2Fphoto-of-woman-leaning-on-wooden-table-3182746%2F"
-                        class="pt-3 text-sm text-gray-500">sumber gambar: <span class="underline">Pexels</span></a>
+                    <img src="{{ asset('storage/' . $activity->image) }}" alt="image activity">
+                    <a href="https://tx.shadcn.com/blog/preview-mode-headless-cms" target="_blank"
+                        class="pt-3 text-sm text-gray-500">sumber gambar: <span class="underline">TX</span></a>
                 </div>
-                <p class="text-lg text-gray-500">
-                    "Inisiatif ini menjadi langkah strategis bagi Kabupaten Cirebon, dalam meningkatkan kualitas
-                    infrastruktur dan pelayanan publik," tambahnya.
-                    <br>
+                <p class="text-lg text-gray-500">{!! $activity->description !!}</p>
 
-                    <br>
-                    Pemasangan PJU tematik ini ditargetkan mulai dilaksanakan pada Agustus 2024, Wahyu berharap,
-                    fasilitas tersebut memberikan dampak positif bagi masyarakat.
-                    <br>
-
-                    <br>
-                    "Kami sudah berkomitmen dalam menciptakan lingkungan yang lebih aman dan nyaman bagi masyarakat,"
-                    katanya.
-                    <br>
-
-                    <br>
-                    Kepala has Perhubungan Kabupaten Cirebon, Hilman Firmansyah ST menjelaskan,
-                    bahwa PJU artistik ini akan dipasang di 33 titik setelah dilakukan survei dan pengecekan.
-                    <br>
-
-                    <br>
-                    la mengungkapkan, bahwa saat ini, Kabupaten Cirebon masih kekurangan PJU. Dari total kebutuhan
-                    sekitar 32 ribu titik, baru 16 ribu titik yang terpasang.
-                    <br>
-
-                    <br>
-                    Hilman menekankan pentingnya upaya terus-menerus untuk memenuhi kebutuhan ini, termasuk mengajak
-                    instansi lain, baik dari pemerintah maupun pihak swasta, untuk menyediakan CSR.
-                    <br>
-
-                    <br>
-                    "Kalau lihat eksisting jalan itu kurang lebih 32 ribu titik, kekurangannya masih banyak. Idealnya
-                    melakukan kolaborasi seperti itu," ujar Hilman (DISKOMINFO)
-
-                </p>
-                
                 <div class="mt-16 divider"></div>
-                
+
                 <div class="flex flex-col">
                     <div>
-                        <livewire:components.tags tag="Bank BJB" />
-                        <livewire:components.tags tag="Cirebon" />
-                        <livewire:components.tags tag="CSR" />
-                        <livewire:components.tags tag="Kabupaten Cirebon" />
-                        <livewire:components.tags tag="Pemkab Cirebon" />
-                        <livewire:components.tags tag="PJ Bupati Cirebon" />
-                        <livewire:components.tags tag="PJU Tematik" />
-                        <livewire:components.tags tag="Wahyu Mijaya" />
+                        @foreach ($activity->tags as $tag)
+                            <livewire:components.tags :tag="$tag" />
+                        @endforeach
                     </div>
                     <div class="flex justify-end mt-10">
                         <livewire:components.sosmed-container />
@@ -100,14 +61,12 @@
     <div id="kegiatan" class="px-8 pt-10 pb-20">
         <livewire:components.container title="Kegiatan Terbaru">
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-1.png"
-                    description="testing" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-2.png"
-                    description="testing" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-3.png"
-                    description="testing" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-4.png"
-                    description="testing" />
+                @forelse ($activities as $activity)
+                    <livewire:components.card-with-button :title="$activity->name" :images="$activity->image" :description="$activity->description"
+                        link="/activity/{{ $activity->id }}" />
+                @empty
+                    <h1>tidak ada data</h1>
+                @endforelse
 
                 <div class="flex items-center justify-center pt-6 col-span-full">
                     <x-mary-button label="Lihat semua kegiatan" class="btn-md btn-outline" />

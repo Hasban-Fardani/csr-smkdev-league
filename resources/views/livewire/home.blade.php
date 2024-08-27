@@ -2,7 +2,7 @@
     <div id="hero">
         <livewire:components.hero />
     </div>
-    
+
     <div id="mitra" class="px-4 pt-20 md:px-7">
         <livewire:components.container title="Mitra CSR" subtitle="Kabupaten Cirebon"
             fontClass="text-2xl md:text-3xl font-bold">
@@ -52,7 +52,7 @@
             </div>
         </livewire:components.container>
     </div>
-    
+
     <div id="sektorCSR" class="pt-20 pb-5 text-white bg-dark">
         <livewire:components.container title="Sektor CSR" subtitle="Bidang sektor CSR Kabupaten Cirebon yang tersedia"
             class="text-base font-light" fontClass="pt-4">
@@ -107,17 +107,15 @@
     <div id="kegiatan">
         <livewire:components.container title="Kegiatan Terbaru" class="items-center">
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-1.png"
-                    description="testing" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-2.png"
-                    description="testing" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-3.png"
-                    description="testing" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-4.png"
-                    description="testing" />
+                @forelse ($activities as $activity)
+                    <livewire:components.card-with-button :title="$activity->name" :images="$activity->image" 
+                        :description="$activity->description" link="/activity/{{ $activity->id }}" />
+                @empty
+                    <h1>tidak ada data</h1>
+                @endforelse
 
                 <div class="flex items-center justify-center pt-6 col-span-full">
-                    <x-mary-button label="Lihat semua kegiatan" class="btn-md btn-outline" />
+                    <x-mary-button label="Lihat semua kegiatan" class="btn-md btn-outline" link="/activity" />
                 </div>
             </div>
         </livewire:components.container>
@@ -127,14 +125,12 @@
         <livewire:components.container title="Laporan Program" subtitle="Terbaru"
             fontClass="text-2xl md:text-3xl font-bold" class="items-center">
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-1.png"
-                    description="testing" name="Andri Sapulalung" avatar="avatar-1.png" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-2.png"
-                    description="testing" name="Hesti Septian" avatar="avatar-2.png" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-3.png"
-                    description="testing" name="Fera Pablo" avatar="avatar-3.png" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-4.png"
-                    description="testing" name="Fera Pablo" avatar="avatar-3.png" />
+                @forelse ($reports as $report)
+                    <livewire:components.card-with-button :title="$report->title" images="blog-post-1.webp" :description="$report->description"
+                        name="hasban" avatar="avatar-1.png" />
+                @empty
+                    <h1>tidak ada data</h1>
+                @endforelse
 
                 <div class="flex items-center justify-center pt-6 pb-10 col-span-full">
                     <x-mary-button label="Lihat semua laporan program" class="btn-md btn-outline" />
@@ -142,7 +138,7 @@
             </div>
         </livewire:components.container>
     </div>
-    
+
     <div id="faq" class="py-20 text-white bg-dark">
         <livewire:components.container title="Frequently Asked Question (FAQ)"
             subtitle="Pertanyaan yang sering muncul" fontClass="pt-5">

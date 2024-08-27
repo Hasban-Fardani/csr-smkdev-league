@@ -8,20 +8,14 @@
         <livewire:components.container title="Sektor CSR" subtitle="Bidang program CSR Kabupaten Cirebon yang tersedia"
             fontClass="text-lg text-stone-500" class="items-center">
             <div class="grid grid-cols-1 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
-                <livewire:components.card-with-background title="Sosial" images="bg-kegiatan-1.png"
-                    content="Tersedia: 10" />
-                <livewire:components.card-with-background title="Lingkungan" images="bg-kegiatan-1.png"
-                    content="Tersedia: 10" />
-                <livewire:components.card-with-background title="Kesehatan" images="bg-kegiatan-1.png"
-                    content="Tersedia: 10" />
-                <livewire:components.card-with-background title="Pendidikan" images="bg-kegiatan-1.png"
-                    content="Tersedia: 10" />
-                <livewire:components.card-with-background title="Infrastruktur dan sanitasi lingkungan"
-                    images="bg-kegiatan-1.png" content="Tersedia: 10" />
-                <livewire:components.card-with-background title="Sarana dan prasarana keagamaan"
-                    images="bg-kegiatan-1.png" content="Tersedia: 10" />
-                <livewire:components.card-with-background title="Lainnya" images="bg-kegiatan-1.png"
-                    content="Tersedia: 10" />
+                @forelse ($sectors as $sector)
+
+                <!-- FIX THIS CODE-->
+                    <livewire:components.card-with-background :title="$sector->name" images="blog-post-1.webp"
+                        content="Tersedia: {{ $sector->programs->count() }}" />
+                @empty
+                    <h1>tidak ada data</h1>
+                @endforelse
             </div>
         </livewire:components.container>
     </div>
