@@ -12,4 +12,9 @@ class Subdistrict extends Model
     protected $table = 'subdistricts';
 
     protected $guarded = [];
+
+    public function project()
+    {
+        return $this->hasMany(Project::class, 'subdistrict_id', 'id');
+    }
 }

@@ -9,10 +9,8 @@
             fontClass="text-lg text-stone-500" class="items-center">
             <div class="grid grid-cols-1 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
                 @forelse ($sectors as $sector)
-
-                <!-- FIX THIS CODE-->
                     <livewire:components.card-with-background :title="$sector->name" images="blog-post-1.webp"
-                        content="Tersedia: {{ $sector->programs->count() }}" />
+                        content="Tersedia: {{ $sector->programs->count() }}" link="/sector/{{ $sector->id }}" />
                 @empty
                     <h1>tidak ada data</h1>
                 @endforelse
@@ -28,9 +26,13 @@
                     <x-mary-button label="Cari kegiatan..." icon="o-magnifying-glass" class="w-4/5 btn btn-outline" />
                 </div>
                 <div class="grid grid-cols-1 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
-                    <livewire:components.card-sector title="Sosial" images="bg-kegiatan-1.png" content="Sektor"
-                        address="Jl. Sunan Kalijaga No.7, Sumber, Kec. Sumber, Kabupaten Cirebon, Jawa..."
-                        date="Jul 15, 2024" />
+                    @forelse ($projects as $project)
+                        <livewire:components.card-sector :title="$project->title" images="blog-post-1.webp" 
+                            :content="$project->sector_program_name" :address="$project->subdistrict_name"
+                            :date="$project->end_date" />
+                    @empty
+                        <h1>tidak ada data</h1>
+                    @endforelse
 
                     <div class="flex items-center justify-center pt-6 col-span-full">
                         <x-mary-button label="Muat lebih banyak" class="btn-md btn-outline" />

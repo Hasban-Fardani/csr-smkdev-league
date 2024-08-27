@@ -10,6 +10,9 @@
                         <h3 class="text-base"><span class="text-orange-600">Beranda</span> / {{ $breadcrumbs }}</h3>
                         <h1 class="text-5xl font-bold leading-tight md:text-6xl">{{ $title }}
                         </h1>
+                        @if ($subHeading)
+                            <p class="text-sm">{{ $subHeading }}</p>
+                        @endif
                         <p class="text-sm">{{ $subtitle }}</p>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ class CardWithBackground extends Component
 {
     public $images;
     public $title;
+    public $link;
 
     // OPTIONAL
     public $content;
