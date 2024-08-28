@@ -7,6 +7,7 @@ use App\Filament\Resources\SectorResource\RelationManagers;
 use App\Filament\Resources\SectorResource\RelationManagers\ProgramsRelationManager;
 use App\Models\Sector;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -35,13 +36,19 @@ class SectorResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->columnSpanFull(),
-            ]);
+                Section::make()->schema([
+                    Forms\Components\FileUpload::make('banner')
+                        ->image()
+                        ->label('Foto Thumbnail')
+                        ->required(),
+                    Forms\Components\TextInput::make('name')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\Textarea::make('description')
+                        ->required()
+                        ->columnSpanFull(),
+                ])
+            ])->columns(1);
     }
 
     public static function table(Table $table): Table

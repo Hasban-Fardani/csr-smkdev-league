@@ -32,7 +32,6 @@ class AdminPanelProvider extends PanelProvider
             ->databaseNotifications()
             ->login()
             ->colors([
-                // color from figma design
                 'primary' => '#98100A',
                 'bandi-blue' => '#0098B0',
                 'blaze-orange' => '#FF6E01'
@@ -45,13 +44,21 @@ class AdminPanelProvider extends PanelProvider
             ->favicon(asset('logos/logo-cirebon.png'))
             ->font('Inter')
             ->defaultThemeMode(ThemeMode::Light)
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->discoverResources(
+                in: app_path('Filament/Resources'), 
+                for: 'App\\Filament\\Resources'
+            )
+            ->discoverPages(
+                in: app_path('Filament/Pages'), 
+                for: 'App\\Filament\\Pages'
+            )
             ->pages([
                 // AdminDashboard::class,
             ])
-            ->profile(isSimple: false)
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->discoverWidgets(
+                in: app_path('Filament/Widgets'), 
+                for: 'App\\Filament\\Widgets'
+            )
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
