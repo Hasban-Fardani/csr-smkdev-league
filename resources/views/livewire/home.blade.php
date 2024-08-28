@@ -108,8 +108,8 @@
         <livewire:components.container title="Kegiatan Terbaru" class="items-center">
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
                 @forelse ($activities as $activity)
-                    <livewire:components.card-with-button :title="$activity->name" :images="$activity->image" 
-                        :description="$activity->description" link="/activity/{{ $activity->id }}" />
+                    <livewire:components.card-with-button :title="$activity->name" :images="$activity->image" :description="$activity->description"
+                        link="/activity/{{ $activity->id }}" />
                 @empty
                     <h1>tidak ada data</h1>
                 @endforelse

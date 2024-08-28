@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        $activities = Activity::where('is_draft', false)->inRandomOrder()->paginate(4);
+        $activities = Activity::where('is_draft', false)->orderBy('created_at', 'DESC')->take(4)->get();
 
         $reports = Report::all();
 

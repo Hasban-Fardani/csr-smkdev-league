@@ -69,7 +69,7 @@
                 @endforelse
 
                 <div class="flex items-center justify-center pt-6 col-span-full">
-                    <x-mary-button label="Lihat semua kegiatan" class="btn-md btn-outline" />
+                    <x-mary-button label="Lihat semua kegiatan" class="btn-md btn-outline" link="/activity" />
                 </div>
             </div>
         </livewire:components.container>

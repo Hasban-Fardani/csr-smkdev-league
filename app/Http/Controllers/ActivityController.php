@@ -3,16 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
-use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
     public function index()
     {
-        $activities = Activity::where('is_draft', false)->paginate(8);
+        $activities = Activity::where('is_draft', false);
 
         return view('livewire.activity', [
-            'activities' => $activities
+            'activities' => $activities->paginate(8)
         ]);
     }
 

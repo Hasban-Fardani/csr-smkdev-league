@@ -8,6 +8,7 @@ class Banner extends Component
 {
     public $title;
     public $subtitle;
+    public $subHeading;
     public $position;
     public $breadcrumbs;
 

@@ -15,7 +15,7 @@
             @endforeach
 
             <div class="flex items-center justify-center pt-6 col-span-full">
-                <x-mary-button label="Muat lebih banyak" class="btn-md btn-outline" />
+                <x-mary-button label="Muat lebih banyak" wire:click="load" class="btn-md btn-outline" spinner />
             </div>
         </div>
     </div>

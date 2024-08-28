@@ -17,4 +17,9 @@ class SectorProgram extends Model
     {
         return $this->belongsTo(Sector::class);
     }
+
+    public function project()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
