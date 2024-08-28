@@ -2,12 +2,14 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Exports\ReportExporter;
 use App\Filament\Resources\ReportResource\Pages;
 use App\Filament\Resources\ReportResource\RelationManagers;
 use App\Models\Report;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\Colors\Color;
 use Filament\Tables;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
@@ -18,6 +20,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ReportResource extends Resource
 {
+    protected static ?string $modelLabel = 'Laporan';
+
+    protected static ?string $pluralModelLabel = 'Laporan';
+
     protected static ?string $model = Report::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -27,6 +33,7 @@ class ReportResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->label('JUDUL')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
@@ -51,20 +58,34 @@ class ReportResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('JUDUL'),
+                Tables\Columns\TextColumn::make('project.subdistrict.name')
+                    ->label('LOKASI'),
                 Tables\Columns\TextColumn::make('funds')
+                    ->label('REALISASI')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('realization_date')
+                    ->label('TGL REALISASI')
                     ->date()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('project_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('partner_id')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('LAPORAN DIKIRIM'),
+
+                Tables\Columns\TextColumn::make('status')
+                    ->label('STATUS')
+                    ->badge()
+                    ->color(function ($state) {
+                        if ($state === 'diterima') {
+                            return Color::Green;
+                        } elseif ($state === 'revisi') {
+                            return Color::Red;
+                        } else {
+                            return Color::Gray;
+                        }
+                    }),
             ])
             ->filters([
                 SelectFilter::make('tahun')
@@ -92,6 +113,7 @@ class ReportResource extends Resource
             ])
             ->headerActions([
                 Tables\Actions\ExportAction::make()
+                    ->exporter(ReportExporter::class)
             ]);
     }
 
