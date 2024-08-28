@@ -67,6 +67,12 @@ class PartnerPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->renderHook(
+                // This line tells us where to render it
+                'panels::body.end',
+                // This is the view that will be rendered
+                fn () => view('components.partner_footer'),
+            );
     }
 }

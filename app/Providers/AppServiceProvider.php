@@ -24,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        FilamentAsset::register([
+            Css::make('custom-stylesheet', asset('css/custom.css')),
+        ]);
+
         Gate::define('admin', function (User $user) {
             return $user->role == 'admin';
         });
@@ -35,9 +39,5 @@ class AppServiceProvider extends ServiceProvider
         if($this->app->environment('production')) {
             URL::forceScheme('https');
         }
-
-        FilamentAsset::register([
-            Css::make('custom-stylesheet', __DIR__ . asset('css/custom.css')),
-        ]);
     }
 }
