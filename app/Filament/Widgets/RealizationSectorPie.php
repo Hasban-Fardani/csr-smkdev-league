@@ -2,22 +2,26 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Sector;
 use Filament\Widgets\ChartWidget;
 
 class RealizationSectorPie extends ChartWidget
 {
     protected static ?string $heading = 'Persentase total realisasi berdasarkan sektor CSR';
 
+    protected static string $color = 'success';
+
     protected function getData(): array
     {
+        $sectors = Sector::all();
         return [
             'datasets' => [
                 [
                     'label' => 'Blog posts created',
-                    'data' => [0, 10, 5, 2, 21, 32, 45, 74, 65, 45, 77, 89],
+                    'data' => [20, 10, 24, 12, 9],
                 ],
             ],
-            'labels' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            'labels' => $sectors->pluck('name'),
         ];
     }
 
