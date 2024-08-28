@@ -1,21 +1,21 @@
 <x-filament-panels::page>
     {{-- hero section --}}
-    <div class="relative">
-        <img class="h-[240px]" src="{{asset('images/bg-kantor-pemerintah.png')}}" alt="kantor pemerintah">
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white w-full">
-            <h1 class="mb-5 text-3xl font-bold">Selamat Datang di Dashboard CSR Kabupaten Cirebon</h1>
-            <p class="mb-5">
-                Lapor dan ketahui program CSR Anda
-            </p>
+    <div class="hero">
+        <img src="{{asset('images/bg-kantor-pemerintah.png')}}" alt="kantor pemerintah" class="h-full">
+        <div class="hero-image-overlay">
+            <p class="thumbnail-title">Selamat Datang di Dashboard CSR Kabupaten Cirebon</p>
+            <p class="thumbnail-text">Lapor dan ketahui program CSR anda</p>
         </div>
     </div>
 
-    @if (method_exists($this, 'filtersForm'))
-        {{ $this->filtersForm }}
-    @endif
+    <div class="mt-72 md:mt-80">
+        @if (method_exists($this, 'filtersForm'))
+            {{ $this->filtersForm }}
+        @endif
+    </div>
 
     <div>
-    <h2 class="text-3xl font-semibold">Data Statistik</h2>
+        <h2 class="text-3xl font-semibold">Data Statistik</h2>
     
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
             <x-mary-card class="bg-orange-600 text-white">
@@ -61,9 +61,4 @@
             :widgets="$this->getVisibleWidgets()"
         />
     </div>
-    <style>
-        .fi-wi-chart > section {
-            @apply border-none ring-0 shadow-none;
-        }
-    </style>
 </x-filament-panels::page>
