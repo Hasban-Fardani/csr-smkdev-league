@@ -37,6 +37,10 @@ class SectorResource extends Resource
         return $form
             ->schema([
                 Section::make()->schema([
+                    Forms\Components\FileUpload::make('banner')
+                        ->image()
+                        ->label('Foto Thumbnail')
+                        ->required(),
                     Forms\Components\TextInput::make('name')
                         ->required()
                         ->maxLength(255),
