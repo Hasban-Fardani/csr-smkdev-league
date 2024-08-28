@@ -21,7 +21,7 @@ class AdminDashboard extends Dashboard
 {
     use HasFiltersForm;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-home';
 
     protected static string $view = 'filament.pages.admin-dashboard';
 
@@ -45,24 +45,7 @@ class AdminDashboard extends Dashboard
         ]
     ];
 
-    public $availableQuarters = [
-        [
-            'label' => 'Kuartal 1 (januari - mei)',
-            'value' => 1
-        ],
-        [
-            'label' => 'Kuartal 2 (juni - agustus)',
-            'value' => 2
-        ],
-        [
-            'label' => 'Kuartal 3 (september - desember)',
-            'value' => 3
-        ],
-        [
-            'label' => 'Kuartal 4 (januari - mei)',
-            'value' => 4
-        ]
-    ];
+    public $availableQuarters = ['Kuartal 1', 'Kuartal 2', 'Kuartal 3', 'Kuartal 4'];
 
     public $sectors = [];
     public $partners = [];
