@@ -12,12 +12,10 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
-use Filament\Pages\Dashboard;
+use Filament\Pages\Dashboard as BaseDashboard;
 use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
-use Filament\Pages\Page;
-use Illuminate\Support\Facades\Auth;
 
-class AdminDashboard extends Dashboard
+class AdminDashboard extends BaseDashboard
 {
     use HasFiltersForm;
 
