@@ -17,5 +17,25 @@ class SectorSeeder extends Seeder
             'name' => 'Social',
             'description' => 'Lorem ipsum dolor sit amet',
         ]);
+
+        Sector::create([
+            'name' => 'Lingkungan',
+            'description' => 'Lorem ipsum dolor sit amet',
+        ]);
+
+        Sector::create([
+            'name' => 'Kesehatan',
+            'description' => 'Lorem ipsum dolor sit amet',
+        ]);
+
+        Sector::create([
+            'name' => 'Pendidikan',
+            'description' => 'Lorem ipsum dolor sit amet',
+        ]);
+
+        Sector::create([
+            'name' => 'Infrastruktur dan lingkungan',
+            'description' => 'Lorem ipsum dolor sit amet',
+        ]);
     }
 }

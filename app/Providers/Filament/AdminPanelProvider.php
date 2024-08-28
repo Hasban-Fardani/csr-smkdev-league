@@ -2,7 +2,7 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Pages\AdminProfile;
+use App\Filament\Pages\AdminDashboard;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -10,6 +10,8 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
+use Filament\Support\Colors\Color;
+use Filament\View\PanelsRenderHook;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -27,12 +29,14 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->databaseNotifications()
             ->login()
             ->colors([
                 'primary' => '#98100A',
                 'bandi-blue' => '#0098B0',
                 'blaze-orange' => '#FF6E01'
             ])
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->topNavigation()
             ->brandLogo(asset('logos/logo-cirebon.png'))
             ->brandLogoHeight('3rem')
@@ -49,7 +53,7 @@ class AdminPanelProvider extends PanelProvider
                 for: 'App\\Filament\\Pages'
             )
             ->pages([
-                Pages\Dashboard::class,
+                // AdminDashboard::class,
             ])
             ->discoverWidgets(
                 in: app_path('Filament/Widgets'), 
@@ -72,6 +76,11 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->renderHook(
+                // PanelsRenderHook::BODY_END,
+                PanelsRenderHook::FOOTER,
+                fn() => view('livewire.components.footer')
+            );;
     }
 }

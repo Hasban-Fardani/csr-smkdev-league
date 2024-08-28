@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->timestamp('end_date'); 
+            $table->foreignId('sector_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('sector_program_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('subdistrict_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
