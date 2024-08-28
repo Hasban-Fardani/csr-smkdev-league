@@ -8,9 +8,9 @@ use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
+use Filament\View\PanelsRenderHook;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -67,10 +67,11 @@ class PartnerPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                'can:partner',
             ])
             ->renderHook(
                 // This line tells us where to render it
-                'panels::body.end',
+                PanelsRenderHook::FOOTER,
                 // This is the view that will be rendered
                 fn () => view('components.partner_footer'),
             );
