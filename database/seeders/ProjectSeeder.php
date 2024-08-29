@@ -42,8 +42,8 @@ class ProjectSeeder extends Seeder
                 'description' => 'Proyek renovasi dan peningkatan fasilitas Puskesmas Babakan untuk meningkatkan layanan kesehatan masyarakat.',
                 'start_date' => now()->subMonths(3),
                 'end_date' => now()->addMonths(2),
-                'published_date' => now()->subDays(21),
-                'is_published' => 1,
+                'published_date' => null,
+                'is_published' => 0,
                 'sector_program_id' => 7, // Perbaikan Rumah Sakit
                 'subdistrict_id' => 3,
             ],
@@ -64,8 +64,8 @@ class ProjectSeeder extends Seeder
                 'description' => 'Proyek revitalisasi pasar tradisional di Ciledug untuk meningkatkan fasilitas dan mendukung ekonomi lokal.',
                 'start_date' => now()->subMonths(5),
                 'end_date' => now()->addMonths(1),
-                'published_date' => now()->subDays(45),
-                'is_published' => 1,
+                'published_date' => null,
+                'is_published' => 0,
                 'sector_program_id' => 15, // Pembangunan Pasar
                 'subdistrict_id' => 5,
             ],
