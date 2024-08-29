@@ -1,15 +1,15 @@
 <a href="{{ $link }}" class="relative grid-cols-1 transition duration-300 ease-in-out hover:scale-95">
     <div class="flex flex-col border">
-        <x-mary-button label="2024"
+        <x-mary-button label="{{ $date }}"
             class="absolute text-[0.72rem] text-white border-none outline-none top-5 left-7 bg-secondaryRed btn-sm" />
-        <img src="{{ asset('storage/' . $images) }}" alt="{{ $title }}">
+        <img src="{{ asset($images) }}" alt="{{ $title }}" height="200" width="200" class="w-full">
 
         <!-- avatar section-->
         @if (!empty($avatar))
             <div class="flex items-center gap-3 px-5 pt-6">
                 <div class="avatar">
                     <div class="w-8 rounded-full">
-                        <img src="{{ asset('storage/avatars' . $avatar) }}" />
+                        <img src="{{ asset($avatar) }}" alt="{{ $name }}" />
                     </div>
                 </div>
                 <div>

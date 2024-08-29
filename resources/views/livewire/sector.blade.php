@@ -9,7 +9,7 @@
             fontClass="text-lg text-stone-500" class="items-center">
             <div class="grid grid-cols-1 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
                 @forelse ($sectors as $sector)
-                    <livewire:components.card-with-background :title="$sector->name" images="blog-post-1.webp"
+                    <livewire:components.card-with-background :title="$sector->name" :images="$sector->banner"
                         content="Tersedia: {{ $sector->programs->count() }}" link="/sector/{{ $sector->id }}" />
                 @empty
                     <h1>tidak ada data</h1>
@@ -27,7 +27,11 @@
                 </div>
                 <div class="grid grid-cols-1 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
                     @forelse ($projects as $project)
-                        <livewire:components.card-sector :title="$project->title" images="blog-post-1.webp" 
+                    @php
+                        $image = json_decode($project->images, true);
+                    @endphp
+                    
+                        <livewire:components.card-sector :title="$project->title" :images="$image[0]"
                             :content="$project->sector_program_name" :address="$project->subdistrict_name"
                             :date="$project->end_date" />
                     @empty
@@ -35,7 +39,7 @@
                     @endforelse
 
                     <div class="flex items-center justify-center pt-6 col-span-full">
-                        <x-mary-button label="Muat lebih banyak" class="btn-md btn-outline" />
+                        <x-mary-button label="Muat lebih banyak" class="btn-md btn-outline" link="/sector" />
                     </div>
                 </div>
             </div>

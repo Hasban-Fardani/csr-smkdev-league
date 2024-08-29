@@ -12,7 +12,7 @@ class HomeController extends Controller
     {
         $activities = Activity::where('is_draft', false)->orderBy('created_at', 'DESC')->take(4)->get();
 
-        $reports = Report::all();
+        $reports = Report::orderBy('created_at', 'DESC')->take(4)->get();
 
         return view('livewire.home', [
             'activities' => $activities,
