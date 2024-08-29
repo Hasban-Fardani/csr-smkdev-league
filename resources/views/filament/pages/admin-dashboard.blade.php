@@ -1,7 +1,7 @@
 <x-filament-panels::page>
     {{-- hero section --}}
     <div class="hero">
-        <img src="{{asset('images/bg-kantor-pemerintah.png')}}" alt="kantor pemerintah" class="h-full">
+        <img src="{{asset('storage/images/bg-kantor-pemerintah.png')}}" alt="kantor pemerintah" class="h-full">
         <div class="hero-image-overlay">
             <p class="thumbnail-title">Selamat Datang di Dashboard CSR Kabupaten Cirebon</p>
             <p class="thumbnail-text">Lapor dan ketahui program CSR anda</p>

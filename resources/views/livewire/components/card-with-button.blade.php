@@ -9,7 +9,7 @@
             <div class="flex items-center gap-3 px-5 pt-6">
                 <div class="avatar">
                     <div class="w-8 rounded-full">
-                        <img src="{{ asset('avatars/' . $avatar) }}" />
+                        <img src="{{ asset('storage/avatars' . $avatar) }}" />
                     </div>
                 </div>
                 <div>

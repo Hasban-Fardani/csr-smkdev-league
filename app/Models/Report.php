@@ -26,4 +26,9 @@ class Report extends Model
     {
         return $this->belongsTo(Partner::class);
     }
+
+    public function files()
+    {
+        return $this->hasMany(ReportFile::class);
+    }
 }

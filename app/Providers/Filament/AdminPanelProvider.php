@@ -34,10 +34,10 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->topNavigation()
-            ->brandLogo(asset('logos/logo-cirebon.png'))
+            ->brandLogo(asset('storage/logos/logo-cirebon.png'))
             ->brandLogoHeight('3rem')
             ->brandName('Pemerintah Kabupaten Cirebon')
-            ->favicon(asset('logos/logo-cirebon.png'))
+            ->favicon(asset('storage/logos/logo-cirebon.png'))
             ->font('Inter')
             ->defaultThemeMode(ThemeMode::Light)
             ->discoverResources(
