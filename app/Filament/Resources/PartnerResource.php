@@ -10,14 +10,14 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PartnerResource extends Resource
 {
     protected static ?string $model = Partner::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $modelLabel = 'Mitra';
+
+    protected static ?string $pluralModelLabel = 'Mitra';
 
     public static function getNavigationLabel(): string
     {
@@ -28,27 +28,37 @@ class PartnerResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('logo')
-                    ->required(),
-                Forms\Components\TextInput::make('company_name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('phone')
-                    ->tel()
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('address')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\Toggle::make('is_active')
-                    ->required(),
+                Forms\Components\Section::make()->schema([
+                    Forms\Components\FileUpload::make('logo')
+                        ->label('FOTO')
+                        ->required()
+                        ->columnSpanFull(),
+                    Forms\Components\TextInput::make('name')
+                        ->label('Nama Mitra')
+                        ->required(),
+                    Forms\Components\TextInput::make('company_name')
+                        ->label('Nama  PT')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('email')
+                        ->label('Email')
+                        ->email()
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('phone')
+                        ->label('No Telepon')
+                        ->tel()
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\Textarea::make('address')
+                        ->label('Alamat')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\Textarea::make('description')
+                        ->label('Deskripsi')
+                        ->required()
+                        ->maxLength(255),
+                ])->columns(2),
             ]);
     }
 
@@ -57,31 +67,34 @@ class PartnerResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('logo')
-                    ->searchable(),
+                    ->label('FOTO'),
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('NAMA'),
                 Tables\Columns\TextColumn::make('company_name')
+                    ->label('NAMA PT')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email')
+                Tables\Columns\TextColumn::make('description')
+                    ->label('DESKRIPSI')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('phone')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('address')
-                    ->searchable(),
-                Tables\Columns\IconColumn::make('is_active')
-                    ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('TGL TERDAFTAR')
                     ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('is_active')
+                    ->label('STATUS')
+                    ->badge()
+                    ->color(function ($state) {
+                        return $state ? 'success' : 'danger';
+                    })
+                    ->formatStateUsing(function ($state) {
+                        return $state ? 'Aktif' : 'Non-Aktif';
+                    })
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -102,6 +115,7 @@ class PartnerResource extends Resource
         return [
             'index' => Pages\ListPartners::route('/'),
             'create' => Pages\CreatePartner::route('/create'),
+            'view' => Pages\ViewPartner::route('/{record}'),
             'edit' => Pages\EditPartner::route('/{record}/edit'),
         ];
     }

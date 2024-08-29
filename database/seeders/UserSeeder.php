@@ -33,6 +33,7 @@ class UserSeeder extends Seeder
             'email' => $partner_email,
             'password' => Hash::make($password),
             'role' => 'partner',
+            'email_verified_at' => now(),
         ]);
         User::create([
             'avatar' => Str::random(10).'.png',

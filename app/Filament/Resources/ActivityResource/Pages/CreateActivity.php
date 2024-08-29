@@ -18,7 +18,7 @@ class CreateActivity extends CreateRecord
 {
     protected static ?string $title = 'Kegiatan Baru';
     protected static string $resource = ActivityResource::class;
-    public static bool $is_draft = false;
+    public static bool $isDraft = false;
 
     public function getTitle(): string|Htmlable
     {
@@ -33,13 +33,13 @@ class CreateActivity extends CreateRecord
     public function mutateFormDataBeforeCreate(array $data): array
     {
         $data['admin_id'] = Auth::user()->id;
-        $data['is_draft'] = self::$is_draft;
+        $data['is_draft'] = self::$isDraft;
         return $data;
     }
     
     public function saveDraft()
     {
-        self::$is_draft = true;
+        self::$isDraft = true;
         $this->create(another: false);
     }
 
