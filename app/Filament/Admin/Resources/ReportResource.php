@@ -91,9 +91,22 @@ class ReportResource extends Resource
                     ->options([
                         'Kuartal 1 (Januari, Februari, Maret)',
                         'Kuartal 2 (April, Mei, Juni)',
-                        'Kuartal 3 (July, Agustus, September)',
+                        'Kuartal 3 (Juli, Agustus, September)',
                         'Kuartal 4 (Oktober, November, Desember)',
                     ])
+                    ->modifyQueryUsing(function (Builder $query, $state) {
+                        $query->when($state['value'] !== '0' && $state['value'] !== null, function (Builder $query) use ($state) {
+                            $query->when($state === 'Kuartal 1 (Januari, Februari, Maret)', function (Builder $query) {
+                                $query->whereMonth('realization_date', '>=', 1)->whereMonth('realization_date', '<=', 3);
+                            })->when($state === 'Kuartal 2 (April, Mei, Juni)', function (Builder $query) {
+                                $query->whereMonth('realization_date', '>=', 4)->whereMonth('realization_date', '<=', 6);
+                            })->when($state === 'Kuartal 3 (Juli, Agustus, September)', function (Builder $query) {
+                                $query->whereMonth('realization_date', '>=', 7)->whereMonth('realization_date', '<=', 9);
+                            })->when($state === 'Kuartal 4 (Oktober, November, Desember)', function (Builder $query) {
+                                $query->whereMonth('realization_date', '>=', 10)->whereMonth('realization_date', '<=', 12);
+                            });
+                        });
+                    }),
             ])
             ->filtersLayout(FiltersLayout::AboveContent)
             ->actions([

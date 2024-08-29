@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
+            $table->json('files');
             $table->string('title');
             $table->text('description')->nullable();
-            $table->integer('funds')->nullable();
+            $table->unsignedBigInteger('funds')->nullable();
             $table->enum('status',['draf','ditolak','revisi','diterima'])->default('draf');
             $table->date('realization_date')->nullable();
             $table->foreignId('project_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
