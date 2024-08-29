@@ -24,6 +24,7 @@ class ViewActivity extends ViewRecord
             Section::make()->schema([
                 ImageEntry::make('image')
                     ->label('')
+                    ->disk('public')
                     ->alignCenter(),
                 TextEntry::make('name')
                     ->label('')
@@ -32,16 +33,13 @@ class ViewActivity extends ViewRecord
                 TextEntry::make('created_at')
                     ->date()
                     ->label(''),
-            ]),
-            Section::make()->schema([
                 TextEntry::make('description')
                     ->label('')
                     ->html(),
                 TextEntry::make('tags')
                     ->badge()
                     ->color(Color::Gray)
-                    
-            ])
+            ]),
         ])->columns(1);
     }
 

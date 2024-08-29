@@ -43,6 +43,7 @@ class ActivityResource extends Resource
                         ->label('BANNER')
                         ->image()
                         ->disk('public')
+                        ->directory('images')
                         ->required(),
                     Forms\Components\TextInput::make('name')
                         ->label('JUDUL')
@@ -65,12 +66,10 @@ class ActivityResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('created_at', 'desc')
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
                     ->label('FOTO')
-                    ->getStateUsing(function (Activity $record): string {
-                        return asset($record->image);
-                    })
                     ->extraAttributes([
                         'class' => 'w-24 h-24',
                     ])
@@ -100,7 +99,7 @@ class ActivityResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                //
+                
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
