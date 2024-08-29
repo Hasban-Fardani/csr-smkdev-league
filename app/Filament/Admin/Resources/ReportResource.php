@@ -53,27 +53,40 @@ class ReportResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')
+                    ->label('JUDUL')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('project.subdistrict.name')
+                    ->label('LOKASI')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('funds')
+                    ->label('REALISASI')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('realization_date')
-                    ->date()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('project_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('partner_id')
-                    ->numeric()
-                    ->sortable(),
+                    ->label('TGL REALISASI')
+                    ->date(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('TGL DIBUAT')
+                    ->date(),
+                Tables\Columns\TextColumn::make('status')
+                    ->formatStateUsing(function ($state) {
+                        return ucfirst($state);
+                    }),
             ])
             ->filters([
                 SelectFilter::make('tahun')
-                    ->options([
-                        '2024',
-                        '2023'
-                    ]),
+                    ->options(function () {
+                        return Report::selectRaw('YEAR(realization_date) as year')
+                        ->distinct()
+                        ->orderBy('year', 'desc')
+                        ->pluck('year', 'year')
+                        ->toArray();
+                    })
+                    ->modifyQueryUsing(function (Builder $query, $state) {
+                        $query->when($state['value'] !== '0' && $state['value'] !== null, function (Builder $query) use ($state) {
+                            $query->whereYear('realization_date', $state);
+                        });
+                    }),
                 SelectFilter::make('Kuartal')
                     ->options([
                         'Kuartal 1 (Januari, Februari, Maret)',
@@ -84,7 +97,6 @@ class ReportResource extends Resource
             ])
             ->filtersLayout(FiltersLayout::AboveContent)
             ->actions([
-                // Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([

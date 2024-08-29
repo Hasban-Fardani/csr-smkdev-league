@@ -13,6 +13,10 @@ class Report extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'image' => 'array',
+    ];
+
     public function project()
     {
         return $this->belongsTo(Project::class);
