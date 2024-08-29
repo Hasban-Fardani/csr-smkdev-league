@@ -16,8 +16,10 @@ class ProjectSeeder extends Seeder
         Project::create([
             'title' => 'Gaji yang belum dibayarkan bulan kemaren',
             'description' => 'Lorem ipsum dolor sit amet',
-            'start_date' => now(),
-            'end_date' => now()->subDays(1),
+            'start_date' => now()->subDays(1),
+            'end_date' => now(),
+            'published_date' => now(),
+            'is_published' => 1,
             'sector_program_id' => 1,
             'subdistrict_id' => 1,
         ]);
