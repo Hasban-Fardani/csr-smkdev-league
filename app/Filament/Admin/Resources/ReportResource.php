@@ -20,6 +20,10 @@ class ReportResource extends Resource
 {
     protected static ?string $model = Report::class;
 
+    protected static ?string $title = 'Laporan';
+
+    protected static ?string $pluralModelLabel = 'Laporan';
+
     public static function form(Form $form): Form
     {
         return $form

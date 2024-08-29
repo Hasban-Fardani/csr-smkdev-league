@@ -21,7 +21,9 @@ class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
     
-    public static ?string $title = 'Project';
+    public static ?string $title = 'Proyek';
+
+    protected static ?string $pluralModelLabel = 'Proyek';
     
     public static $selectedSector = null;
 
