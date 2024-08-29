@@ -2,7 +2,6 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Auth\Login;
 use App\Filament\Auth\RegisterSeller;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
@@ -33,7 +32,7 @@ class PartnerPanelProvider extends PanelProvider
                 'bandi-blue' => '#0098B0',
                 'blaze-orange' => '#FF6E01'
             ])
-            ->login(Login::class)
+            ->login()
             ->registration(RegisterSeller::class)
             ->emailVerification()
             ->topNavigation()
