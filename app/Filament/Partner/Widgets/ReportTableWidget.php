@@ -24,7 +24,8 @@ class ReportTableWidget extends BaseWidget
                     ->label('LOKASI')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('funds')
-                    ->label('REALISASI'),
+                    ->label('REALISASI')
+                    ->money('Rp. '),
                 Tables\Columns\TextColumn::make('realization_date')
                     ->label('TGL REALISASI'),
                 Tables\Columns\TextColumn::make('created_at')
