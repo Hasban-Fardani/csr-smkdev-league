@@ -13,29 +13,34 @@ class SectorSeeder extends Seeder
      */
     public function run(): void
     {
-        Sector::create([
-            'name' => 'Social',
-            'description' => 'Lorem ipsum dolor sit amet',
-        ]);
+        $sectors = [
+            [
+                'banner' => 'banners/storage/avatars/avatar-1.pngtor1.jpg',
+                'name' => 'Infrastruktur',
+                'description' => 'Pengembangan infrastruktur untuk meningkatkan kualitas fasilitas umum.',
+            ],
+            [
+                'banner' => 'storage/avatars/avatar-1.png',
+                'name' => 'Pendidikan',
+                'description' => 'Program untuk meningkatkan kualitas pendidikan di semua tingkat.',
+            ],
+            [
+                'banner' => 'storage/avatars/avatar-1.png',
+                'name' => 'Kesehatan',
+                'description' => 'Peningkatan fasilitas kesehatan dan layanan medis.',
+            ],
+            [
+                'banner' => 'storage/avatars/avatar-1.png',
+                'name' => 'Lingkungan',
+                'description' => 'Program untuk melindungi dan meningkatkan kualitas lingkungan.',
+            ],
+            [
+                'banner' => 'storage/avatars/avatar-1.png',
+                'name' => 'Ekonomi',
+                'description' => 'Inisiatif untuk pengembangan ekonomi lokal dan pemberdayaan usaha kecil.',
+            ],
+        ];
 
-        Sector::create([
-            'name' => 'Lingkungan',
-            'description' => 'Lorem ipsum dolor sit amet',
-        ]);
-
-        Sector::create([
-            'name' => 'Kesehatan',
-            'description' => 'Lorem ipsum dolor sit amet',
-        ]);
-
-        Sector::create([
-            'name' => 'Pendidikan',
-            'description' => 'Lorem ipsum dolor sit amet',
-        ]);
-
-        Sector::create([
-            'name' => 'Infrastruktur dan lingkungan',
-            'description' => 'Lorem ipsum dolor sit amet',
-        ]);
+        Sector::insert($sectors);
     }
 }

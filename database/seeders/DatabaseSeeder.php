@@ -36,9 +36,7 @@ class DatabaseSeeder extends Seeder
             SectorProgramSeeder::class,
             SubdistrictSeeder::class,
             ProjectSeeder::class,
-            ProjectImageSeeder::class,
             ReportSeeder::class,
-            ReportFileSeeder::class,
             CsrRequestSeeder::class,
             CsrRequestPartnerSeeder::class,
         ]);
