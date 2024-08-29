@@ -54,5 +54,19 @@
         </div>
     </div>
 
+    {{-- add widgets --}}
+    <div class="bg-white p-8">
+        <x-filament-widgets::widgets
+            :columns="$this->getColumns()"
+            :data="
+                [
+                    ...(property_exists($this, 'filters') ? ['filters' => $this->filters] : []),
+                    ...$this->getWidgetData(),
+                ]
+            "
+            :widgets="$this->getVisibleWidgets()"
+        />
+    </div>
+
     {{-- @include('livewire.partner-activity-table') --}}
 </x-filament-panels::page>

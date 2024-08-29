@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->json('image')->nullable();
             $table->string('title');
             $table->text('description');
             $table->timestamp('start_date');

@@ -31,7 +31,6 @@
                     </div>
                 </div>
 
-                <!-- TODO DIVIDE TO ANOTHER COMPONENT 'NAVLINK' -->
                 <div class="flex w-2/3 gap-10">
                     <a href="/"
                         class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Beranda</a>
@@ -45,7 +44,7 @@
                         class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Sektor</a>
                     <a href="/report"
                         class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Laporan</a>
-                    <a href="/mitra"
+                    <a href="/partner"
                         class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Mitra</a>
                 </div>
                 

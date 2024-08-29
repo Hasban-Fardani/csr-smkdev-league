@@ -28,7 +28,8 @@ class ViewReport extends ViewRecord
                     ->money('Rp. '),
 
                 ImageEntry::make('image')
-                    ->label(''),
+                    ->label('')
+                    ->limit(4),
 
                 Section::make()->schema([
                     TextEntry::make('realization_date'),

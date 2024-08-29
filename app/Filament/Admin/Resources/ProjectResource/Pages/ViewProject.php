@@ -34,7 +34,7 @@ class ViewProject extends ViewRecord
                     ->size(TextEntrySize::Large)
                     ->weight(FontWeight::Bold)
                     ->columnSpanFull(),
-                ImageEntry::make('images.image')
+                ImageEntry::make('image')
                     ->label('')
                     ->columnSpanFull(),
                 TextEntry::make('start_date'),

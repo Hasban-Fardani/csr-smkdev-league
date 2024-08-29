@@ -14,6 +14,7 @@ class ProjectSeeder extends Seeder
     public function run(): void
     {
         Project::create([
+            // 'image' => ["images/bg-kegiatan1.png", "images/bg-kegiatan2.png"],
             'title' => 'Gaji yang belum dibayarkan bulan kemaren',
             'description' => 'Lorem ipsum dolor sit amet',
             'start_date' => now()->subDays(1),

@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->json('image');
             $table->string('title');
             $table->text('description')->nullable();
             $table->integer('funds')->nullable();

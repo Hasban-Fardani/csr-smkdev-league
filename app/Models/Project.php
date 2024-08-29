@@ -13,6 +13,10 @@ class Project extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'images' => 'array',
+    ];
+
     public function sectorProgram()
     {
         return $this->belongsTo(SectorProgram::class);

@@ -31,40 +31,42 @@ class ProjectResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255)
-                    ->columnSpanFull(),
-                Forms\Components\Select::make('sector_id')
-                    ->label('Sektor CSR')
-                    ->options(fn () => \App\Models\Sector::all()->pluck('name', 'id'))
-                    ->required()
-                    ->live()
-                    ->columnSpan(3),
-                Forms\Components\Select::make('sector_program_id')
-                    ->options(function (Get $get) {
-                        return \App\Models\SectorProgram::where('sector_id', $get('sector_id'))->get()->pluck('name', 'id');
-                    })
-                    ->label('Program CSR')
-                    ->required()
-                    ->live()
-                    ->columnSpan(3),
-                Forms\Components\Select::make('subdistrict_id')
-                    ->options(fn () => \App\Models\Subdistrict::all()->pluck('name', 'id'))
-                    ->label('Kecamatan')
-                    ->required()
-                    ->columnSpan(2),
-                Forms\Components\DatePicker::make('start_date')
-                    ->required()
-                    ->columnSpan(2),
-                Forms\Components\DatePicker::make('end_date')
-                    ->required()
-                    ->columnSpan(2),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->columnSpanFull(),
-            ])
-            ->columns(6);
+                Forms\Components\Section::make()->schema([
+
+                    Forms\Components\TextInput::make('title')
+                        ->required()
+                        ->maxLength(255)
+                        ->columnSpanFull(),
+                    Forms\Components\Select::make('sector_id')
+                        ->label('Sektor CSR')
+                        ->options(fn () => \App\Models\Sector::all()->pluck('name', 'id'))
+                        ->required()
+                        ->live()
+                        ->columnSpan(3),
+                    Forms\Components\Select::make('sector_program_id')
+                        ->options(function (Get $get) {
+                            return \App\Models\SectorProgram::where('sector_id', $get('sector_id'))->get()->pluck('name', 'id');
+                        })
+                        ->label('Program CSR')
+                        ->required()
+                        ->live()
+                        ->columnSpan(3),
+                    Forms\Components\Select::make('subdistrict_id')
+                        ->options(fn () => \App\Models\Subdistrict::all()->pluck('name', 'id'))
+                        ->label('Kecamatan')
+                        ->required()
+                        ->columnSpan(2),
+                    Forms\Components\DatePicker::make('start_date')
+                        ->required()
+                        ->columnSpan(2),
+                    Forms\Components\DatePicker::make('end_date')
+                        ->required()
+                        ->columnSpan(2),
+                    Forms\Components\Textarea::make('description')
+                        ->required()
+                        ->columnSpanFull(),
+                ])->columns(6),
+            ]);
     }
 
     public static function table(Table $table): Table
@@ -94,6 +96,9 @@ class ProjectResource extends Resource
                     ->badge()
                     ->formatStateUsing(function ($state) {
                         return $state ? 'Terbit' : 'Draf';
+                    })
+                    ->color(function ($state) {
+                        return $state ? 'success' : 'warning';
                     })
             ])
             ->filters([
