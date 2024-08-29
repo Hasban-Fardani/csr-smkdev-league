@@ -46,8 +46,16 @@ class CreatePartner extends CreateRecord
 
         $user = User::create($userData);
 
-        $partnerData = $this->data;
-        unset($partnerData['name']);
+        $partnerData = [
+            'company_name' => $this->data['company_name'],
+            'email' => $this->data['email'],
+            'phone' => $this->data['phone'],
+            'address' => $this->data['address'],
+            'description' => $this->data['description'],
+        ];
+
+        // dd($partnerData);
+
         Partner::create($partnerData);
 
         return redirect($this->getResource()::getUrl('index'));

@@ -32,6 +32,7 @@ class PartnerResource extends Resource
                     Forms\Components\FileUpload::make('logo')
                         ->label('FOTO')
                         ->required()
+                        ->image()
                         ->columnSpanFull(),
                     Forms\Components\TextInput::make('name')
                         ->label('Nama Mitra')

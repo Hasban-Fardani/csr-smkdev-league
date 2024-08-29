@@ -62,13 +62,31 @@ class ViewPartner extends ViewRecord
                 ->icon('heroicon-o-power')
                 ->hidden(function () {
                     return !$this->record->is_active;
-                }),
+                })
+                ->requiresConfirmation()
+                ->action('deactivatePartner'),
             Action::make('active')
                 ->label('Aktifkan Mitra')
                 ->icon('heroicon-o-power')
                 ->hidden(function () {
                     return $this->record->is_active;
-                }),
+                })
+                ->requiresConfirmation()
+                ->action('activitePartner')
         ];
+    }
+
+    public function activitePartner()
+    {
+        $this->record->update([
+            'is_active' => true
+        ]);
+    }
+
+    public function deactivatePartner()
+    {
+        $this->record->update([
+            'is_active' => false
+        ]);
     }
 }
