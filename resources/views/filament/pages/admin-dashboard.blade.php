@@ -42,7 +42,7 @@
             <x-mary-card class="bg-green-800 text-white">
                 <h3 class="font-semibold mb-2">Total Dana Realisasi CSR</h3>
                 <x-mary-card class="bg-green-500 border border-white">
-                    <p class="text-xl font-bold">{{ $totalFunds }}</p>
+                    <p class="text-xl font-bold">Rp {{ number_format($totalFunds, 0, ',', '.') }}</p>
                 </x-mary-card>
             </x-mary-card>
         </div>

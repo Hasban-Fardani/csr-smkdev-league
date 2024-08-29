@@ -3,7 +3,9 @@
 namespace App\Filament\Admin\Widgets;
 
 use App\Models\Sector;
+use App\Models\Report;
 use Filament\Widgets\ChartWidget;
+use Illuminate\Support\Facades\DB;
 
 class RealizationTotalSector extends ChartWidget
 {
@@ -11,15 +13,21 @@ class RealizationTotalSector extends ChartWidget
 
     protected function getData(): array
     {
-        $sectors = Sector::all();
+        $sectorData = Sector::leftJoin('projects', 'sectors.id', '=', 'projects.sector_id')
+            ->leftJoin('reports', 'projects.id', '=', 'reports.project_id')
+            ->select('sectors.name', DB::raw('SUM(reports.funds) as total_funds'))
+            ->where('reports.status', 'diterima')
+            ->groupBy('sectors.id', 'sectors.name')
+            ->get();
+
         return [
             'datasets' => [
                 [
-                    'label' => 'Blog posts created',
-                    'data' => [20, 10, 24, 12, 9],
+                    'label' => 'Total Dana Realisasi',
+                    'data' => $sectorData->pluck('total_funds'),
                 ],
             ],
-            'labels' => $sectors->pluck('name'),
+            'labels' => $sectorData->pluck('name'),
         ];
     }
 

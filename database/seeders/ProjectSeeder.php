@@ -19,7 +19,7 @@ class ProjectSeeder extends Seeder
                 'title' => 'Pembangunan Jalan Raya Penghubung Desa',
                 'description' => 'Proyek pembangunan jalan raya baru sepanjang 10 km untuk menghubungkan desa-desa terpencil di kecamatan Arjawinangun.',
                 'start_date' => now()->subMonths(2),
-                'end_date' => now()->addMonths(4),
+                'end_date' => now()->subMonths(1),
                 'published_date' => now()->subDays(7),
                 'is_published' => 1,
                 'sector_program_id' => 1, // Pembangunan Jalan Raya
@@ -29,8 +29,8 @@ class ProjectSeeder extends Seeder
                 'images' => json_encode(['storage/images/lab-sekolah-1.png', 'storage/images/lab-sekolah-2.png', 'storage/images/lab-sekolah-3.png']),
                 'title' => 'Pembangunan Laboratorium IPA SMA Negeri 1 Astanajapura',
                 'description' => 'Proyek pembangunan laboratorium IPA lengkap untuk meningkatkan kualitas pendidikan di SMA Negeri 1 Astanajapura.',
-                'start_date' => now()->subMonths(1),
-                'end_date' => now()->addMonths(3),
+                'start_date' => now()->subMonths(3),
+                'end_date' => now()->subMonth(2),
                 'published_date' => now()->subDays(14),
                 'is_published' => 1,
                 'sector_program_id' => 5, // Pembangunan Laboratorium
