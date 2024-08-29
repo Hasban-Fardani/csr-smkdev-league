@@ -19,8 +19,6 @@ class SectorResource extends Resource
 {
     protected static ?string $model = Sector::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
 
     /**
      * Returns the label for the navigation menu
