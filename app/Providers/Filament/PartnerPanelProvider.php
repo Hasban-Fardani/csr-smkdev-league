@@ -45,9 +45,7 @@ class PartnerPanelProvider extends PanelProvider
             ->defaultThemeMode(ThemeMode::Light)
             ->discoverResources(in: app_path('Filament/Partner/Resources'), for: 'App\\Filament\\Partner\\Resources')
             ->discoverPages(in: app_path('Filament/Partner/Pages'), for: 'App\\Filament\\Partner\\Pages')
-            ->pages([
-                \App\Filament\Partner\Pages\Dashboard::class,
-            ])
+            ->pages([])
             ->profile(isSimple: false)
             ->discoverWidgets(in: app_path('Filament/Partner/Widgets'), for: 'App\\Filament\\Partner\\Widgets')
             ->widgets([

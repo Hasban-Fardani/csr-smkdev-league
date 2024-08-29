@@ -35,7 +35,7 @@ class ProjectResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
-                    ->required()    
+                    ->required()
                     ->maxLength(255)
                     ->columnSpanFull(),
                 Forms\Components\Select::make('sector_id')
