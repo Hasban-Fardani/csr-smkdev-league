@@ -2,7 +2,7 @@
     <div class="w-1/2 bg-primaryRed h-full absolute -z-[999]"></div>
     <div class="px-10 pt-10 pb-16">
         <div class="flex flex-wrap w-full bg-center bg-cover "
-            style="background-image: url('{{ asset('images/bg-balai-kota-dark.png') }}'); background-position: top;">
+            style="background-image: url('{{ asset('storage/images/bg-balai-kota-dark.png') }}'); background-position: top;">
             <div class="container flex items-center w-full">
                 <!-- left section `welcome` -->
                 <div class="flex items-center justify-center w-full min-h-screen md:w-2/3">

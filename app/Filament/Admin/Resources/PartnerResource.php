@@ -33,6 +33,7 @@ class PartnerResource extends Resource
                         ->label('FOTO')
                         ->required()
                         ->image()
+                        ->disk('public')
                         ->columnSpanFull(),
                     Forms\Components\TextInput::make('name')
                         ->label('Nama Mitra')
@@ -67,8 +68,9 @@ class PartnerResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('logo')
-                    ->label('FOTO'),
+                Tables\Columns\ImageColumn::make('logo')
+                    ->label('FOTO')
+                    ->disk('public'),
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('NAMA'),
                 Tables\Columns\TextColumn::make('company_name')

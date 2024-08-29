@@ -14,7 +14,6 @@ class ReportSeeder extends Seeder
     public function run(): void
     {
         Report::create([
-            'image' => ["images/bg-kegiatan1.png", "images/bg-kegiatan2.png"],
             'title' => 'First Project Report',
             'description' => 'Lorem ipsum dolor sit amet',
             'funds' => 10000000,

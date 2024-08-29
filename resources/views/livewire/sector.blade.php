@@ -60,7 +60,7 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-start justify-center h-full p-16">
-                <img src="{{ asset('images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
+                <img src="{{ asset('storage/images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
             </div>
         </div>
     </div>

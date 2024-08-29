@@ -23,7 +23,7 @@
             {{-- Brand --}}
             <div class="flex items-center justify-between w-full">
                 <div class="flex w-1/3 gap-2 pl-20">
-                    <img src="{{ asset('logos/logo-cirebon.png') }}" class="w-8 h-8" width="40" height="40"
+                    <img src="{{ asset('storage/logos/logo-cirebon.png') }}" class="w-8 h-8" width="40" height="40"
                         alt="">
                     <div class="flex flex-col">
                         <h1 class="text-[.8rem] font-bold">PEMERINTAH</h1>

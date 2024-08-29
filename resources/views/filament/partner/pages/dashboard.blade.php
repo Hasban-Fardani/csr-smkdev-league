@@ -1,6 +1,6 @@
 <x-filament-panels::page>
     <div class="hero">
-        <img src="{{ asset('images/bg-balai-kota.png') }}" alt="" class="hero-image">
+        <img src="{{ asset('storage/images/bg-balai-kota.png') }}" alt="" class="hero-image">
         <div class="hero-image-overlay">
             <p class="thumbnail-title">Selamat Datang di Dashboard CSR Kabupaten Cirebon</p>
             <p class="thumbnail-text">Lapor dan ketahui program CSR anda</p>

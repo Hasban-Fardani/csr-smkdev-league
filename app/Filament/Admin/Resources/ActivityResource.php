@@ -42,6 +42,7 @@ class ActivityResource extends Resource
                     Forms\Components\FileUpload::make('image')
                         ->label('BANNER')
                         ->image()
+                        ->disk('public')
                         ->required(),
                     Forms\Components\TextInput::make('name')
                         ->label('JUDUL')
@@ -68,11 +69,12 @@ class ActivityResource extends Resource
                 Tables\Columns\ImageColumn::make('image')
                     ->label('FOTO')
                     ->getStateUsing(function (Activity $record): string {
-                        return $record->image;
+                        return asset($record->image);
                     })
                     ->extraAttributes([
                         'class' => 'w-24 h-24',
                     ])
+                    ->disk('public')
                     ->defaultImageUrl('https://picsum.photos/300/300'),
                 Tables\Columns\TextColumn::make('name')
                     ->label('JUDUL')

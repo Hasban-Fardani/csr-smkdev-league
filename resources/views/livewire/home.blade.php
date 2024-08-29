@@ -76,7 +76,7 @@
                 </div>
                 <div class="relative w-1/2 py-10 px-14">
                     <div class="w-56 h-[215px] bg-primaryRed"></div>
-                    <img src="{{ asset('images/bg-feature-airport.png') }}" class="absolute top-10 ml-7" width="300"
+                    <img src="{{ asset('storage/images/bg-feature-airport.png') }}" class="absolute top-10 ml-7" width="300"
                         height="300" alt="">
                     <livewire:components.teks-csr />
                     <div class="flex gap-6 pt-4">
@@ -98,7 +98,7 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-end justify-end h-full bg-gray-100">
-                <img src="{{ asset('images/bg-bupati-cirebon.png') }}" width="530" height="530"
+                <img src="{{ asset('storage/images/bg-bupati-cirebon.png') }}" width="530" height="530"
                     alt="Bupati Cirebon">
             </div>
         </div>
@@ -198,7 +198,7 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-start justify-center h-full p-16">
-                <img src="{{ asset('images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
+                <img src="{{ asset('storage/images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
             </div>
         </div>
     </div>

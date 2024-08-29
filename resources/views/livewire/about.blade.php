@@ -67,7 +67,7 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-end justify-end h-full bg-gray-100">
-                <img src="{{ asset('images/bg-bulding-1.png') }}" width="450" height="400" alt="Building Cirebon">
+                <img src="{{ asset('storage/images/bg-bulding-1.png') }}" width="450" height="400" alt="Building Cirebon">
             </div>
         </div>
     </div>
@@ -101,7 +101,7 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-end justify-end h-full bg-gray-100">
-                <img src="{{ asset('images/bg-bupati-cirebon.png') }}" width="530" height="530"
+                <img src="{{ asset('storage/images/bg-bupati-cirebon.png') }}" width="530" height="530"
                     alt="Bupati Cirebon">
             </div>
         </div>
@@ -136,7 +136,7 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-start justify-center h-full p-16">
-                <img src="{{ asset('images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
+                <img src="{{ asset('storage/images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
             </div>
         </div>
     </div>

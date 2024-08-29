@@ -14,7 +14,10 @@ class Project extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'images' => 'array',
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
+        'published_date' => 'date',
+        'is_published' => 'boolean',
     ];
 
     public function sectorProgram()
