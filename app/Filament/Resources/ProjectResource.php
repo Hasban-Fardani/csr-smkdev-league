@@ -20,15 +20,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
+    
+    public static ?string $title = 'Project';
+    
     public static $selectedSector = null;
-
-    public static function getNavigationLabel(): string
-    {
-        return 'Proyek';
-    }
 
     public static function form(Form $form): Form
     {
@@ -75,27 +70,29 @@ class ProjectResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')
+                    ->label('JUDUL')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('subdistrict.name')
+                    ->label('LOKASI')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('start_date')
-                    ->dateTime()
+                    ->label('TGL MULAI')
+                    ->dateTime('d F Y')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('end_date')
-                    ->dateTime()
+                    ->label('TGL AKHIR')
+                    ->dateTime('d F Y')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('sectorProgram.name')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('published_date')
+                    ->label('TGL DITERBITKAN')
+                    ->dateTime('d F Y')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('subdistrict.name')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('is_published')
+                    ->label('STATUS')
+                    ->badge()
+                    ->formatStateUsing(function ($state) {
+                        return $state ? 'Terbit' : 'Draf';
+                    })
             ])
             ->filters([
                 //
