@@ -49,7 +49,7 @@
     </div>
 
     <h2 class="text-3xl font-semibold">Realisasi Project CSR</h2>
-    <div class="bg-white p-8">
+    <div class="bg-white p-8 rounded-xl">
         <x-filament-widgets::widgets
             :columns="$this->getColumns()"
             :data="

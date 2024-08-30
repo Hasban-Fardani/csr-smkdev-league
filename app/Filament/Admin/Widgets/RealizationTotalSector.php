@@ -15,9 +15,10 @@ class RealizationTotalSector extends ChartWidget
     {
         $sectorData = Sector::leftJoin('projects', 'sectors.id', '=', 'projects.sector_id')
             ->leftJoin('reports', 'projects.id', '=', 'reports.project_id')
-            ->select('sectors.name', DB::raw('SUM(reports.funds) as total_funds'))
+            ->select('sectors.name', DB::raw('COALESCE(SUM(reports.funds), 0) as total_funds'))
             ->where('reports.status', 'diterima')
             ->groupBy('sectors.id', 'sectors.name')
+            ->orderByDesc('total_funds')
             ->get();
 
         return [
@@ -25,6 +26,11 @@ class RealizationTotalSector extends ChartWidget
                 [
                     'label' => 'Total Dana Realisasi',
                     'data' => $sectorData->pluck('total_funds'),
+                    'backgroundColor' => [
+                        '#36A2EB', '#4BC0C0', '#FFCE56', '#FF6384', '#9966FF', '#FF9F40', '#FF6384'
+                    ],
+                    'borderColor' => 'rgba(0,0,0,0)',
+                    'borderWidth' => 0,
                 ],
             ],
             'labels' => $sectorData->pluck('name'),
@@ -34,5 +40,32 @@ class RealizationTotalSector extends ChartWidget
     protected function getType(): string
     {
         return 'bar';
+    }
+
+    protected function getOptions(): array
+    {
+        return [
+            'indexAxis' => 'y',
+            'plugins' => [
+                'legend' => [
+                    'display' => false,
+                ],
+            ],
+            'scales' => [
+                'x' => [
+                    'display' => true,
+                    'grid' => [
+                        'display' => false,
+                    ],
+                ],
+                'y' => [
+                    'grid' => [
+                        'display' => false,
+                    ],
+                ],
+            ],
+            'maintainAspectRatio' => false,
+            'responsive' => true,
+        ];
     }
 }

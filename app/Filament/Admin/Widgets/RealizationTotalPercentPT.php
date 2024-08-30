@@ -27,18 +27,51 @@ class RealizationTotalPercentPT extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Persentase Realisasi',
                     'data' => $partnerData->map(function ($item) use ($totalFunds) {
                         return $totalFunds > 0 ? round(($item->total_funds / $totalFunds) * 100, 2) : 0;
                     }),
+                    'backgroundColor' => [
+                        '#36A2EB', '#4BC0C0', '#FFCE56', '#FF6384', '#9966FF', '#FF9F40', '#FF6384', '#4BC0C0', '#FFCE56', '#36A2EB'
+                    ],
+                    'borderColor' => 'rgba(0,0,0,0)', // Menghilangkan border
+                    'borderWidth' => 0,
                 ],
             ],
-            'labels' => $partnerData->pluck('name'),
+            'labels' => $partnerData->pluck('name')->map(function($name, $index) use ($partnerData) {
+                return $name . ': Rp.' . number_format($partnerData[$index]->total_funds, 0, ',', '.');
+            }),
         ];
     }
 
     protected function getType(): string
     {
         return 'bar';
+    }
+
+    protected function getOptions(): array
+    {
+        return [
+            'indexAxis' => 'y',
+            'plugins' => [
+                'legend' => [
+                    'display' => false,
+                ],
+            ],
+            'scales' => [
+                'x' => [
+                    'display' => true,
+                    'grid' => [
+                        'display' => false,
+                    ],
+                ],
+                'y' => [
+                    'grid' => [
+                        'display' => false,
+                    ],
+                ],
+            ],
+            'maintainAspectRatio' => false,
+            'responsive' => true,
+        ];
     }
 }
