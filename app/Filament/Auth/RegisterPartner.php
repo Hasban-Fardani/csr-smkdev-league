@@ -11,7 +11,7 @@ use Filament\Forms\Components\Split;
 use Filament\Forms\Components\Section;
 use Filament\Infolists\Infolist;
 
-class RegisterSeller extends BaseRegister {
+class RegisterPartner extends BaseRegister {
     protected function getForms(): array
     {
         return [
