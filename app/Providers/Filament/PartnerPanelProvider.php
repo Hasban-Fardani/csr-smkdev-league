@@ -32,7 +32,7 @@ class PartnerPanelProvider extends PanelProvider
                 'bandi-blue' => '#0098B0',
                 'blaze-orange' => '#FF6E01'
             ])
-            ->login(Login::class)
+            ->login()
             ->registration(RegisterPartner::class)
             ->emailVerification()
             ->topNavigation()
