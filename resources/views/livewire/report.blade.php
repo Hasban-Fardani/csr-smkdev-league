@@ -10,14 +10,18 @@
         </div>
         <div class="grid grid-cols-1 px-4 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
             @forelse ($reports as $report)
-                <livewire:components.card-with-button :title="$report->title" images="blog-post-1.webp" :description="$report->description"
-                    name="hasban" avatar="avatar-1.png" link="/report/{{ $report->id }}" />
+                @php
+                    $images = json_decode($report->files, true);
+                @endphp
+
+                <livewire:components.card-with-button :title="$report->title" :images="$images[0]" :description="$report->description"
+                    name="admin" avatar="avatars/avatar-1.png" link="/report/{{ $report->id }}" :date="$report->realization_date" />
             @empty
                 <h1>tidak ada data</h1>
             @endforelse
 
             <div class="flex items-center justify-center pt-6 pb-10 col-span-full">
-                <x-mary-button label="Muat lebih banyak" class="btn-md btn-outline" />
+                <x-mary-button label="Muat lebih banyak" class="btn-md btn-outline" link="/report" />
             </div>
         </div>
     </div>
