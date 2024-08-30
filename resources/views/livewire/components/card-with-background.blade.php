@@ -1,11 +1,11 @@
 <div class="relative grid-cols-1">
     <div class="flex flex-col border">
-        <img src="{{ asset('images/' . $images) }}" alt="{{ $title }}">
+        <img src="{{ asset($images) }}" alt="{{ $title }}" height="150" width="150" class="w-full">
 
         <div class="flex flex-col gap-4 px-4 py-5">
             <h1 class="text-xl font-semibold min-h-14">{{ $title }}</h1>
             <p class="w-2/4 p-2 text-sm bg-gray-100 rounded text-stone-500">{{ $content }}</p>
-            <x-mary-button label="Lihat detail" link="/sector/detail"
+            <x-mary-button label="Lihat detail" link="{{ $link }}"
                 class="text-white btn-sm bg-secondaryRed hover:bg-secondaryRed hover:opacity-80" />
         </div>
     </div>

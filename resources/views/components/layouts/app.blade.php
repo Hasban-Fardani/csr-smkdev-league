@@ -23,7 +23,7 @@
             {{-- Brand --}}
             <div class="flex items-center justify-between w-full">
                 <div class="flex w-1/3 gap-2 pl-20">
-                    <img src="{{ asset('logos/logo-cirebon.png') }}" class="w-8 h-8" width="40" height="40"
+                    <img src="{{ asset('storage/logos/logo-cirebon.png') }}" class="w-8 h-8" width="40" height="40"
                         alt="">
                     <div class="flex flex-col">
                         <h1 class="text-[.8rem] font-bold">PEMERINTAH</h1>
@@ -31,16 +31,23 @@
                     </div>
                 </div>
 
-                <!-- NAVBAR!!! -->
-                <div class="w-2/3">
-                    <x-mary-button label="Beranda" class="btn-link" link="/" />
-                    <x-mary-button label="Tentang" class="btn-link" link="/about" />
-                    <x-mary-button label="Kegiatan" class="btn-link" link="/activity" />
-                    <x-mary-button label="Statistik" class="btn-link" link="/stats" />
-                    <x-mary-button label="Sektor" class="btn-link" link="/sector" />
-                    <x-mary-button label="Laporan" class="btn-link" />
-                    <x-mary-button label="Mitra" class="btn-link" />
+                <div class="flex w-2/3 gap-10">
+                    <a href="/"
+                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Beranda</a>
+                    <a href="/about"
+                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Tentang</a>
+                    <a href="/activity"
+                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Kegiatan</a>
+                    <a href="/stats"
+                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Statistik</a>
+                    <a href="/sector"
+                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Sektor</a>
+                    <a href="/report"
+                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Laporan</a>
+                    <a href="/partner"
+                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Mitra</a>
                 </div>
+                
             </div>
         </x-slot:brand>
 

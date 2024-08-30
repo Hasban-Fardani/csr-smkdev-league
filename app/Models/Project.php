@@ -12,4 +12,26 @@ class Project extends Model
     protected $table = 'projects';
 
     protected $guarded = [];
+
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
+        'published_date' => 'date',
+        'is_published' => 'boolean',
+    ];
+
+    public function sectorProgram()
+    {
+        return $this->belongsTo(SectorProgram::class);
+    }
+
+    public function subdistrict()
+    {
+        return $this->belongsTo(Subdistrict::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProjectImage::class);
+    }
 }

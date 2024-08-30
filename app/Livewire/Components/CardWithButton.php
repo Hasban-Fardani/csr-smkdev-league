@@ -9,6 +9,11 @@ class CardWithButton extends Component
     public $images;
     public $title;
     public $description;
+    
+    public $date;
+
+    // link
+    public $link;
 
     // avatar section
     public $avatar;

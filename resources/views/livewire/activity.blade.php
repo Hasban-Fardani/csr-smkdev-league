@@ -9,26 +9,13 @@
             <x-mary-button label="Cari kegiatan..." icon="o-magnifying-glass" class="w-4/5 btn btn-outline" />
         </div>
         <div class="grid grid-cols-1 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
-            <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-1.png"
-                description="testing" />
-            <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-2.png"
-                description="testing" />
-            <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-3.png"
-                description="testing" />
-            <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-4.png"
-                description="testing" />
-
-            <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-1.png"
-                description="testing" />
-            <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-2.png"
-                description="testing" />
-            <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-3.png"
-                description="testing" />
-            <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-4.png"
-                description="testing" />
+            @foreach ($activities as $activity)
+                <livewire:components.card-with-button :title="$activity->name" :images="$activity->image"
+                    :description="$activity->description" :date="$activity->published_data" link="/activity/{{ $activity->id }}" />
+            @endforeach
 
             <div class="flex items-center justify-center pt-6 col-span-full">
-                <x-mary-button label="Muat lebih banyak" class="btn-md btn-outline" />
+                <x-mary-button label="Muat lebih banyak" class="btn-md btn-outline" link="/activity" />
             </div>
         </div>
     </div>
@@ -51,7 +38,7 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-start justify-center h-full p-16">
-                <img src="{{ asset('images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
+                <img src="{{ asset('storage/images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
             </div>
         </div>
     </div>

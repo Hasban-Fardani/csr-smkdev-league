@@ -6,11 +6,9 @@ use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
-use Filament\Support\Colors\Color;
-use Filament\Widgets;
+use Filament\View\PanelsRenderHook;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -27,31 +25,35 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->databaseNotifications()
+            ->databaseNotificationsPolling('5s')
             ->login()
             ->colors([
-                // color from figma design
                 'primary' => '#98100A',
                 'bandi-blue' => '#0098B0',
                 'blaze-orange' => '#FF6E01'
             ])
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->topNavigation()
-            ->brandLogo(asset('logos/logo-cirebon.png'))
+            ->brandLogo(asset('storage/logos/logo-cirebon.png'))
             ->brandLogoHeight('3rem')
             ->brandName('Pemerintah Kabupaten Cirebon')
-            ->favicon(asset('logos/logo-cirebon.png'))
+            ->favicon(asset('storage/logos/logo-cirebon.png'))
             ->font('Inter')
             ->defaultThemeMode(ThemeMode::Light)
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
-            ->pages([
-                Pages\Dashboard::class,
-            ])
-            ->profile(isSimple: false)
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
-            ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
-            ])
+            ->discoverResources(
+                in: app_path('Filament/Admin/Resources'),
+                for: 'App\\Filament\\Admin\\Resources'
+            )
+            ->discoverPages(
+                in: app_path('Filament/Admin/Pages'),
+                for: 'App\\Filament\\Admin\\Pages'
+            )
+            ->pages([])
+            ->discoverWidgets(
+                in: app_path('Filament/Admin/Widgets'),
+                for: 'App\\Filament\\Admin\\Widgets'
+            )
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -65,6 +67,13 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+                'can:admin',
+            ])
+            ->renderHook(
+                // This line tells us where to render it
+                PanelsRenderHook::FOOTER,
+                // This is the view that will be rendered
+                fn() => view('livewire.components.footer')
+            );
     }
 }

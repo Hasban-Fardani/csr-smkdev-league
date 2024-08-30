@@ -1,6 +1,8 @@
 <?php
 namespace App\Filament\Auth;
 
+use App\Models\Partner;
+use App\Models\User;
 use Coderflex\FilamentTurnstile\Forms\Components\Turnstile;
 use Filament\Pages\Auth\Register as BaseRegister;
 use Filament\Forms;
@@ -9,8 +11,7 @@ use Filament\Forms\Components\Split;
 use Filament\Forms\Components\Section;
 use Filament\Infolists\Infolist;
 
-class RegisterPartner extends BaseRegister {
-    protected string $userModel = "App\Models\Partner";
+class RegisterSeller extends BaseRegister {
     protected function getForms(): array
     {
         return [
@@ -31,7 +32,21 @@ class RegisterPartner extends BaseRegister {
 
     protected function handleRegistration(array $data): Model
     {
-        return $this->getUserModel()::create($data);
+        // create user
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
+        ]);
+
+        // create partner
+        $partnerData = [
+            'company_name' => $data['name'],
+            'email' => $data['email'],
+        ];
+
+        Partner::create($partnerData);
+        return $user;
     }
     
     // if you want to reset the captcha in case of validation error

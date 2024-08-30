@@ -2,17 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Activity;
 
 class ActivityController extends Controller
 {
     public function index()
     {
-        return view('livewire.activity');
+        $activities = Activity::where('is_draft', false)->get();
+
+        return view('livewire.activity', [
+            'activities' => $activities
+        ]);
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('livewire.detail-activity');
+        $activity = Activity::find($id);
+        $activities = Activity::where('is_draft', false)->orderBy('created_at', 'DESC')->take(4)->get();
+        
+        return view('livewire.detail-activity', [
+            'activity' => $activity,
+            'activities' => $activities
+        ]);
     }
 }

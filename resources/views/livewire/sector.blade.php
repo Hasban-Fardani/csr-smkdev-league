@@ -8,20 +8,12 @@
         <livewire:components.container title="Sektor CSR" subtitle="Bidang program CSR Kabupaten Cirebon yang tersedia"
             fontClass="text-lg text-stone-500" class="items-center">
             <div class="grid grid-cols-1 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
-                <livewire:components.card-with-background title="Sosial" images="bg-kegiatan-1.png"
-                    content="Tersedia: 10" />
-                <livewire:components.card-with-background title="Lingkungan" images="bg-kegiatan-1.png"
-                    content="Tersedia: 10" />
-                <livewire:components.card-with-background title="Kesehatan" images="bg-kegiatan-1.png"
-                    content="Tersedia: 10" />
-                <livewire:components.card-with-background title="Pendidikan" images="bg-kegiatan-1.png"
-                    content="Tersedia: 10" />
-                <livewire:components.card-with-background title="Infrastruktur dan sanitasi lingkungan"
-                    images="bg-kegiatan-1.png" content="Tersedia: 10" />
-                <livewire:components.card-with-background title="Sarana dan prasarana keagamaan"
-                    images="bg-kegiatan-1.png" content="Tersedia: 10" />
-                <livewire:components.card-with-background title="Lainnya" images="bg-kegiatan-1.png"
-                    content="Tersedia: 10" />
+                @forelse ($sectors as $sector)
+                    <livewire:components.card-with-background :title="$sector->name" :images="$sector->banner"
+                        content="Tersedia: {{ $sector->programs->count() }}" link="/sector/{{ $sector->id }}" />
+                @empty
+                    <h1>tidak ada data</h1>
+                @endforelse
             </div>
         </livewire:components.container>
     </div>
@@ -34,12 +26,20 @@
                     <x-mary-button label="Cari kegiatan..." icon="o-magnifying-glass" class="w-4/5 btn btn-outline" />
                 </div>
                 <div class="grid grid-cols-1 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
-                    <livewire:components.card-sector title="Sosial" images="bg-kegiatan-1.png" content="Sektor"
-                        address="Jl. Sunan Kalijaga No.7, Sumber, Kec. Sumber, Kabupaten Cirebon, Jawa..."
-                        date="Jul 15, 2024" />
+                    @forelse ($projects as $project)
+                    @php
+                        $image = json_decode($project->images, true);
+                    @endphp
+                    
+                        <livewire:components.card-sector :title="$project->title" :images="$image[0]"
+                            :content="$project->sector_program_name" :address="$project->subdistrict_name"
+                            :date="$project->end_date" />
+                    @empty
+                        <h1>tidak ada data</h1>
+                    @endforelse
 
                     <div class="flex items-center justify-center pt-6 col-span-full">
-                        <x-mary-button label="Muat lebih banyak" class="btn-md btn-outline" />
+                        <x-mary-button label="Muat lebih banyak" class="btn-md btn-outline" link="/sector" />
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-start justify-center h-full p-16">
-                <img src="{{ asset('images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
+                <img src="{{ asset('storage/images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
             </div>
         </div>
     </div>

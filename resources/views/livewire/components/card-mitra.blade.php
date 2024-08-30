@@ -3,7 +3,7 @@
         <!-- mapping logo -->
         @foreach ($logoMitra as $mitra)
             <div class="flex items-center justify-center col-span-1 p-5 border-b border-r border-gray-200 md:p-7">
-                <img src="{{ asset('logos/' . $mitra) }}" alt="" class="h-auto max-w-full">
+                <img src="{{ asset('storage/logos/' . $mitra) }}" alt="" class="h-auto max-w-full">
             </div>
         @endforeach
     </div>

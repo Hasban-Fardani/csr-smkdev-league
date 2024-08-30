@@ -2,7 +2,7 @@
     <div id="hero">
         <livewire:components.hero />
     </div>
-    
+
     <div id="mitra" class="px-4 pt-20 md:px-7">
         <livewire:components.container title="Mitra CSR" subtitle="Kabupaten Cirebon"
             fontClass="text-2xl md:text-3xl font-bold">
@@ -52,7 +52,7 @@
             </div>
         </livewire:components.container>
     </div>
-    
+
     <div id="sektorCSR" class="pt-20 pb-5 text-white bg-dark">
         <livewire:components.container title="Sektor CSR" subtitle="Bidang sektor CSR Kabupaten Cirebon yang tersedia"
             class="text-base font-light" fontClass="pt-4">
@@ -76,8 +76,8 @@
                 </div>
                 <div class="relative w-1/2 py-10 px-14">
                     <div class="w-56 h-[215px] bg-primaryRed"></div>
-                    <img src="{{ asset('images/bg-feature-airport.png') }}" class="absolute top-10 ml-7" width="300"
-                        height="300" alt="">
+                    <img src="{{ asset('storage/images/bg-feature-airport.png') }}" class="absolute top-10 ml-7"
+                        width="300" height="300" alt="">
                     <livewire:components.teks-csr />
                     <div class="flex gap-6 pt-4">
                         <x-mary-button label="Lihat program tersedia"
@@ -98,7 +98,7 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-end justify-end h-full bg-gray-100">
-                <img src="{{ asset('images/bg-bupati-cirebon.png') }}" width="530" height="530"
+                <img src="{{ asset('storage/images/bg-bupati-cirebon.png') }}" width="530" height="530"
                     alt="Bupati Cirebon">
             </div>
         </div>
@@ -107,17 +107,15 @@
     <div id="kegiatan">
         <livewire:components.container title="Kegiatan Terbaru" class="items-center">
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-1.png"
-                    description="testing" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-2.png"
-                    description="testing" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-3.png"
-                    description="testing" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-4.png"
-                    description="testing" />
+                @forelse ($activities as $activity)
+                    <livewire:components.card-with-button :title="$activity->name" :images="$activity->image" :description="$activity->description"
+                        link="/activity/{{ $activity->id }}" :date="$activity->published_data" />
+                @empty
+                    <h1>tidak ada data</h1>
+                @endforelse
 
                 <div class="flex items-center justify-center pt-6 col-span-full">
-                    <x-mary-button label="Lihat semua kegiatan" class="btn-md btn-outline" />
+                    <x-mary-button label="Lihat semua kegiatan" class="btn-md btn-outline" link="/activity" />
                 </div>
             </div>
         </livewire:components.container>
@@ -127,14 +125,16 @@
         <livewire:components.container title="Laporan Program" subtitle="Terbaru"
             fontClass="text-2xl md:text-3xl font-bold" class="items-center">
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-1.png"
-                    description="testing" name="Andri Sapulalung" avatar="avatar-1.png" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-2.png"
-                    description="testing" name="Hesti Septian" avatar="avatar-2.png" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-3.png"
-                    description="testing" name="Fera Pablo" avatar="avatar-3.png" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-4.png"
-                    description="testing" name="Fera Pablo" avatar="avatar-3.png" />
+                @forelse ($reports as $report)
+                    @php
+                        $images = json_decode($report->files, true);
+                    @endphp
+
+                    <livewire:components.card-with-button :title="$report->title" :images="$images[0]" :description="$report->description"
+                        name="hasban" avatar="avatar-1.png" :date="$report->realization_date" />
+                @empty
+                    <h1>tidak ada data</h1>
+                @endforelse
 
                 <div class="flex items-center justify-center pt-6 pb-10 col-span-full">
                     <x-mary-button label="Lihat semua laporan program" class="btn-md btn-outline" />
@@ -142,7 +142,7 @@
             </div>
         </livewire:components.container>
     </div>
-    
+
     <div id="faq" class="py-20 text-white bg-dark">
         <livewire:components.container title="Frequently Asked Question (FAQ)"
             subtitle="Pertanyaan yang sering muncul" fontClass="pt-5">
@@ -202,7 +202,8 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-start justify-center h-full p-16">
-                <img src="{{ asset('images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
+                <img src="{{ asset('storage/images/bg-basemap.png') }}" width="400" height="400"
+                    alt="Map Cirebon">
             </div>
         </div>
     </div>

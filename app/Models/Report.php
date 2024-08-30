@@ -13,6 +13,10 @@ class Report extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'image' => 'array',
+    ];
+
     public function project()
     {
         return $this->belongsTo(Project::class);
@@ -21,5 +25,10 @@ class Report extends Model
     public function partner()
     {
         return $this->belongsTo(Partner::class);
+    }
+
+    public function files()
+    {
+        return $this->hasMany(ReportFile::class);
     }
 }

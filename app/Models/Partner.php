@@ -12,4 +12,9 @@ class Partner extends Model
     protected $table = "partners";
 
     protected $guarded = [];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'email', 'email');
+    }
 }

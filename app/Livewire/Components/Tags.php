@@ -7,6 +7,7 @@ use Livewire\Component;
 class Tags extends Component
 {
     public $tag;
+    public $class;
 
     public function mount($tag): void
     {

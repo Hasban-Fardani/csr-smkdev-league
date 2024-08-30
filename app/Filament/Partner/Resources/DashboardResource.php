@@ -2,7 +2,6 @@
 
 namespace App\Filament\Partner\Resources;
 
-use App\Filament\Partner\Resources\ReportResource\Pages;
 use App\Models\Report;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -15,11 +14,11 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ReportResource extends Resource
+class PartnerReportResource extends Resource
 {
     protected static ?string $model = Report::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
     {
