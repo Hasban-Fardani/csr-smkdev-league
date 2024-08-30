@@ -6,6 +6,7 @@ use App\Filament\Admin\Resources\ReportResource;
 use App\Models\User;
 use Filament\Actions;
 use Filament\Actions\StaticAction;
+use Filament\Forms\Components\Textarea;
 use Filament\Infolists\Components\Actions\Action;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
@@ -62,25 +63,39 @@ class ViewReport extends ViewRecord
                         ->requiresConfirmation()
                         ->modalHeading('Revisi Laporan')
                         ->modalDescription('Laporan akan diberikan kepada mitra untuk merevisi beberapa hal yang tidak sesuai')
+                        ->form([
+                            Textarea::make('alasan_revisi')
+                                ->label('Alasan Revisi')
+                                ->required()
+                                ->placeholder('Masukkan alasan mengapa laporan perlu direvisi')
+                        ])
                         ->modalSubmitActionLabel('Kirim')
                         ->modalCancelActionLabel('Batal')
                         ->modalSubmitAction(fn(StaticAction $action) => $action->color(Color::Blue))
-                        ->action(function () {
-                            $this->record->update(['status' => 'revisi']);
+                        ->action(function (array $data) {
+                            $this->record->update([
+                                'status' => 'revisi',
+                            ]);
 
                             $partner = $this->record->partner;
-                            $reciver = User::where('email', $partner->email)->first();
+                            $receiver = User::where('email', $partner->email)->first();
                             Notification::make()
                                 ->title('Berhasil merubah status laporan')
                                 ->success()
                                 ->send();
-                            $reciver->notify(
+                            $receiver->notify(
                                 Notification::make('Revisi laporan')
-                                    ->title('Revisi laporan')
+                                    ->title('Revisi Laporan: ' . $this->record->title)
+                                    ->body("Alasan: " . $data['alasan_revisi'])
+                                    ->actions([
+                                        \Filament\Notifications\Actions\Action::make('view')
+                                            ->label('Lihat Laporan')
+                                            ->url(route('filament.partner.resources.reports.view', $this->record->id))
+                                    ])
                                     ->warning()
                                     ->toDatabase()
                             );
-                            Log::info('send notif to ' . $reciver->email . ' for ' . $this->record->title . ' with status ' . $this->record->status);
+                            Log::info('send notif to ' . $receiver->email . ' for ' . $this->record->title . ' with status ' . $this->record->status . ' and reason: ' . $data['alasan_revisi']);
                         })
                         ->visible(fn() => !$this->record->is_published),
                 ])

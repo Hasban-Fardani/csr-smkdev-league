@@ -37,6 +37,7 @@ class PartnerPanelProvider extends PanelProvider
             ->emailVerification()
             ->topNavigation()
             ->databaseNotifications()
+            ->databaseNotificationsPolling('5s')
             ->brandLogo(asset('storage/logos/logo-cirebon.png'))
             ->brandLogoHeight('3rem')
             ->brandName('Pemerintah Kabupaten Cirebon')
