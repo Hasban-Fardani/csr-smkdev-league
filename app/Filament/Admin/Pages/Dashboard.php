@@ -24,7 +24,7 @@ class Dashboard extends BaseDashboard
 
     protected static ?string $navigationIcon = '';
 
-    protected static string $view = 'filament.pages.admin-dashboard';
+    protected static string $view = 'filament.admin.pages.dashboard';
 
     protected static ?string $title = '';
 
