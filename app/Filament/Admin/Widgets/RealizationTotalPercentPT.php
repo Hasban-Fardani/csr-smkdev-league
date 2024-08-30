@@ -33,7 +33,7 @@ class RealizationTotalPercentPT extends ChartWidget
                     'backgroundColor' => [
                         '#36A2EB', '#4BC0C0', '#FFCE56', '#FF6384', '#9966FF', '#FF9F40', '#FF6384', '#4BC0C0', '#FFCE56', '#36A2EB'
                     ],
-                    'borderColor' => 'rgba(0,0,0,0)', // Menghilangkan border
+                    'borderColor' => 'rgba(0,0,0,0)',
                     'borderWidth' => 0,
                 ],
             ],
