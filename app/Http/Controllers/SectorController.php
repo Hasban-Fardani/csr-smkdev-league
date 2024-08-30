@@ -25,7 +25,7 @@ class SectorController extends Controller
         $sectors = Sector::findOrFail($id);
         $programs = SectorProgram::withCount('project')->where('sector_id', $id)->get();
 
-        $projects = SectorProgram::where('sector_id', $id)->first();
+        $projects = SectorProgram::where('sector_id', $id)->get();
         $projects->load('project');
 
         return view('livewire.detail-sector', [

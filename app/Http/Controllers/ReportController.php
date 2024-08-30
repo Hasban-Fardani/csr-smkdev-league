@@ -20,9 +20,11 @@ class ReportController extends Controller
     public function show($id)
     {
         $report = Report::find($id);
+        $reports = Report::orderBy('created_at', 'DESC')->take(3)->get();
 
         return view('livewire.detail-report', [
-            'report' => $report
+            'report' => $report,
+            'reports' => $reports
         ]);
     }
 }
