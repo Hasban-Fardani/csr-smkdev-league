@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Admin\Pages\ViewProfile;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -16,6 +17,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Filament\Navigation\MenuItem;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -74,6 +76,18 @@ class AdminPanelProvider extends PanelProvider
                 PanelsRenderHook::FOOTER,
                 // This is the view that will be rendered
                 fn() => view('livewire.components.footer')
-            );
+            )
+            ->userMenuItems($this->getUserMenuItems());
+    }
+
+    protected function getUserMenuItems(): array
+    {
+        return [
+            MenuItem::make()
+                ->label('Lihat Profil')
+                ->url(fn () => ViewProfile::getUrl())
+                ->icon('heroicon-o-user'),
+            // Item menu lainnya...
+        ];
     }
 }

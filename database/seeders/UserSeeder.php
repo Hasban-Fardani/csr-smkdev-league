@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
 
         $users = [
             [
-                'avatar' => 'storage/avatarsavatar-1.png',
+                'avatar' => 'storage/avatars/avatar-1.png',
                 'name' => 'admin',
                 'email' => 'admin@localhost.test',
                 'password' => Hash::make($password),
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
                 'email_verified_at' => now(),
             ],
             [
-                'avatar' => 'storage/avatarsavatar-1.png',
+                'avatar' => 'storage/avatars/avatar-1.png',
                 'name' => 'mitra',
                 'email' => 'mitra@localhost.test',
                 'password' => Hash::make($password),
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
                 'email_verified_at' => now(),
             ],
             [
-                'avatar' => 'storage/avatarsavatar-2.png',
+                'avatar' => 'storage/avatars/avatar-2.png',
                 'name' => 'hasban',
                 'email' => 'hasbanfardani77@gmail.com',
                 'password' => Hash::make($password),
@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
                 'email_verified_at' => null,
             ],
             [
-                'avatar' => 'storage/avatarsavatar-3.png',
+                'avatar' => 'storage/avatars/avatar-3.png',
                 'name' => 'Cirebon Jaya',
                 'email' => 'info@cirebonjaya.com',
                 'email_verified_at' => now(),
@@ -53,7 +53,7 @@ class UserSeeder extends Seeder
                 'email_verified_at' => null,
             ],
             [
-                'avatar' => 'storage/avatarsavatar-1.png',
+                'avatar' => 'storage/avatars/avatar-1.png',
                 'name' => 'Mega Utama',
                 'email' => 'contact@megautama.com',
                 'email_verified_at' => now(),
@@ -62,7 +62,7 @@ class UserSeeder extends Seeder
                 'email_verified_at' => null,
             ],
             [
-                'avatar' => 'storage/avatarsavatar-2.png',
+                'avatar' => 'storage/avatars/avatar-2.png',
                 'name' => 'Sumber Berkah',
                 'email' => 'info@sumberberkah.com',
                 'email_verified_at' => now(),
@@ -71,7 +71,7 @@ class UserSeeder extends Seeder
                 'email_verified_at' => null,
             ],
             [
-                'avatar' => 'storage/avatarsavatar-3.png',
+                'avatar' => 'storage/avatars/avatar-3.png',
                 'name' => 'Mandiri Sejahtera',
                 'email' => 'support@mandirisejahtera.com',
                 'email_verified_at' => now(),
@@ -80,7 +80,7 @@ class UserSeeder extends Seeder
                 'email_verified_at' => null,
             ],
             [
-                'avatar' => 'storage/avatarsavatar-1.png',
+                'avatar' => 'storage/avatars/avatar-1.png',
                 'name' => 'Indah Makmur',
                 'email' => 'info@indahmakmur.com',
                 'email_verified_at' => now(),
