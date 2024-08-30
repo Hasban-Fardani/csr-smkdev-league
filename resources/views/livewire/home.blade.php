@@ -76,8 +76,8 @@
                 </div>
                 <div class="relative w-1/2 py-10 px-14">
                     <div class="w-56 h-[215px] bg-primaryRed"></div>
-                    <img src="{{ asset('storage/images/bg-feature-airport.png') }}" class="absolute top-10 ml-7" width="300"
-                        height="300" alt="">
+                    <img src="{{ asset('storage/images/bg-feature-airport.png') }}" class="absolute top-10 ml-7"
+                        width="300" height="300" alt="">
                     <livewire:components.teks-csr />
                     <div class="flex gap-6 pt-4">
                         <x-mary-button label="Lihat program tersedia"
@@ -109,7 +109,7 @@
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
                 @forelse ($activities as $activity)
                     <livewire:components.card-with-button :title="$activity->name" :images="$activity->image" :description="$activity->description"
-                        link="/activity/{{ $activity->id }}" />
+                        link="/activity/{{ $activity->id }}" :date="$activity->published_data" />
                 @empty
                     <h1>tidak ada data</h1>
                 @endforelse
@@ -126,8 +126,12 @@
             fontClass="text-2xl md:text-3xl font-bold" class="items-center">
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
                 @forelse ($reports as $report)
-                    <livewire:components.card-with-button :title="$report->title" images="blog-post-1.webp" :description="$report->description"
-                        name="hasban" avatar="avatar-1.png" />
+                    @php
+                        $images = json_decode($report->files, true);
+                    @endphp
+
+                    <livewire:components.card-with-button :title="$report->title" :images="$images[0]" :description="$report->description"
+                        name="hasban" avatar="avatar-1.png" :date="$report->realization_date" />
                 @empty
                     <h1>tidak ada data</h1>
                 @endforelse
@@ -198,7 +202,8 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-start justify-center h-full p-16">
-                <img src="{{ asset('storage/images/bg-basemap.png') }}" width="400" height="400" alt="Map Cirebon">
+                <img src="{{ asset('storage/images/bg-basemap.png') }}" width="400" height="400"
+                    alt="Map Cirebon">
             </div>
         </div>
     </div>

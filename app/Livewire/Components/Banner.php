@@ -12,6 +12,8 @@ class Banner extends Component
     public $position;
     public $breadcrumbs;
 
+    public $tags;
+
     public function mount($title, $subtitle, $breadcrumbs, $position): void
     {
         $this->title = $title;

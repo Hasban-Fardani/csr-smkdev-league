@@ -1,6 +1,7 @@
 <x-layouts.app>
     <div id="banner">
-        <livewire:components.banner title="Tentang" subtitle="Tentang CSR Kabupaten Cirebon" breadcrumbs="Tentang" position="top" />
+        <livewire:components.banner title="Tentang" subtitle="Tentang CSR Kabupaten Cirebon" breadcrumbs="Tentang"
+            position="top" />
     </div>
 
     <div id="about" class="px-8 py-20">
@@ -67,7 +68,8 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="flex items-end justify-end h-full bg-gray-100">
-                <img src="{{ asset('storage/images/bg-bulding-1.png') }}" width="450" height="400" alt="Building Cirebon">
+                <img src="{{ asset('storage/images/bg-bulding-1.png') }}" width="450" height="400"
+                    alt="Building Cirebon">
             </div>
         </div>
     </div>
@@ -76,17 +78,19 @@
         <livewire:components.container title="Laporan Program" subtitle="Terbaru"
             fontClass="text-2xl md:text-3xl font-bold" class="items-center">
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-1.png"
-                    description="testing" name="Andri Sapulalung" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-2.png"
-                    description="testing" name="Hesti Septian" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-3.png"
-                    description="testing" name="Fera Pablo" />
-                <livewire:components.card-with-button title="Judul Kegiatan Terbaru." images="bg-kegiatan-4.png"
-                    description="testing" name="Fera Pablo" />
+                @forelse ($reports as $report)
+                    @php
+                        $images = json_decode($report->files, true);
+                    @endphp
+
+                    <livewire:components.card-with-button :title="$report->title" :images="$images[0]" :description="$report->description"
+                        name="hasban" avatar="avatar-1.png" :date="$report->realization_date" />
+                @empty
+                    <h1>tidak ada data</h1>
+                @endforelse
 
                 <div class="flex items-center justify-center pt-6 pb-10 col-span-full">
-                    <x-mary-button label="Lihat semua laporan program" class="btn-md btn-outline" />
+                    <x-mary-button label="Lihat semua laporan program" class="btn-md btn-outline" link="/report" />
                 </div>
             </div>
         </livewire:components.container>

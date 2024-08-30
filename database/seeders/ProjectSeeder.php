@@ -15,7 +15,7 @@ class ProjectSeeder extends Seeder
     {
         $projects = [
             [
-                'images' => json_encode(['storage/images/jalan-raya-1.png', 'storage/images/jalan-raya-2.png', 'storage/images/jalan-raya-3.png', 'storage/images/jalan-raya-4.png']),
+                'images' => json_encode(['storage/images/bg-kegiatan-1.png', 'storage/images/bg-kegiatan-2.png', 'storage/images/bg-kegiatan-3.png', 'storage/images/bg-kegiatan-4.png']),
                 'title' => 'Pembangunan Jalan Raya Penghubung Desa',
                 'description' => 'Proyek pembangunan jalan raya baru sepanjang 10 km untuk menghubungkan desa-desa terpencil di kecamatan Arjawinangun.',
                 'start_date' => now()->subMonths(2),
@@ -26,7 +26,7 @@ class ProjectSeeder extends Seeder
                 'subdistrict_id' => 1,
             ],
             [
-                'images' => json_encode(['storage/images/lab-sekolah-1.png', 'storage/images/lab-sekolah-2.png', 'storage/images/lab-sekolah-3.png']),
+                'images' => json_encode(['storage/images/bg-kegiatan-2.png', 'storage/images/bg-kegiatan-3.png', 'storage/images/bg-kegiatan-4.png']),
                 'title' => 'Pembangunan Laboratorium IPA SMA Negeri 1 Astanajapura',
                 'description' => 'Proyek pembangunan laboratorium IPA lengkap untuk meningkatkan kualitas pendidikan di SMA Negeri 1 Astanajapura.',
                 'start_date' => now()->subMonths(3),
@@ -37,7 +37,7 @@ class ProjectSeeder extends Seeder
                 'subdistrict_id' => 2,
             ],
             [
-                'images' => json_encode(['storage/images/puskesmas-1.png', 'storage/images/puskesmas-2.png', 'storage/images/puskesmas-3.png', 'storage/images/puskesmas-4.png']),
+                'images' => json_encode(['storage/images/bg-kegiatan-3.png', 'storage/images/bg-kegiatan-4.png', 'storage/images/bg-kegiatan-2.png', 'storage/images/bg-kegiatan-1.png']),
                 'title' => 'Renovasi dan Peningkatan Fasilitas Puskesmas Babakan',
                 'description' => 'Proyek renovasi dan peningkatan fasilitas Puskesmas Babakan untuk meningkatkan layanan kesehatan masyarakat.',
                 'start_date' => now()->subMonths(3),
@@ -48,7 +48,7 @@ class ProjectSeeder extends Seeder
                 'subdistrict_id' => 3,
             ],
             [
-                'images' => json_encode(['storage/images/taman-kota-1.png', 'storage/images/taman-kota-2.png', 'storage/images/taman-kota-3.png']),
+                'images' => json_encode(['storage/images/bg-kegiatan-4.png', 'storage/images/bg-kegiatan-2.png', 'storage/images/bg-kegiatan-1.png']),
                 'title' => 'Pembangunan Taman Kota Hijau di Beber',
                 'description' => 'Proyek pembangunan taman kota hijau seluas 5 hektar di kecamatan Beber untuk meningkatkan ruang terbuka hijau dan kualitas lingkungan.',
                 'start_date' => now()->subMonths(4),
@@ -59,7 +59,7 @@ class ProjectSeeder extends Seeder
                 'subdistrict_id' => 4,
             ],
             [
-                'images' => json_encode(['storage/images/pasar-tradisional-1.png', 'storage/images/pasar-tradisional-2.png', 'storage/images/pasar-tradisional-3.png', 'storage/images/pasar-tradisional-4.png']),
+                'images' => json_encode(['storage/images/bg-kegiatan-2.png', 'storage/images/bg-kegiatan-1.png', 'storage/images/bg-kegiatan-4.png', 'storage/images/bg-kegiatan-2.png']),
                 'title' => 'Revitalisasi Pasar Tradisional Ciledug',
                 'description' => 'Proyek revitalisasi pasar tradisional di Ciledug untuk meningkatkan fasilitas dan mendukung ekonomi lokal.',
                 'start_date' => now()->subMonths(5),

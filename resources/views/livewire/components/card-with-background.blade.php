@@ -1,6 +1,6 @@
 <div class="relative grid-cols-1">
     <div class="flex flex-col border">
-        <img src="{{ asset('storage/' . $images) }}" alt="{{ $title }}">
+        <img src="{{ asset($images) }}" alt="{{ $title }}" height="150" width="150" class="w-full">
 
         <div class="flex flex-col gap-4 px-4 py-5">
             <h1 class="text-xl font-semibold min-h-14">{{ $title }}</h1>

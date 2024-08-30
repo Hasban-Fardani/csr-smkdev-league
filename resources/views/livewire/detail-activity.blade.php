@@ -7,36 +7,14 @@
     <div id="detailActivity" class="px-40 pt-20 pb-10">
         <livewire:components.container>
             <div class="px-20">
-                <p class="text-lg text-gray-500">KABUPATEN CIREBON Pemerintah Kabupaten Cirebon menerima bantuan
-                    Corporate Social Responsibility (CSR) dari Bank BJB, berupa lampu penerangan jalan umum (PJU)
-                    tematik.
-                    <br>
-
-                    <br>
-                    Penyerahan bantuan ini dihadiri langsung oleh Penjabat (Pj) Bupati Cirebon, Drs H Wahyu Mijaya SH
-                    MSi di Pendopo Bupati Cirebon, Jumat (12/7/2024).
-                    <br>
-
-                    <br>
-                    "Kami berterima kasih kepada Ba BJB yang telah memberikan PJU untuk dipasang di beberapa titik di
-                    wilayah Sumber, Kabupaten Cirebon," ujar Wahyu.
-                    <br>
-
-                    <br>
-                    la menjelaskan, bahwa pemasangan PJU di kawasan Sumber, yang dekat dengan kantor pemerintahan, tidak
-                    hanya akan memperindah lingkungan, tetapi juga dapat meningkatkan keselamatan masyarakat.
-                    <br>
-
-                    <br>
-                    Langkah ini, menurut Wahyu, merupakan bagian dari upaya untuk menciptakan ruang publik yang lebih
-                    aman dan nyaman Dengan penerangan yang baik, warga dapat beraktivitas dengan tenang, terutama di
-                    malam hari.
-                    <br>
+                <p class="text-lg text-gray-500">
+                    {!! $activity->description !!}
                 </p>
                 <div class="flex flex-col my-10">
-                    <img src="{{ asset('storage/' . $activity->image) }}" alt="image activity">
-                    <a href="https://tx.shadcn.com/blog/preview-mode-headless-cms" target="_blank"
-                        class="pt-3 text-sm text-gray-500">sumber gambar: <span class="underline">TX</span></a>
+                    <img src="{{ asset($activity->image) }}" alt="{{ $activity->name }}">
+                    <a href="https://www.figma.com/exit?url=https%3A%2F%2Fwww.pexels.com%2Fphoto%2Fphoto-of-woman-leaning-on-wooden-table-3182746%2F"
+                        target="_blank" class="pt-3 text-sm text-gray-500">sumber gambar: <span
+                            class="underline">Pexels</span></a>
                 </div>
                 <p class="text-lg text-gray-500">{!! $activity->description !!}</p>
 
@@ -63,7 +41,7 @@
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
                 @forelse ($activities as $activity)
                     <livewire:components.card-with-button :title="$activity->name" :images="$activity->image" :description="$activity->description"
-                        link="/activity/{{ $activity->id }}" />
+                        link="/activity/{{ $activity->id }}" :date="$activity->published_data" />
                 @empty
                     <h1>tidak ada data</h1>
                 @endforelse

@@ -1,21 +1,23 @@
 <x-layouts.app>
     <div id="banner">
-        <livewire:components.banner title="Kegiatan" subtitle="Kegiatan Terkini Dari CSR Kabupaten Cirebon"
-            breadcrumbs="Kegiatan" position="top" />
+        <livewire:components.banner title="Laporan" subtitle="Kegiatan Terkini Dari CSR Kabupaten Cirebon"
+            breadcrumbs="Laporan" position="center" />
     </div>
     <div id="kegiatan" class="px-20 py-10">
         <div class="flex w-full gap-5">
             <x-mary-button label="Terbaru" icon-right="m-chevron-down" class="w-1/5 btn btn-outline" />
             <x-mary-button label="Cari kegiatan..." icon="o-magnifying-glass" class="w-4/5 btn btn-outline" />
         </div>
-        <div class="grid grid-cols-1 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
-            @foreach ($activities as $activity)
-                <livewire:components.card-with-button :title="$activity->name" :images="$activity->image"
-                    :description="$activity->description" :date="$activity->published_data" link="/activity/{{ $activity->id }}" />
-            @endforeach
+        <div class="grid grid-cols-1 px-4 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
+            @forelse ($reports as $report)
+                <livewire:components.card-with-button :title="$report->title" images="blog-post-1.webp" :description="$report->description"
+                    name="hasban" avatar="avatar-1.png" link="/report/{{ $report->id }}" />
+            @empty
+                <h1>tidak ada data</h1>
+            @endforelse
 
-            <div class="flex items-center justify-center pt-6 col-span-full">
-                <x-mary-button label="Muat lebih banyak" class="btn-md btn-outline" link="/activity" />
+            <div class="flex items-center justify-center pt-6 pb-10 col-span-full">
+                <x-mary-button label="Muat lebih banyak" class="btn-md btn-outline" />
             </div>
         </div>
     </div>

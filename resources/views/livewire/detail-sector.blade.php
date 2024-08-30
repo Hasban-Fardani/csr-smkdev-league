@@ -26,7 +26,6 @@
         </livewire:components.container>
     </div>
 
-    <!-- TODO PROGRAM -->
     <div id="program" class="px-6">
         <livewire:components.container title="Program CSR" subtitle="Bidang program CSR Kabupaten Cirebon yang tersedia"
             fontClass="text-sm text-stone-500 mt-5">
@@ -46,23 +45,22 @@
                     @endforelse
                 </div>
                 <div class="w-1/2">
-                    @forelse ($projects as $project)
-                        <x-mary-list-item :item="$projects" no-separator no-hover class="mx-20">
+
+                    <!-- PROJECT!!!!! -->
+
+                    @forelse ($projects->project as $project)
+                        <x-mary-list-item :item="$projects->project" no-separator no-hover class="mx-20">
                             <x-slot:value>
                                 {{ $project->title }}
                             </x-slot:value>
                             <x-slot:sub-value>
-                                {{ $project->subdistrict_name }}
+                                {{ $project->subdistrict->name }} proyek
                             </x-slot:sub-value>
-                            <x-slot:actions>
-                                <x-mary-button label="Lihat detail" icon="o-eye"
-                                    class="text-white bg-secondaryRed btn-md hover:bg-secondaryRed hover:opacity-80"
-                                    link="/project/{{ $project->id }}" spinner />
-                            </x-slot:actions>
                         </x-mary-list-item>
                     @empty
                         <h1>tidak ada data</h1>
                     @endforelse
+
                 </div>
             </div>
         </livewire:components.container>

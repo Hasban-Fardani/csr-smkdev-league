@@ -8,10 +8,10 @@ class ActivityController extends Controller
 {
     public function index()
     {
-        $activities = Activity::where('is_draft', false);
+        $activities = Activity::where('is_draft', false)->get();
 
         return view('livewire.activity', [
-            'activities' => $activities->paginate(8)
+            'activities' => $activities
         ]);
     }
 

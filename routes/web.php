@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SectorController;
 use App\Livewire\Welcome;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,6 @@ Route::get('/sector', [SectorController::class, 'index']);
 Route::get('/sector/{id}', [SectorController::class, 'show']);
 
 Route::get('/project/{id}', [ProjectController::class, 'show']);
+
+Route::get('/report', [ReportController::class, 'index']);
+Route::get('/report/{id}', [ReportController::class, 'show']);

@@ -12,7 +12,7 @@ class SectorController extends Controller
     public function index()
     {
         $sectors = Sector::paginate(8);
-        $projects = Project::withAggregate('subdistrict', 'name')->withAggregate('sectorProgram', 'name');
+        $projects = Project::withAggregate('subdistrict', 'name')->withAggregate('sectorProgram', 'name')->orderBy('created_at', 'DESC');
 
         return view('livewire.sector', [
             'sectors' => $sectors,
@@ -24,9 +24,9 @@ class SectorController extends Controller
     {
         $sectors = Sector::findOrFail($id);
         $programs = SectorProgram::withCount('project')->where('sector_id', $id)->get();
-        $projects = Project::withAggregate('subdistrict', 'name')->where('sector_program_id', $id)->get();
 
-        // dd($projects);
+        $projects = SectorProgram::where('sector_id', $id)->first();
+        $projects->load('project');
 
         return view('livewire.detail-sector', [
             'sectors' => $sectors,
