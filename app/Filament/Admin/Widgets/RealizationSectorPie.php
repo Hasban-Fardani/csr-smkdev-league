@@ -11,8 +11,6 @@ class RealizationSectorPie extends ChartWidget
 {
     protected static ?string $heading = 'Persentase total realisasi berdasarkan sektor CSR';
 
-    protected static string $color = 'success';
-
     protected function getData(): array
     {
         $sectorData = Sector::leftJoin('projects', 'sectors.id', '=', 'projects.sector_id')
@@ -22,21 +20,42 @@ class RealizationSectorPie extends ChartWidget
             ->groupBy('sectors.id', 'sectors.name')
             ->get();
 
+        \Log::info('Sector Data: ' . json_encode($sectorData));
+        
+        $totalFunds = $sectorData->sum('total_funds');
+
         return [
             'datasets' => [
                 [
-                    'label' => 'Total Dana Realisasi',
-                    'data' => $sectorData->pluck('total_funds')->map(function($value) {
-                        return (int)$value;
+                    'data' => $sectorData->pluck('total_funds')->map(function($value) use ($totalFunds) {
+                        return $totalFunds > 0 ? round(($value / $totalFunds) * 100, 2) : 0;
                     }),
+                    'backgroundColor' => [
+                        '#36A2EB', '#4BC0C0', '#FFCE56', '#FF6384', '#9966FF', '#FF9F40', '#FF6384'
+                    ],
                 ],
             ],
-            'labels' => $sectorData->pluck('name'),
+            'labels' => $sectorData->pluck('name')->map(function($name, $index) use ($sectorData) {
+                return $name . ': ' . number_format($sectorData[$index]->total_funds, 0, ',', '.');
+            }),
         ];
     }
 
     protected function getType(): string
     {
         return 'pie';
+    }
+
+    protected function getOptions(): array
+    {
+        return [
+            'plugins' => [
+                'legend' => [
+                    'position' => 'right',
+                ],
+            ],
+            'maintainAspectRatio' => false,
+            'responsive' => true,
+        ];
     }
 }

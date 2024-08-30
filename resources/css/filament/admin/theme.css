@@ -1,3 +1,27 @@
 @import '/vendor/filament/filament/resources/css/theme.css';
 
 @config 'tailwind.config.js';
+
+.fi-section.shadow-sm {
+    box-shadow: none !important;
+}
+
+/* Atau gunakan yang lebih spesifik jika diperlukan */
+.fi-section.shadow-sm:has(.fi-color-custom) {
+    box-shadow: none !important;
+}
+
+/* Jika Anda juga ingin menghilangkan border */
+.fi-section.ring-1 {
+    box-shadow: none !important;
+}
+
+/* Menghilangkan garis di bawah judul section widget */
+.fi-section-content-ctn {
+    border-top: none !important;
+}
+
+/* Jika diperlukan, hilangkan juga padding atas dari konten widget */
+.fi-section-content {
+    padding-top: 0 !important;
+}
