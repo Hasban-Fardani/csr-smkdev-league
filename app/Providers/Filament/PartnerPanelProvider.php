@@ -2,7 +2,7 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Auth\RegisterSeller;
+use App\Filament\Auth\RegisterPartner;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -33,7 +33,7 @@ class PartnerPanelProvider extends PanelProvider
                 'blaze-orange' => '#FF6E01'
             ])
             ->login()
-            ->registration(RegisterSeller::class)
+            ->registration(RegisterPartner::class)
             ->emailVerification()
             ->topNavigation()
             ->databaseNotifications()
