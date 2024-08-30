@@ -34,7 +34,7 @@ class PartnerPanelProvider extends PanelProvider
                 'blaze-orange' => '#FF6E01'
             ])
             ->login(Login::class)
-            ->registration(RegisterSeller::class)
+            ->registration(RegisterPartner::class)
             ->emailVerification()
             ->topNavigation()
             ->brandLogo(asset('logos/logo-cirebon.png'))
