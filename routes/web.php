@@ -7,6 +7,7 @@ use App\Http\Controllers\MitraController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SectorController;
+use App\Http\Controllers\StatsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,10 +23,13 @@ use Illuminate\Support\Facades\Route;
 
 // ROUTE FOR PUBLIC
 Route::get('/', HomeController::class);
+
 Route::get('/about', AboutController::class);
 
 Route::get('/activity', [ActivityController::class, 'index']);
 Route::get('/activity/{id}', [ActivityController::class, 'show']);
+
+Route::get('/stats', StatsController::class);
 
 Route::get('/sector', [SectorController::class, 'index']);
 Route::get('/sector/{id}', [SectorController::class, 'show']);

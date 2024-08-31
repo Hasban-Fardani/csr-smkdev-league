@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Activity;
+use App\Filament\Admin\Widgets\RealizationSectorPie;
+use App\Filament\Admin\Widgets\RealizationTotalPercentPT;
+use App\Filament\Admin\Widgets\RealizationTotalPercentSubdistrict;
+use App\Filament\Admin\Widgets\RealizationTotalSector;
 use App\Models\Partner;
 use App\Models\Project;
 use App\Models\Report;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class StatsController extends Controller
 {
     public function __invoke()
     {
-        $activities = Activity::where('is_draft', false)->orderBy('created_at', 'DESC')->take(4)->get();
-        $reports = Report::orderBy('created_at', 'DESC')->take(4)->get();
-
-        // dinamis data
         $formatedFunds = 0;
 
         $countedProject = Project::where('is_published', true)->count();
@@ -28,9 +27,7 @@ class HomeController extends Controller
             $formatedFunds = round($countedFundsCSR / 1_000_000_000, 1); // Convert to millions
         }
 
-        return view('livewire.home', [
-            'activities' => $activities,
-            'reports' => $reports,
+        return view('livewire.stats', [
             'countedProject' => $countedProject,
             'countedProjectRealized' => $countedProjectRealized,
             'countedMitra' => $countedMitra,
