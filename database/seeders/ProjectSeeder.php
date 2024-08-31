@@ -22,7 +22,7 @@ class ProjectSeeder extends Seeder
                 'end_date' => now()->subMonths(1),
                 'published_date' => now()->subDays(7),
                 'is_published' => 1,
-                'sector_program_id' => 1, // Pembangunan Jalan Raya
+                'sector_program_id' => 1,
                 'subdistrict_id' => 1,
             ],
             [
@@ -33,7 +33,7 @@ class ProjectSeeder extends Seeder
                 'end_date' => now()->subMonth(2),
                 'published_date' => now()->subDays(14),
                 'is_published' => 1,
-                'sector_program_id' => 5, // Pembangunan Laboratorium
+                'sector_program_id' => 5,
                 'subdistrict_id' => 2,
             ],
             [
@@ -44,7 +44,7 @@ class ProjectSeeder extends Seeder
                 'end_date' => now()->addMonths(2),
                 'published_date' => null,
                 'is_published' => 0,
-                'sector_program_id' => 7, // Perbaikan Rumah Sakit
+                'sector_program_id' => 7,
                 'subdistrict_id' => 3,
             ],
             [
@@ -55,7 +55,7 @@ class ProjectSeeder extends Seeder
                 'end_date' => now()->addMonths(5),
                 'published_date' => now()->subDays(30),
                 'is_published' => 1,
-                'sector_program_id' => 10, // Program Penghijauan
+                'sector_program_id' => 10,
                 'subdistrict_id' => 4,
             ],
             [
@@ -66,8 +66,30 @@ class ProjectSeeder extends Seeder
                 'end_date' => now()->addMonths(1),
                 'published_date' => null,
                 'is_published' => 0,
-                'sector_program_id' => 15, // Pembangunan Pasar
+                'sector_program_id' => 15,
                 'subdistrict_id' => 5,
+            ],
+            [
+                'images' => json_encode(['storage/images/bg-kegiatan-1.png']),
+                'title' => 'Pembangunan Jalan Raya Penghubung Desa',
+                'description' => 'Proyek pembangunan jalan raya baru.',
+                'start_date' => now()->subMonths(2),
+                'end_date' => now()->subMonths(1),
+                'published_date' => now()->subDays(7),
+                'is_published' => 1,
+                'sector_program_id' => 1,
+                'subdistrict_id' => 1,
+            ],
+            [
+                'images' => json_encode(['storage/images/bg-kegiatan-4.png']),
+                'title' => 'Pembangunan Fasilitas Olahraga',
+                'description' => 'Proyek pembangunan fasilitas olahraga di kota.',
+                'start_date' => now()->subMonths(1),
+                'end_date' => now()->addMonths(3),
+                'published_date' => now()->subDays(5),
+                'is_published' => 1,
+                'sector_program_id' => 2,
+                'subdistrict_id' => 6,
             ],
         ];
 
