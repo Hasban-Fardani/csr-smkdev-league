@@ -8,6 +8,7 @@ use Filament\Actions\Action;
 class ViewProfile extends Page
 {
     protected static string $view = 'filament.admin.pages.view-profile';
+    protected static bool $shouldRegisterNavigation = false;
     protected static ?string $title = 'Profil';
     protected static ?string $slug = 'profile';
 
