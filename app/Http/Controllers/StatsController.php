@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Filament\Admin\Widgets\RealizationSectorPie;
+use App\Filament\Admin\Widgets\RealizationTotalPercentPT;
+use App\Filament\Admin\Widgets\RealizationTotalPercentSubdistrict;
+use App\Filament\Admin\Widgets\RealizationTotalSector;
 use App\Models\Partner;
 use App\Models\Project;
 use App\Models\Report;

@@ -28,11 +28,28 @@
         </livewire:components.container>
     </div>
 
-    <div id="charts">
+    <div id="charts" class="px-4">
         <livewire:components.container title="Realisasi" subtitle="Proyek CSR"
             fontClass="text-2xl md:text-3xl font-bold">
-
-        </livewire:components.container>
+            <div class="px-20">
+                <div class="flex flex-wrap w-full">
+                    <div class="w-1/2 p-2">
+                        @livewire(App\Filament\Admin\Widgets\RealizationSectorPie::class)
+                    </div>
+                    <div class="w-1/2 p-2">
+                        @livewire(App\Filament\Admin\Widgets\RealizationTotalPercentPT::class)
+                    </div>
+                </div>
+                <div class="flex flex-wrap w-full">
+                    <div class="w-1/2 p-2">
+                        @livewire(App\Filament\Admin\Widgets\RealizationTotalPercentPT::class)
+                    </div>
+                    <div class="w-1/2 p-2">
+                        @livewire(App\Filament\Admin\Widgets\RealizationTotalPercentPT::class)
+                    </div>
+                </div>
+            </div>
+            </livewire:components.container>
     </div>
 
     <div class="flex flex-wrap w-full pt-10">
