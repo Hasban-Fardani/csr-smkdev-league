@@ -32,20 +32,7 @@
                 </div>
 
                 <div class="flex w-2/3 gap-10">
-                    <a href="/"
-                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Beranda</a>
-                    <a href="/about"
-                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Tentang</a>
-                    <a href="/activity"
-                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Kegiatan</a>
-                    <a href="/stats"
-                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Statistik</a>
-                    <a href="/sector"
-                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Sektor</a>
-                    <a href="/report"
-                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Laporan</a>
-                    <a href="/mitra"
-                        class="text-sm transition duration-300 ease-in-out hover:underline hover:text-secondaryRed hover:font-semibold active:underline active:text-secondaryRed">Mitra</a>
+                    <livewire:components.navigation-link />
                 </div>
                 
             </div>
