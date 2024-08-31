@@ -1,6 +1,6 @@
 <x-filament-panels::page>
     <div class="hero">
-        <img src="{{ asset('storage/images/bg-balai-kota.png') }}" alt="" class="hero-image">
+        <img src="{{ asset('storage/images/bg-balai-kota.png') }}" alt="" class="hero-image" loading="lazy">
         <div class="hero-image-overlay">
             <p class="thumbnail-title">Selamat Datang di Dashboard CSR Kabupaten Cirebon</p>
             <p class="thumbnail-text">Lapor dan ketahui program CSR anda</p>
@@ -53,6 +53,8 @@
             @livewire(\App\Filament\Partner\Resources\PartnerResource\Widgets\RealizationTotalChart::class)
         </div>
     </div>
+
+    <a href="{{ route('filament.partner.resources.reports.create') }}" class="btn">Buat Laporan</a>
 
     {{-- add widgets --}}
     <div class="bg-white p-8">
