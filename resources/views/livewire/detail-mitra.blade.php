@@ -7,7 +7,7 @@
     <div id="detailMitra" class="px-40 pt-20 pb-10">
         <livewire:components.container>
             <div class="px-4 md:px-20">
-                <div class="flex flex-col my-5 px-14">
+                <div class="flex flex-col my-5">
                     <div class="flex items-center justify-center w-full bg-gray-50">
                         <img src="{{ asset($mitra->logo) }}" alt="{{ $mitra->company_name }}"
                             class="object-contain w-48 h-48">
