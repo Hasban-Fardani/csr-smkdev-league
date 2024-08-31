@@ -112,7 +112,7 @@ class ReportResource extends Resource
                         'Kuartal 4 (Oktober, November, Desember)',
                     ])
                     ->modifyQueryUsing(function (Builder $query, $state) {
-                        $query->when($state['value'] !== '0' && $state['value'] !== null, function (Builder $query) use ($state) {
+                        $query->when($state !== '0' && $state !== null, function (Builder $query) use ($state) {
                             $query->when($state === 'Kuartal 1 (Januari, Februari, Maret)', function (Builder $query) {
                                 $query->whereMonth('realization_date', '>=', 1)->whereMonth('realization_date', '<=', 3);
                             })->when($state === 'Kuartal 2 (April, Mei, Juni)', function (Builder $query) {

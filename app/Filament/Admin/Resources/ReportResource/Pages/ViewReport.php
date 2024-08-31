@@ -30,7 +30,16 @@ class ViewReport extends ViewRecord
             Section::make($this->record->title)->schema([
                 TextEntry::make('status')
                     ->label('')
-                    ->badge(),
+                    ->badge()
+                    ->color(function ($state) {
+                        $colors = [
+                            'revisi' => 'warning',
+                            'diterima' => 'success',
+                            'ditolak' => 'danger',
+                            'draf' => 'gray',
+                        ];
+                        return $colors[$state];
+                    }),
                 TextEntry::make('sector.name')
                     ->label('')
                     ->badge(),
@@ -46,8 +55,8 @@ class ViewReport extends ViewRecord
 
                 ImageEntry::make('files')
                     ->label('')
-                    ->disk('public')
-                    ->alignCenter(),
+                    ->stacked()
+                    ->disk('public'),
 
                 Section::make()->schema([
                     TextEntry::make('funds')
