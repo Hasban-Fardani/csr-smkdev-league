@@ -131,13 +131,13 @@
                     @endphp
 
                     <livewire:components.card-with-button :title="$report->title" :images="$images[0]" :description="$report->description"
-                        name="hasban" avatar="avatar-1.png" :date="$report->realization_date" />
+                        name="admin" avatar="avatars/avatar-1.png" :date="$report->realization_date" />
                 @empty
                     <h1>tidak ada data</h1>
                 @endforelse
 
                 <div class="flex items-center justify-center pt-6 pb-10 col-span-full">
-                    <x-mary-button label="Lihat semua laporan program" class="btn-md btn-outline" />
+                    <x-mary-button label="Lihat semua laporan program" class="btn-md btn-outline" link="/report" />
                 </div>
             </div>
         </livewire:components.container>
