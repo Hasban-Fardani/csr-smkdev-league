@@ -127,7 +127,7 @@
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
                 @forelse ($reports as $report)
                     @php
-                        $images = json_decode($report->files, true);
+                        $images = $report->files;
                     @endphp
 
                     <livewire:components.card-with-button :title="$report->title" :images="$images[0]" :description="$report->description"

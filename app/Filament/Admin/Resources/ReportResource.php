@@ -4,6 +4,7 @@ namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\ReportResource\Pages;
 use App\Filament\Admin\Resources\ReportResource\RelationManagers;
+use App\Filament\Exports\ReportExporter;
 use App\Models\Report;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -119,6 +120,7 @@ class ReportResource extends Resource
             ])
             ->headerActions([
                 Tables\Actions\ExportAction::make()
+                    ->exporter(ReportExporter::class)
             ]);
     }
 
