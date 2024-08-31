@@ -75,9 +75,6 @@ class ReportResource extends Resource
                     ->label('TGL DIBUAT')
                     ->dateTime('d F Y')
                     ->sortable(),
-                // Tables\Columns\TextColumn::make('created_at')
-                //     ->label('TGL DIBUAT')
-                //     ->date(),
                 Tables\Columns\TextColumn::make('status')
                     ->formatStateUsing(function ($state) {
                         return ucfirst($state);
