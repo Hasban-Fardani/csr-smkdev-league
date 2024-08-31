@@ -13,7 +13,7 @@ class Report extends Model
 
     protected $guarded = [];
 
-    protected $casts = [
+    public $casts = [
         'files' => 'array',
     ];
 

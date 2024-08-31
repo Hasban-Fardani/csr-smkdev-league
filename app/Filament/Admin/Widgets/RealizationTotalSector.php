@@ -13,8 +13,8 @@ class RealizationTotalSector extends ChartWidget
 
     protected function getData(): array
     {
-        $sectorData = Sector::leftJoin('projects', 'sectors.id', '=', 'projects.sector_id')
-            ->leftJoin('reports', 'projects.id', '=', 'reports.project_id')
+        $sectorData = Sector::leftJoin('sector_programs', 'sectors.id', '=', 'sector_programs.sector_id') // Mengganti 'projects' dengan 'sector_programs'
+            ->leftJoin('reports', 'sector_programs.id', '=', 'reports.project_id') // Mengganti 'projects.id' dengan 'sector_programs.id'
             ->select('sectors.name', DB::raw('COALESCE(SUM(reports.funds), 0) as total_funds'))
             ->where('reports.status', 'diterima')
             ->groupBy('sectors.id', 'sectors.name')

@@ -15,12 +15,8 @@
             </div>
 
             <div class="grid grid-cols-1 gap-4 px-20 sm:grid-cols-2 lg:grid-cols-4 bg-gray-25">
-                @php
-                    $images = json_decode($report->files, true);
-                @endphp
-
-                @foreach ($images as $image)
-                    <img src="{{ asset($image) }}" alt="{{ $report->files }}" class="object-cover w-full h-auto">
+                @foreach ($report->files as $image)
+                    <img src="{{ asset($image) }}" alt="laporan" class="object-cover w-full h-auto">
                 @endforeach
             </div>
 
@@ -39,11 +35,7 @@
                 <livewire:components.container title="Laporan Lainnya">
                     <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-3 md:grid-cols-3 gap-7">
                         @forelse ($reports as $report)
-                            @php
-                                $images = json_decode($report->files, true);
-                            @endphp
-
-                            <livewire:components.card-with-button :title="$report->title" :images="$images[0]" :description="$report->description"
+                            <livewire:components.card-with-button :title="$report->title" :images="$report->files[0]" :description="$report->description"
                                 name="admin" avatar="avatars/avatar-1.png" link="/report/{{ $report->id }}"
                                 :date="$report->realization_date" />
                         @empty

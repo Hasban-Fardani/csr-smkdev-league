@@ -11,10 +11,10 @@
                 <livewire:components.container title="Data Statistik" class="items-center">
                     <div class="w-full px-4 py-8 md:py-12 lg:px-20">
                         <div class="flex flex-wrap justify-center w-full">
-                            <livewire:components.data-stats value="124" subtitle="Total Proyek CSR" />
-                            <livewire:components.data-stats value="119" subtitle="Proyek terealisasi" />
-                            <livewire:components.data-stats value="89" subtitle="Mitra bergabung" />
-                            <livewire:components.data-stats value="Rp200T +" subtitle="Dana realisasi CSR" />
+                            <livewire:components.data-stats value="{{ $countedProject }}" subtitle="Total Proyek CSR" />
+                            <livewire:components.data-stats value="{{ $countedProjectRealized }}" subtitle="Proyek terealisasi" />
+                            <livewire:components.data-stats value="{{ $countedMitra }}" subtitle="Mitra bergabung" />
+                            <livewire:components.data-stats value="Rp {{ $formatedFunds }} M +" subtitle="Dana realisasi CSR" />
                         </div>
                     </div>
                 </livewire:components.container>
