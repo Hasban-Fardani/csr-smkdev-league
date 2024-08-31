@@ -79,11 +79,7 @@
             fontClass="text-2xl md:text-3xl font-bold" class="items-center">
             <div class="grid grid-cols-1 px-4 py-10 lg:px-24 md:px-12 lg:grid-cols-4 md:grid-cols-3 gap-7">
                 @forelse ($reports as $report)
-                    @php
-                        $images = json_decode($report->files, true);
-                    @endphp
-
-                    <livewire:components.card-with-button :title="$report->title" :images="$images[0]" :description="$report->description"
+                    <livewire:components.card-with-button :title="$report->title" :images="$report->files[0]" :description="$report->description"
                         name="admin" avatar="avatars/avatar-1.png" :date="$report->realization_date" />
                 @empty
                     <h1>tidak ada data</h1>
