@@ -52,6 +52,11 @@ class ReportResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(function (Builder $query) {
+                $query->orderBy('id', 'desc')
+                    ->with(['project', 'project.subdistrict'])
+                    ->where('is_submitted', true);
+            })
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->label('JUDUL')
@@ -68,11 +73,22 @@ class ReportResource extends Resource
                     ->date(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('TGL DIBUAT')
-                    ->date(),
+                    ->dateTime('d F Y')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('status')
                     ->formatStateUsing(function ($state) {
                         return ucfirst($state);
-                    }),
+                    })
+                    ->color(function ($state) {
+                        $colors = [
+                            'revisi' => 'warning',
+                            'diterima' => 'success',
+                            'ditolak' => 'danger',
+                            'draf' => 'gray',
+                        ];
+                        return $colors[$state];
+                    })
+                    ->badge()
             ])
             ->filters([
                 SelectFilter::make('tahun')

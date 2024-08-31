@@ -47,7 +47,7 @@ class ViewReport extends ViewRecord
                 ImageEntry::make('files')
                     ->label('')
                     ->disk('public')
-                    ->limit(4),
+                    ->alignCenter(),
 
                 Section::make()->schema([
                     TextEntry::make('funds')

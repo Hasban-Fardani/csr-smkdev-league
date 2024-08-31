@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->unsignedBigInteger('funds')->nullable();
             $table->enum('status',['draf','ditolak','revisi','diterima'])->default('draf');
+            $table->boolean('is_submitted')->default(false);
             $table->date('realization_date')->nullable();
             $table->foreignId('project_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('partner_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
