@@ -17,7 +17,7 @@ class ActivitySeeder extends Seeder
     {
         $activities = [
             [
-                'image' => 'images/bg-kegiatan-1.png',
+                'image' => 'storage/images/bg-kegiatan-1.png',
                 'name' => 'Pembukaan Acara Festival Budaya',
                 'description' => 'Acara pembukaan festival budaya tahunan di Cirebon.',
                 'is_draft' => false,
@@ -26,7 +26,7 @@ class ActivitySeeder extends Seeder
                 'published_data' => '2024-08-20',
             ],
             [
-                'image' => 'images/bg-kegiatan-2.png',
+                'image' => 'storage/images/bg-kegiatan-2.png',
                 'name' => 'Workshop Kerajinan Tangan',
                 'description' => 'Pelatihan kerajinan tangan untuk masyarakat sekitar.',
                 'is_draft' => false,
@@ -35,7 +35,7 @@ class ActivitySeeder extends Seeder
                 'published_data' => '2024-08-22',
             ],
             [
-                'image' => 'images/bg-kegiatan-3.png',
+                'image' => 'storage/images/bg-kegiatan-3.png',
                 'name' => 'Seminar Kesehatan',
                 'description' => 'Seminar tentang pentingnya pola hidup sehat.',
                 'is_draft' => true,
@@ -44,7 +44,7 @@ class ActivitySeeder extends Seeder
                 'published_data' => null,
             ],
             [
-                'image' => 'images/bg-kegiatan-4.png',
+                'image' => 'storage/images/bg-kegiatan-4.png',
                 'name' => 'Kegiatan Donor Darah',
                 'description' => 'Aksi donor darah bersama untuk membantu sesama.',
                 'is_draft' => false,
@@ -53,7 +53,7 @@ class ActivitySeeder extends Seeder
                 'published_data' => '2024-08-25',
             ],
             [
-                'image' => 'images/bg-kegiatan-1.png',
+                'image' => 'storage/images/bg-kegiatan-1.png',
                 'name' => 'Lomba Mewarnai Anak',
                 'description' => 'Lomba mewarnai bagi anak-anak usia 4-7 tahun.',
                 'is_draft' => true,
@@ -62,7 +62,7 @@ class ActivitySeeder extends Seeder
                 'published_data' => null,
             ],
             [
-                'image' => 'images/bg-kegiatan-2.png',
+                'image' => 'storage/images/bg-kegiatan-2.png',
                 'name' => 'Kampanye Lingkungan Hijau',
                 'description' => 'Kampanye untuk meningkatkan kesadaran lingkungan hijau.',
                 'is_draft' => false,
@@ -71,7 +71,7 @@ class ActivitySeeder extends Seeder
                 'published_data' => '2024-08-27',
             ],
             [
-                'image' => 'images/bg-kegiatan-3.png',
+                'image' => 'storage/images/bg-kegiatan-3.png',
                 'name' => 'Pameran Seni Rupa',
                 'description' => 'Pameran seni rupa dari berbagai seniman lokal.',
                 'is_draft' => false,
@@ -80,7 +80,7 @@ class ActivitySeeder extends Seeder
                 'published_data' => '2024-08-28',
             ],
             [
-                'image' => 'images/bg-kegiatan-4.png',
+                'image' => 'storage/images/bg-kegiatan-4.png',
                 'name' => 'Pelatihan Kewirausahaan',
                 'description' => 'Pelatihan kewirausahaan untuk meningkatkan kemampuan bisnis.',
                 'is_draft' => true,
@@ -89,7 +89,7 @@ class ActivitySeeder extends Seeder
                 'published_data' => null,
             ],
             [
-                'image' => 'images/bg-kegiatan-1.png',
+                'image' => 'storage/images/bg-kegiatan-1.png',
                 'name' => 'Pertunjukan Musik Akustik',
                 'description' => 'Pertunjukan musik akustik oleh band lokal.',
                 'is_draft' => false,
@@ -98,7 +98,7 @@ class ActivitySeeder extends Seeder
                 'published_data' => '2024-08-29',
             ],
             [
-                'image' => 'images/bg-kegiatan-2.png',
+                'image' => 'storage/images/bg-kegiatan-2.png',
                 'name' => 'Penanaman Pohon Bersama',
                 'description' => 'Kegiatan penanaman pohon bersama di area hijau.',
                 'is_draft' => false,

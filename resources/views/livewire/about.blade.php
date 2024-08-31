@@ -84,7 +84,7 @@
                     @endphp
 
                     <livewire:components.card-with-button :title="$report->title" :images="$images[0]" :description="$report->description"
-                        name="hasban" avatar="avatar-1.png" :date="$report->realization_date" />
+                        name="admin" avatar="avatars/avatar-1.png" :date="$report->realization_date" />
                 @empty
                     <h1>tidak ada data</h1>
                 @endforelse
