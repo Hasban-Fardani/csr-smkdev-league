@@ -16,7 +16,7 @@ class ReportSeeder extends Seeder
         $reports = [
             [
                 'title' => 'Laporan Kemajuan Pembangunan Jalan Raya Penghubung Desa',
-                'files' => json_encode(['storage/images/bg-kegiatan-1.png', 'storage/images/bg-kegiatan-2.png', 'storage/images/bg-kegiatan-3.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-1.png', '/storage/images/bg-kegiatan-2.png', '/storage/images/bg-kegiatan-3.png']),
                 'description' => 'Laporan ini mencakup kemajuan pembangunan jalan raya sepanjang 5 km dari total 10 km yang direncanakan. Termasuk analisis tantangan dan solusi yang diterapkan.',
                 'funds' => 5000000000,
                 'status' => 'diterima',
@@ -27,7 +27,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Evaluasi Tengah Tahun Pembangunan Laboratorium IPA',
-                'files' => json_encode(['storage/images/bg-kegiatan-3.png', 'storage/images/bg-kegiatan-4.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-3.png', '/storage/images/bg-kegiatan-4.png']),
                 'description' => 'Laporan evaluasi tengah tahun untuk proyek pembangunan laboratorium IPA di SMA Negeri 1 Astanajapura. Mencakup penilaian kualitas bangunan dan peralatan yang telah dipasang.',
                 'funds' => 750000000,
                 'status' => 'draf',
@@ -38,7 +38,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Akhir Renovasi Puskesmas Babakan',
-                'files' => json_encode(['storage/images/bg-kegiatan-2.png', 'storage/images/bg-kegiatan-3.png', 'storage/images/bg-kegiatan-4.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-2.png', '/storage/images/bg-kegiatan-3.png', '/storage/images/bg-kegiatan-4.png']),
                 'description' => 'Laporan akhir proyek renovasi dan peningkatan fasilitas Puskesmas Babakan. Termasuk dokumentasi fasilitas baru dan peningkatan layanan yang dapat diberikan.',
                 'funds' => 2000000000,
                 'status' => 'diterima',
@@ -49,7 +49,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Progres Pembangunan Taman Kota Hijau Beber',
-                'files' => json_encode(['storage/images/bg-kegiatan-1.png', 'storage/images/bg-kegiatan-4.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-1.png', '/storage/images/bg-kegiatan-4.png']),
                 'description' => 'Laporan kemajuan pembangunan taman kota hijau di Beber. Mencakup perkembangan penanaman pohon dan pembangunan fasilitas rekreasi.',
                 'funds' => 3000000000,
                 'status' => 'draf',
@@ -60,7 +60,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Tahap Awal Revitalisasi Pasar Tradisional Ciledug',
-                'files' => json_encode(['storage/images/bg-kegiatan-4.png', 'storage/images/bg-kegiatan-2.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-4.png', '/storage/images/bg-kegiatan-2.png']),
                 'description' => 'Laporan tahap awal proyek revitalisasi pasar tradisional di Ciledug. Termasuk survei kondisi existing dan rencana detail revitalisasi.',
                 'funds' => 1500000000,
                 'status' => 'draf',
@@ -71,7 +71,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Evaluasi Dampak Pembangunan Jalan Raya terhadap Ekonomi Lokal',
-                'files' => json_encode(['storage/images/bg-kegiatan-3.png', 'storage/images/bg-kegiatan-2.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-3.png', '/storage/images/bg-kegiatan-2.png']),
                 'description' => 'Laporan evaluasi dampak pembangunan jalan raya penghubung desa terhadap perekonomian lokal. Mencakup analisis peningkatan mobilitas dan akses pasar.',
                 'funds' => 200000000,
                 'status' => 'diterima',
@@ -82,7 +82,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Pengadaan Peralatan Laboratorium IPA',
-                'files' => json_encode(['storage/images/bg-kegiatan-1.png', 'storage/images/bg-kegiatan-4.png', 'storage/images/bg-kegiatan-3.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-1.png', '/storage/images/bg-kegiatan-4.png', '/storage/images/bg-kegiatan-3.png']),
                 'description' => 'Laporan rinci mengenai pengadaan dan instalasi peralatan untuk laboratorium IPA di SMA Negeri 1 Astanajapura. Termasuk daftar inventaris dan panduan penggunaan.',
                 'funds' => 1000000000,
                 'status' => 'revisi',
@@ -93,7 +93,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Analisis Peningkatan Layanan Kesehatan Puskesmas Babakan',
-                'files' => json_encode(['storage/images/bg-kegiatan-2.png', 'storage/images/bg-kegiatan-3.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-2.png', '/storage/images/bg-kegiatan-3.png']),
                 'description' => 'Laporan analisis peningkatan kualitas dan kuantitas layanan kesehatan di Puskesmas Babakan pasca renovasi. Termasuk data statistik kunjungan pasien dan kepuasan masyarakat.',
                 'funds' => 300000000,
                 'status' => 'revisi',
@@ -104,7 +104,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Penanaman Pohon dan Vegetasi di Taman Kota Beber',
-                'files' => json_encode(['storage/images/bg-kegiatan-4.png', 'storage/images/bg-kegiatan-3.png', 'storage/images/bg-kegiatan-2.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-4.png', '/storage/images/bg-kegiatan-3.png', '/storage/images/bg-kegiatan-2.png']),
                 'description' => 'Laporan detail mengenai jenis dan jumlah pohon serta vegetasi yang ditanam di Taman Kota Hijau Beber. Termasuk rencana perawatan dan pemeliharaan jangka panjang.',
                 'funds' => 500000000,
                 'status' => 'diterima',
@@ -115,7 +115,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Progres Renovasi Kios dan Fasilitas Pasar Tradisional Ciledug',
-                'files' => json_encode(['storage/images/bg-kegiatan-1.png', 'storage/images/bg-kegiatan-2.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-1.png', '/storage/images/bg-kegiatan-2.png']),
                 'description' => 'Laporan kemajuan renovasi kios pedagang dan fasilitas umum di Pasar Tradisional Ciledug. Mencakup perbaikan sistem drainase dan pengelolaan sampah.',
                 'funds' => 2500000000,
                 'status' => 'revisi',
@@ -126,7 +126,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Progres Pembangunan Jembatan',
-                'files' => json_encode(['storage/images/bg-kegiatan-4.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-4.png']),
                 'description' => 'Laporan mengenai progres pembangunan jembatan yang menghubungkan dua desa.',
                 'funds' => 4000000000,
                 'status' => 'diterima',
@@ -137,7 +137,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Akhir Proyek Pembangunan Sekolah',
-                'files' => json_encode(['storage/images/bg-kegiatan-1.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-1.png']),
                 'description' => 'Laporan akhir proyek pembangunan sekolah dasar di desa.',
                 'funds' => 3000000000,
                 'status' => 'diterima',
@@ -148,7 +148,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Evaluasi Proyek Pembangunan Jalan Desa',
-                'files' => json_encode(['storage/images/bg-kegiatan-2.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-2.png']),
                 'description' => 'Laporan evaluasi proyek pembangunan jalan desa yang baru selesai.',
                 'funds' => 2000000000,
                 'status' => 'draf',
@@ -159,7 +159,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Pembangunan Fasilitas Olahraga',
-                'files' => json_encode(['storage/images/bg-kegiatan-3.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-3.png']),
                 'description' => 'Laporan mengenai pembangunan fasilitas olahraga di kota.',
                 'funds' => 1500000000,
                 'status' => 'diterima',
@@ -170,7 +170,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Progres Pembangunan Taman Kota',
-                'files' => json_encode(['storage/images/bg-kegiatan-4.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-4.png']),
                 'description' => 'Laporan progres pembangunan taman kota yang baru.',
                 'funds' => 1000000000,
                 'status' => 'draf',
@@ -181,7 +181,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Pengadaan Alat Kesehatan',
-                'files' => json_encode(['storage/images/bg-kegiatan-1.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-1.png']),
                 'description' => 'Laporan pengadaan alat kesehatan untuk puskesmas.',
                 'funds' => 500000000,
                 'status' => 'diterima',
@@ -192,7 +192,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Pembangunan Jaringan Air Bersih',
-                'files' => json_encode(['storage/images/bg-kegiatan-2.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-2.png']),
                 'description' => 'Laporan pembangunan jaringan air bersih di desa.',
                 'funds' => 2500000000,
                 'status' => 'revisi',
@@ -203,7 +203,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Pemeliharaan Jalan',
-                'files' => json_encode(['storage/images/bg-kegiatan-3.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-3.png']),
                 'description' => 'Laporan pemeliharaan jalan yang telah dilakukan.',
                 'funds' => 800000000,
                 'status' => 'diterima',
@@ -214,7 +214,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Pembangunan Pusat Kesehatan',
-                'files' => json_encode(['storage/images/bg-kegiatan-4.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-4.png']),
                 'description' => 'Laporan pembangunan pusat kesehatan di daerah terpencil.',
                 'funds' => 6000000000,
                 'status' => 'draf',
@@ -225,7 +225,7 @@ class ReportSeeder extends Seeder
             ],
             [
                 'title' => 'Laporan Revitalisasi Ruang Publik',
-                'files' => json_encode(['storage/images/bg-kegiatan-1.png']),
+                'files' => json_encode(['/storage/images/bg-kegiatan-1.png']),
                 'description' => 'Laporan revitalisasi ruang publik untuk masyarakat.',
                 'funds' => 3500000000,
                 'status' => 'revisi',
