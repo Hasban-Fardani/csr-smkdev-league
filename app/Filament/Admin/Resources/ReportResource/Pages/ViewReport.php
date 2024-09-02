@@ -55,8 +55,7 @@ class ViewReport extends ViewRecord
 
                 ImageEntry::make('files')
                     ->label('')
-                    ->disk('public')
-                    ->directory('images'),
+                    ->disk('public'),
 
                 Section::make()->schema([
                     TextEntry::make('funds')
