@@ -16,7 +16,7 @@
 
             <div class="grid grid-cols-1 gap-4 px-20 sm:grid-cols-2 lg:grid-cols-4 bg-gray-25">
                 @foreach ($report->files as $image)
-                    <img src="{{ asset($image) }}" alt="laporan" class="object-cover w-full h-auto">
+                    <img src="{{ asset('storage/'.$image) }}" alt="laporan" class="object-cover w-full h-auto">
                 @endforeach
             </div>
 
