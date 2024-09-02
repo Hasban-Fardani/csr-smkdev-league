@@ -9,6 +9,7 @@ use Filament\Actions;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Support\Colors\Color;
+use Illuminate\Support\Facades\Hash;
 
 class CreatePartner extends CreateRecord
 {
@@ -41,7 +42,7 @@ class CreatePartner extends CreateRecord
         $userData = [
             'name' => $this->data['name'],
             'email' => $this->data['email'],
-            'password' => fake()->password,
+            'password' => Hash::make('password'),
         ];
 
         $user = User::create($userData);
@@ -53,8 +54,6 @@ class CreatePartner extends CreateRecord
             'address' => $this->data['address'],
             'description' => $this->data['description'],
         ];
-
-        // dd($partnerData);
 
         Partner::create($partnerData);
 

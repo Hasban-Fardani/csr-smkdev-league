@@ -17,6 +17,8 @@ class Report extends Model
         'files' => 'array',
     ];
 
+    public $timestamps = true;
+
     public function project()
     {
         return $this->belongsTo(Project::class);

@@ -46,57 +46,72 @@ class ReportResource extends Resource
                         ->label('JUDUL LAPORAN')
                         ->required()
                         ->maxLength(255)
-                        ->placeholder('Masukan nama laporan CSR'),
+                        ->placeholder('Masukan nama laporan CSR')
+                        ->columnSpanFull(),
                     Forms\Components\Select::make('project_id')
                         ->label('NAMA PROYEK CSR')
                         ->required()
-                        ->options([
-                            Project::leftJoin('reports', function($join) {
-                                $join->on('projects.id', '=', 'reports.project_id');
-                            })
-                            ->where('partner_id', '=', Auth::user()->id)
-                            ->pluck('projects.id', 'projects.title')
-                        ])
-                        ->searchable(),
+                        ->options(fn() => Project::all()->pluck('title', 'id'))
+                        ->columnSpan(3),
                     Forms\Components\DatePicker::make('realization_date')
                         ->label('TANGGAL REALISASI')
                         ->required(),
                     Forms\Components\TextInput::make('funds')
                         ->label('REALISASI')
                         ->integer()
+                        ->placeholder('Rp. 0')
                         ->required(),
                     Forms\Components\RichEditor::make('description')
                         ->label('DESKRIPSI')
-                        ->required(),
+                        ->required()
+                        ->columnSpanFull(),
                     Forms\Components\FileUpload::make('files')
                         ->label('GAMBAR')
                         ->image()
                         ->multiple()
                         ->disk('public')
                         ->directory('images')
-                        ->required(),
-                ])
+                        ->required()
+                        ->columnSpanFull(),
+                ])->columns(6)
             ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(function (Builder $query) {
+                $query->where('partner_id', auth()->user()->partner->id);
+            })
             ->columns([
                 Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('JUDUL LAPORAN'),
                 Tables\Columns\TextColumn::make('funds')
                     ->numeric()
+                    ->label('REALISASI')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\TextColumn::make('status')
+                    ->label('STATUS')
+                    ->color(function ($state) {
+                        $colors = [
+                            'revisi' => 'warning',
+                            'diterima' => 'success',
+                            'ditolak' => 'danger',
+                            'draf' => 'gray',
+                        ];
+                        return $colors[$state];
+                    })
+                    ->badge(),
                 Tables\Columns\TextColumn::make('realization_date')
+                    ->label('TANGGAL REALISASI')
                     ->date()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('project_id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('project.title')
+                    ->label('Proyek')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('partner_id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('partner.company_name')
+                    ->label('Mitra')
                     ->sortable(),
             ])
             ->filters([

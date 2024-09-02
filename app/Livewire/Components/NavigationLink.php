@@ -13,7 +13,7 @@ class NavigationLink extends Component
         ['url' => '/stats', 'label' => 'Statistik'],
         ['url' => '/sector', 'label' => 'Sektor'],
         ['url' => '/report', 'label' => 'Laporan'],
-        ['url' => '/mitra', 'label' => 'Mitra'],
+        ['url' => '/partner', 'label' => 'Mitra'],
     ];
     
     public function render()

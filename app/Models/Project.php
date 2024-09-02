@@ -18,6 +18,7 @@ class Project extends Model
         'end_date' => 'datetime',
         'published_date' => 'date',
         'is_published' => 'boolean',
+        'images' => 'array'
     ];
 
     public function sectorProgram()

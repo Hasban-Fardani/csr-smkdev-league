@@ -39,5 +39,5 @@ Route::get('/project/{id}', [ProjectController::class, 'show']);
 Route::get('/report', [ReportController::class, 'index']);
 Route::get('/report/{id}', [ReportController::class, 'show']);
 
-Route::get('/mitra', [MitraController::class, 'index']);
-Route::get('/mitra/{id}', [MitraController::class, 'show']);
+Route::get('/partner', [MitraController::class, 'index']);
+Route::get('/partner/{id}', [MitraController::class, 'show']);

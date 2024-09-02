@@ -9,7 +9,7 @@
                 <x-mary-button label="Kembali Halaman Utama" class="text-white btn-md btn-outline" />
             @endcan
         @else
-            <x-mary-button label="Masuk sebagai mitra" class="text-white btn-md btn-outline" link="/mitra" />
+            <x-mary-button label="Masuk sebagai mitra" class="text-white btn-md btn-outline" link="/partner" />
         @endauth
     </div>
 </footer>

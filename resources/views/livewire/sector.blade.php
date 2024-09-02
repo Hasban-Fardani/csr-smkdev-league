@@ -27,11 +27,7 @@
                 </div>
                 <div class="grid grid-cols-1 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
                     @forelse ($projects as $project)
-                    @php
-                        $image = json_decode($project->images, true);
-                    @endphp
-                    
-                        <livewire:components.card-sector :title="$project->title" :images="$image[0]"
+                        <livewire:components.card-sector :title="$project->title" :images="$project->images[0]"
                             :content="$project->sector_program_name" :address="$project->subdistrict_name"
                             :date="$project->end_date" />
                     @empty

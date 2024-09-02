@@ -14,7 +14,7 @@
                 @foreach ($mitras as $mitra)
                     {{-- {{ dd($mitra) }} --}}
                     <livewire:components.card-only-image :title="$mitra->company_name" :images="$mitra->logo"
-                        link="/mitra/{{ $mitra->id }}" />
+                        link="/partner/{{ $mitra->id }}" />
                 @endforeach
             </div>
         </livewire:components.container>

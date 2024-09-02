@@ -1,12 +1,8 @@
 *
 !.gitignore
-!public/
-public/*
-!public/images/
-public/images/*
+!public/*
+!public/images/*
 !public/images/logos/
 !public/images/avatars/
-public/images/logos/*
-public/images/avatars/*
 !public/images/logos/*.png
 !public/images/avatars/*.png

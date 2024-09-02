@@ -21,15 +21,13 @@ class CreateReport extends CreateRecord
     
     public function mutateFormDataBeforeCreate(array $data): array
     {
-        $data['partner_id'] = Auth::user()->id;
+        $data['partner_id'] = Auth::user()->partner->id;
         $data['is_submitted'] = self::$isSubmitted;
-        $data['is_draft'] = self::$isDraft;
         return $data;
     }
     
     public function saveDraft()
     {
-        self::$isDraft = true;
         self::$isSubmitted = false;
         $this->create(another: false);
     }
@@ -41,8 +39,16 @@ class CreateReport extends CreateRecord
                 ->label('Simpan Sebagai Draf')
                 ->action('saveDraft')
                 ->color(Color::Gray),
+               
             Action::make('create')
-                ->label('Buat'),
+                ->label('Buat')
+                ->action('create')
+               
         ];
+    }
+
+    protected function getRedirectUrl() : string
+    {
+        return $this::$resource::getUrl('index');
     }
 }

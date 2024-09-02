@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <a href="{{ route('filament.partner.resources.reports.create') }}" class="btn">Buat Laporan</a>
+    <a href="{{ route('filament.partner.resources.reports.create') }}" class="bg-red-700 px-4 py-2 rounded-lg">Buat Laporan</a>
 
     {{-- add widgets --}}
     <div class="bg-white p-8">
