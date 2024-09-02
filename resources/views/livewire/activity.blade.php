@@ -8,7 +8,6 @@
             <x-mary-button label="Terbaru" icon-right="m-chevron-down" class="w-1/5 btn btn-outline" />
             <x-mary-button label="Cari kegiatan..." icon="o-magnifying-glass" wire:model="search" class="w-4/5 btn btn-outline" />
         </div>
-        {{-- {{ dd($activities) }} --}}
         <div class="grid grid-cols-1 py-10 lg:grid-cols-4 md:grid-cols-3 gap-7">
             @foreach ($activities as $activity)
                 <livewire:components.card-with-button :title="$activity->name" :images="$activity->image"

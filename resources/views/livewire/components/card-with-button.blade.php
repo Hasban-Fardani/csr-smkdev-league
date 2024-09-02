@@ -2,7 +2,7 @@
     <div class="flex flex-col border">
         <x-mary-button label="{{ $date }}"
             class="absolute text-[0.72rem] text-white border-none outline-none top-5 left-7 bg-secondaryRed btn-sm" />
-        <img src="{{ asset($images) }}" alt="{{ $title }}" height="200" width="200" class="w-full">
+        <img src="{{ asset('storage/'.$images) }}" alt="{{ $title }}" height="200" width="200" class="w-full">
 
         <!-- avatar section-->
         @if (!empty($avatar))

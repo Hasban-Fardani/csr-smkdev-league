@@ -73,7 +73,6 @@ class ActivityResource extends Resource
                     ->extraAttributes([
                         'class' => 'w-24 h-24',
                     ])
-                    ->disk('public')
                     ->defaultImageUrl('https://picsum.photos/300/300'),
                 Tables\Columns\TextColumn::make('name')
                     ->label('JUDUL')
