@@ -5,6 +5,7 @@ namespace App\Filament\Partner\Widgets;
 use App\Models\Report;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Filament\Widgets\TableWidget as BaseWidget;
 
 class ReportTableWidget extends BaseWidget
@@ -14,7 +15,7 @@ class ReportTableWidget extends BaseWidget
     {
         return $table
             ->query(
-                Report::query()
+                Report::query()->where('partner_id', auth()->user()->partner->id)
             )
             ->columns([
                 Tables\Columns\TextColumn::make('title')

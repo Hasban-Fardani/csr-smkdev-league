@@ -54,7 +54,10 @@
         </div>
     </div>
 
-    <a href="{{ route('filament.partner.resources.reports.create') }}" class="bg-red-700 px-4 py-2 rounded-lg">Buat Laporan</a>
+    <div class="flex justify-between">
+        <p class="text-2xl"><strong>Laporan Mitra</strong></p>
+        <a href="{{ route('filament.partner.resources.reports.create') }}" class="bg-red-700 px-4 py-2 rounded-lg btn btn-orange">Buat Laporan</a>
+    </div>
 
     {{-- add widgets --}}
     <div class="bg-white p-8">

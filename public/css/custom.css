@@ -89,6 +89,10 @@
     padding: 15px 20px 15px 20px;
     border-radius: 10px;
 }
+.btn-orange {
+    background-color: #FF6E01;
+    color: #ffffff;
+}
 .btn-white-outline {
     background-color: rgba(0,0,0,0);
     color: #ffffff;
