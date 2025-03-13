@@ -53,9 +53,25 @@ class ViewReport extends ViewRecord
                 TextEntry::make('realization_date')
                     ->label(''),
 
-                ImageEntry::make('files')
-                    ->label('')
-                    ->disk('public'),
+                Section::make('Gambar')->schema([
+                    TextEntry::make('files')
+                        ->label('')
+                        ->formatStateUsing(function ($state) {
+                            if (!$state || empty($state)) {
+                                return 'No images';
+                            }
+                            
+                            $html = '<div class="grid grid-cols-2 md:grid-cols-3 gap-4">';
+                            foreach ($state as $image) {
+                                $imageUrl = asset('storage/' . $image);
+                                $html .= '<div><img src="' . $imageUrl . '" class="w-full h-auto rounded-lg" /></div>';
+                            }
+                            $html .= '</div>';
+                            
+                            return $html;
+                        })
+                        ->html(),
+                ])->columnSpanFull(),
 
                 Section::make()->schema([
                     TextEntry::make('funds')
